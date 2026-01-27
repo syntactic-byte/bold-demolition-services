@@ -1,16 +1,23 @@
-import { Link } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
-const features = [
-  "VCA** Gecertificeerd",
-  "SC-530 Asbestverwijdering",
-  "Volledig Verzekerd",
-  "25+ Jaar Ervaring",
-  "Eigen Materieel",
-  "Landelijke Dekking",
-];
+interface AboutPreviewProps {
+  data?: any;
+}
 
-const AboutPreview = () => {
+const AboutPreview = ({ data }: AboutPreviewProps) => {
+  const title = data?.title || 'OVER TITANBREKERS'
+  const description = data?.description || 'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.'
+  
+  const highlights = data?.highlights || [
+    { text: 'VCA** gecertificeerd en volledig verzekerd' },
+    { text: 'Modern machinepark en ervaren vakmensen' },
+    { text: '98% recycling van alle sloopafval' },
+    { text: 'Landelijke dekking met lokale service' },
+  ]
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       {/* Decorative Element */}
@@ -26,30 +33,23 @@ const AboutPreview = () => {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl mb-6">
-              ERVARING EN <span className="text-gradient">VAKMANSCHAP</span>
+              {title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient">{title.split(' ').slice(-1)}</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Sinds 1999 is TitanBrekers dé specialist in professioneel sloopwerk. 
-              Met een team van ervaren vakmensen en modern materieel pakken wij elk 
-              project aan - van kleine stripwerken tot complete gebouwsloop.
-            </p>
-            <p className="text-muted-foreground mb-8">
-              Veiligheid, kwaliteit en duurzaamheid staan bij ons centraal. 
-              Wij werken volgens de hoogste veiligheidsnormen en zorgen voor 
-              optimale recycling van alle sloopafval.
+              {description}
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4 mb-10">
-              {features.map((feature) => (
-                <div key={feature} className="flex items-center gap-3">
+              {highlights.map((highlight: any, index: number) => (
+                <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{feature}</span>
+                  <span className="text-foreground font-medium">{highlight.text}</span>
                 </div>
               ))}
             </div>
 
-            <Link to="/over-ons" className="btn-power inline-flex items-center gap-2">
+            <Link href="/over-ons" className="btn-power inline-flex items-center gap-2">
               Meer Over Ons
               <ArrowRight className="w-5 h-5" />
             </Link>

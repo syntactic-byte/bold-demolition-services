@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { Phone, ArrowRight } from "lucide-react";
 
 const CTA = () => {
@@ -21,7 +23,7 @@ const CTA = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-background text-foreground font-bold uppercase tracking-wider px-8 py-4 transition-all duration-300 hover:bg-foreground hover:text-background"
             >
               Offerte Aanvragen

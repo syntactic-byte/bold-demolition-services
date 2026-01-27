@@ -1,91 +1,91 @@
-import { Link } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import type { Project } from '@/payload-types';
+import Image from "next/image";
 
-const projects = [
-  {
-    image: project1,
-    title: "Oude Fabriek Rotterdam",
-    location: "Rotterdam",
-    category: "Industriële Sloop",
-    description: "Complete demontage van een voormalige staalfabriek inclusief asbestsanering.",
-  },
-  {
-    image: project2,
-    title: "Kantoorcomplex Zuidas",
-    location: "Amsterdam",
-    category: "Gebouwen Sloop",
-    description: "Gecontroleerde sloop van een 12-verdiepingen kantoorgebouw in stedelijk gebied.",
-  },
-  {
-    image: project3,
-    title: "Winkelcentrum Renovatie",
-    location: "Utrecht",
-    category: "Interieur Sloop",
-    description: "Selectieve strip-out van 15.000m² winkelruimte voor herontwikkeling.",
-  },
-];
+interface ProjectsProps {
+  projects?: Project[];
+}
 
-const Projects = () => {
+const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case 'demolition': return 'Industriële Sloop';
+      case 'asbestos': return 'Asbestsanering';
+      case 'renovation': return 'Gebouwen Sloop';
+      case 'environmental': return 'Milieusanering';
+      default: return 'Sloopwerk';
+    }
+  };
+
+  const getProjectImage = (project: any, index: number) => {
+    // Use CMS image if available, otherwise fallback
+    if (project.image && typeof project.image === 'object' && project.image.url) {
+      return project.image.url
+    }
+    const fallbackImages = ['/project-1.jpg', '/project-2.jpg', '/project-3.jpg'];
+    return fallbackImages[index % fallbackImages.length];
+  };
+
   return (
     <section className="py-24 bg-card">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        <div className="flex flex-col gap-4 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-4 sm:px-4 sm:mb-6">
+              <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
                 Onze Projecten
               </span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
               RECENT <span className="text-gradient">WERK</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-base sm:text-lg">
               Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.
             </p>
           </div>
-          <Link to="/projecten" className="btn-outline-power flex items-center gap-2">
+          <Link href="/projecten" className="btn-outline-power flex items-center gap-2 self-start">
             Alle Projecten
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <div
-              key={project.title}
+              key={project.id}
               className="group relative overflow-hidden bg-background border border-border hover:border-primary transition-all duration-300"
             >
               {/* Image */}
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src={project.image}
-                  alt={project.title}
+                  src={getProjectImage(project, index)}
+                  alt={project.title || 'Project'}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
               {/* Category Badge */}
-              <div className="absolute top-4 left-4 bg-primary px-3 py-1">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-primary px-2 py-1 sm:px-3">
                 <span className="text-xs font-bold text-primary-foreground uppercase tracking-wider">
-                  {project.category}
+                  {getCategoryLabel(project.category || 'demolition')}
                 </span>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-muted-foreground text-sm mb-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>{project.location}</span>
+              <div className="p-4 sm:p-6">
+                <div className="flex items-center gap-2 text-muted-foreground text-xs sm:text-sm mb-2">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span>{project.completed ? new Date(project.completed).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' }) : 'Voltooid'}</span>
                 </div>
-                <h3 className="font-display text-2xl mb-2 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="font-display text-lg sm:text-xl md:text-2xl mb-2 text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-xs sm:text-sm line-clamp-3">
                   {project.description}
                 </p>
               </div>

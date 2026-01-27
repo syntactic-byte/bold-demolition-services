@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
@@ -31,7 +33,7 @@ const Footer = () => {
               {["Home", "Diensten", "Projecten", "Over Ons", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
-                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                    href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item}
@@ -101,10 +103,10 @@ const Footer = () => {
               © 2024 TitanBrekers. Alle rechten voorbehouden.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/voorwaarden" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/voorwaarden" className="text-muted-foreground hover:text-primary transition-colors">
                 Algemene Voorwaarden
               </Link>
             </div>
