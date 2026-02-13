@@ -56,7 +56,32 @@ async function clearDatabase() {
     }
     console.log(`  ✓ Deleted ${projects.docs.length} projects`)
 
-    // Clear Posts (optional)
+    // Clear Categories
+    console.log('\n🗑️  Clearing Categories...')
+    const categories = await payload.find({
+      collection: 'categories',
+      limit: 1000,
+    })
+    for (const category of categories.docs) {
+      try {
+        await payload.delete({
+          collection: 'categories',
+          id: category.id,
+          context: { skipRevalidation: true },
+        })
+      } catch (e: any) {
+        if (e.message?.includes('static generation store missing')) {
+          console.log(
+            `  ⚠️  Skipped revalidation for category: ${category.title} (deleted successfully)`,
+          )
+        } else {
+          throw e
+        }
+      }
+    }
+    console.log(`  ✓ Deleted ${categories.docs.length} categories`)
+
+    // Clear Posts
     console.log('\n🗑️  Clearing Posts...')
     const posts = await payload.find({
       collection: 'posts',

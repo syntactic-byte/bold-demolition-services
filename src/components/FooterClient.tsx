@@ -30,10 +30,23 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         }))
       : [
           { name: 'Home', path: '/' },
-          { name: isEnglish ? 'Services' : 'Diensten', path: '/diensten' },
-          { name: isEnglish ? 'Projects' : 'Projecten', path: '/projecten' },
-          { name: isEnglish ? 'About Us' : 'Over Ons', path: '/over-ons' },
-          { name: isEnglish ? 'Contact' : 'Contact', path: '/contact' },
+          {
+            name: isEnglish ? 'Services' : 'Diensten',
+            path: isEnglish ? '/en/services' : '/nl/diensten',
+          },
+          {
+            name: isEnglish ? 'Projects' : 'Projecten',
+            path: isEnglish ? '/en/projects' : '/nl/projecten',
+          },
+          { name: isEnglish ? 'Blog' : 'Nieuws', path: isEnglish ? '/en/blog' : '/nl/nieuws' },
+          {
+            name: isEnglish ? 'About Us' : 'Over Ons',
+            path: isEnglish ? '/en/about' : '/nl/over-ons',
+          },
+          {
+            name: isEnglish ? 'Contact' : 'Contact',
+            path: isEnglish ? '/en/contact' : '/nl/contact',
+          },
         ]
 
   const services = isEnglish
@@ -43,6 +56,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         'Selective Demolition',
         'Kitchen & Bathroom',
         'Property Clearing',
+        'Asbestos Removal',
       ]
     : [
         'Handmatige Sloop',
@@ -50,6 +64,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         'Selectieve Sloop',
         'Keuken & Badkamer',
         'Woning Ontruiming',
+        'Asbest Sanering',
       ]
 
   return (

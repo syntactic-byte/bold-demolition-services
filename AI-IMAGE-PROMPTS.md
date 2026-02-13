@@ -1,226 +1,254 @@
-# AI Image Generation Prompts for TitanBreakers
+# AI Image Generation Prompts - TitanBreakers
 
-## 🎨 Professional Prompts for Hand Demolition Images
+## ⚠️ MISSING IMAGES - GENERATE THESE FIRST
 
-Use these prompts with **Midjourney**, **DALL-E 3**, **Stable Diffusion**, or **Adobe Firefly**.
+Based on current `/public/media/` folder contents, you still need to generate:
 
----
+### 🔴 HIGH PRIORITY (Service Images)
 
-## 1. HERO IMAGE (Main Banner)
+1. ❌ `service-asbestos.webp` - Asbestos Removal Service
+2. ❌ `service-property-clearing.webp` - Property Clearing Service
 
-**Recommended Tool:** Midjourney v6 or DALL-E 3
-**Aspect Ratio:** 16:9 (1920x1080)
+### 🟡 MEDIUM PRIORITY (Blog Post Images - 6 images)
 
-### Prompt Option A - Professional Worker:
+3. ❌ `blog-manual-demo.webp` - Blog: Manual Demolition Benefits
+4. ❌ `blog-asbestos-safety.webp` - Blog: Asbestos Safety
+5. ❌ `blog-kitchen-prep.webp` - Blog: Kitchen Renovation Prep
+6. ❌ `blog-bathroom-tips.webp` - Blog: Bathroom Demo Tips
+7. ❌ `blog-anniversary.webp` - Blog: 25 Year Anniversary
+8. ❌ `blog-sustainable.webp` - Blog: Sustainable Demolition
 
-```
-Professional construction worker wearing hard hat and safety vest, using sledgehammer to carefully demolish interior wall, dust particles in air, dramatic side lighting, residential renovation setting, exposed brick and wooden beams, photorealistic, 8k quality, cinematic composition, shallow depth of field --ar 16:9 --style raw
-```
-
-### Prompt Option B - Action Shot:
-
-```
-Close-up of hands holding demolition hammer striking interior plaster wall, debris flying, construction gloves, dramatic lighting from window, professional renovation work, detailed textures, photorealistic, Unreal Engine 5 render quality --ar 16:9 --v 6.0
-```
-
-### Prompt Option C - Wide Angle:
-
-```
-Wide angle shot of professional demolition team working inside residential home, removing kitchen cabinets and tiles, hard hats and safety equipment, natural window lighting, scattered tools and debris, documentary photography style, photorealistic, highly detailed --ar 16:9
-```
-
-**Save as:** `hero-demolition.jpg`
+**Total Missing: 8 images**
 
 ---
 
-## 2. PROJECT IMAGES (Portfolio)
+## ✅ ALREADY EXIST (Don't regenerate)
 
-**Recommended Tool:** Midjourney or DALL-E 3
-**Aspect Ratio:** 4:3 (800x600)
+### Hero & About
 
-### Project 1 - Kitchen Demolition:
+- ✅ `hero-demolition.webp`
+- ✅ `about-team.webp`
 
-```
-Residential kitchen demolition in progress, removed cabinets and countertops, exposed wall studs, worker using crowbar, ceramic tile debris on floor, dust protection sheets, natural daylight from window, documentary style photography, photorealistic --ar 4:3
-```
+### Services (4/6 complete)
 
-**Save as:** `project-1.jpg`
+- ✅ `service-manual.webp` - Manual Demolition
+- ✅ `interior-demolishion.webp` - Interior Demolition
+- ✅ `service-selective.webp` - Selective Demolition
+- ✅ `service-kitchen-bathroom.webp` - Kitchen & Bathroom
 
-### Project 2 - Bathroom Strip-out:
+### Projects (6/6 complete)
 
-```
-Bathroom renovation demolition, removed bathtub and toilet, exposed plumbing pipes, broken ceramic tiles, worker with hammer removing wall tiles, waterproofing visible, construction site lighting, professional photography, detailed textures --ar 4:3
-```
-
-**Save as:** `project-2.jpg`
-
-### Project 3 - Interior Wall Removal:
-
-```
-Interior wall demolition in apartment, creating open concept space, exposed brick and wooden studs, two workers carefully removing drywall, electrical wiring visible, dust in air, residential setting, photojournalistic style --ar 4:3
-```
-
-**Save as:** `project-3.jpg`
+- ✅ `project-1.webp` through `project-6.webp`
 
 ---
 
-## 3. SERVICE IMAGES
-
-**Aspect Ratio:** 4:3 (800x600)
-
-### Service: Manual Demolition
-
-```
-Close-up professional shot of construction worker using sledgehammer on concrete wall, safety helmet and goggles, motion blur on hammer, debris particles frozen in air, dramatic lighting, construction site, highly detailed, photorealistic --ar 4:3
-```
-
-**Save as:** `service-manual.jpg`
-
-### Service: Interior Demolition
-
-```
-Professional interior strip-out of office space, removed ceiling panels and drywall, exposed metal framing, worker on ladder removing fixtures, fluorescent lighting, commercial renovation, wide angle, documentary photography --ar 4:3
-```
-
-**Save as:** `service-interior.jpg`
-
-### Service: Selective Demolition
-
-```
-Precision demolition work, worker carefully removing single brick from wall without damaging surrounding structure, chisel and hammer, close-up macro shot, shallow depth of field, craftsmanship detail, professional lighting --ar 4:3
-```
-
-**Save as:** `service-selective.jpg`
-
-### Service: Kitchen & Bathroom
-
-```
-Split view of kitchen and bathroom demolition, left side shows cabinet removal with power tools, right side shows tile removal with hammer, residential home, natural lighting, before renovation state, photorealistic --ar 4:3
-```
-
-**Save as:** `service-kitchen-bathroom.jpg`
-
----
-
-## 4. ABOUT PAGE IMAGE
-
-**Aspect Ratio:** 16:9 or 4:3
-
-### Team/Company Image:
-
-```
-Professional team photo of 3-4 demolition workers in company uniforms and hard hats, standing in front of renovation site, holding tools, confident poses, early morning lighting, construction site background, corporate photography style, sharp focus --ar 16:9
-```
-
-**Save as:** `about-team.jpg`
-
----
-
-## 🛠️ Alternative: Using AI Image APIs
-
-### Option 1: OpenAI DALL-E 3 (Paid)
-
-```bash
-# You would need an OpenAI API key
-# Cost: ~$0.04-0.08 per image
-```
-
-### Option 2: Stability AI (Stable Diffusion)
-
-```bash
-# More affordable option
-# Cost: ~$0.002-0.01 per image
-```
-
-### Option 3: Midjourney (Subscription)
-
-```bash
-# Best quality but requires Discord
-# $10-60/month subscription
-```
-
----
-
-## 📋 Quick Generation Checklist
-
-**For each image you need:**
-
-1. ✅ Copy the prompt above
-2. ✅ Paste into your AI tool (Midjourney/DALL-E/etc.)
-3. ✅ Generate 2-3 variations
-4. ✅ Pick the best one
-5. ✅ Download in high resolution
-6. ✅ Save to `/public` folder with correct filename
-7. ✅ Run `pnpm seed:all` to upload to CMS
-
-**Total images needed:** 8
-
-- 1 Hero image
-- 3 Project images
-- 3 Service images
-- 1 About/Team image
-
----
-
-## 💡 Pro Tips for Best Results
+## 📋 GENERATION INSTRUCTIONS
 
 ### For Midjourney:
 
-- Add `--style raw` for photorealistic results
-- Use `--ar 16:9` for hero, `--ar 4:3` for projects
-- Add `--v 6.0` for latest version
-- Use `--no machinery,excavator,equipment` to avoid heavy machinery
+1. Copy the prompt text below
+2. Add `--ar 16:9` for wide images, `--ar 4:3` for standard
+3. Add `--style raw` for photorealism
+4. Add `--v 6.0` for best quality
 
 ### For DALL-E 3:
 
-- Start with "Professional photograph of..."
-- Be very specific about tools (hammer, not excavator)
-- Mention lighting (natural window light, soft shadows)
-- Specify indoor/residential setting
+1. Use exact prompt as provided
+2. Specify aspect ratio: "16:9 aspect ratio"
+3. Add "photorealistic, professional photography"
 
 ### For Stable Diffusion:
 
-- Use negative prompts: "heavy machinery, excavator, bulldozer, crane, outdoor"
-- Add "indoor, residential, hand tools, craftsmanship"
-- Use ControlNet for pose consistency
+**Settings**:
+
+- Steps: 30-50
+- CFG Scale: 7-9
+- Sampler: DPM++ 2M Karras
+
+**Negative Prompt**:
+
+```
+excavator, bulldozer, crane, heavy machinery, outdoor construction site, explosion, cartoon, illustration, anime, blurry, low quality, distorted faces, artificial lighting, oversaturated
+```
 
 ---
 
-## 🆓 Free AI Image Resources
+## 🔴 PRIORITY 1: SERVICE IMAGES (Generate First)
 
-If you don't want to pay:
+### 1. Asbestos Removal Service
 
-1. **Bing Image Creator** (DALL-E powered) - Free
-2. **Leonardo.ai** - Free tier available
-3. **Playground AI** - Free tier available
-4. **Adobe Firefly** - Free tier available
+**Filename**: `service-asbestos.webp`
+**Aspect Ratio**: 4:3 (800x600)
 
----
+**Prompt**:
 
-## 🎯 Important Keywords to Include
-
-**ALWAYS include these:**
-
-- "hand tools" (not machinery)
-- "interior" / "indoor" / "residential"
-- "hammer" / "crowbar" / "chisel"
-- "renovation" / "demolition"
-- "photorealistic" / "professional photography"
-
-**NEVER include these:**
-
-- "excavator" / "bulldozer" / "crane"
-- "heavy machinery" / "construction equipment"
-- "outdoor" / "industrial site"
-- "explosion" / "implosion"
+```
+Professional asbestos removal specialist in full white protective hazmat suit with integrated respirator mask and face shield, carefully removing old ceiling tiles in commercial building interior, plastic containment barriers with warning signs visible in background, specialized removal tools and HEPA vacuum equipment, strict safety protocols being followed, indoor industrial setting, professional documentation photography, sterile clinical lighting --ar 4:3 --style raw --v 6.0
+```
 
 ---
 
-**Once you generate the images:**
+### 2. Property Clearing Service
 
-1. Save them to `/public` folder
-2. Run: `pnpm seed:all`
-3. Images will be uploaded to Payload CMS
-4. Refresh your website to see them!
+**Filename**: `service-property-clearing.webp`
+**Aspect Ratio**: 16:9 (1200x675)
 
-**Need help?** The prompts above should give you excellent results with any AI image generator!
+**Prompt**:
+
+```
+Empty residential living room after complete interior strip-out, exposed wooden subfloor and wall studs visible, worker wheeling debris out in professional contractor wheelbarrow, bare room ready for complete renovation, natural window lighting creating dramatic shadows, construction cleanup in final stages, wide angle showing full scope of cleared space, photorealistic architectural photography style --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+## 🟡 PRIORITY 2: BLOG POST HERO IMAGES (16:9)
+
+### 3. Blog: Manual Demolition Benefits
+
+**Filename**: `blog-manual-demo.webp`
+
+**Prompt**:
+
+```
+Professional demonstration comparing manual vs mechanical demolition, split composition with skilled worker using precision hammer and chisel on left side creating clean controlled break, contrast with heavy machinery arm causing collateral damage on right side, educational infographic style overlay showing precision points, workshop setting with good lighting, photorealistic with slight diagrammatic elements --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+### 4. Blog: Asbestos Safety
+
+**Filename**: `blog-asbestos-safety.webp`
+
+**Prompt**:
+
+```
+Educational safety illustration showing proper asbestos removal protocol, worker in full white hazmat protection with respirator carefully sealing containment area with plastic sheeting, warning signs and hazard tape visible, decontamination shower setup in background, instructional diagram style with labels showing safety equipment, clean clinical lighting, photorealistic with educational overlay elements --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+### 5. Blog: Kitchen Renovation Prep
+
+**Filename**: `blog-kitchen-prep.webp`
+
+**Prompt**:
+
+```
+Before-demolition preparation scene in residential kitchen, protective floor coverings laid out, furniture and appliances wrapped in plastic sheeting, utility shut-off valves clearly marked with tags, toolbox with organized hand tools ready for use, checklist clipboard visible, clean organized workspace ready for renovation, natural kitchen lighting, photorealistic DIY preparation guide style --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+### 6. Blog: Bathroom Demo Tips
+
+**Filename**: `blog-bathroom-tips.webp`
+
+**Prompt**:
+
+```
+Bathroom demolition best practices demonstration, worker carefully capping exposed copper water pipes with shut-off valves, protecting waterproof membrane in shower area, organized removal of ceramic tiles in sections, proper disposal bags for different waste types labeled, step-by-step visual guide composition, bright bathroom lighting, photorealistic instructional photography style --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+### 7. Blog: 25 Year Anniversary
+
+**Filename**: `blog-anniversary.webp`
+
+**Prompt**:
+
+```
+Celebratory company milestone photo, team of demolition workers in company uniforms with orange hard hats celebrating 25-year anniversary, holding "25 Years" banner, confetti and celebration atmosphere, partially renovated building interior as backdrop showing progress over time, golden hour lighting creating warm atmosphere, group photo composition, photorealistic corporate celebration photography --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+### 8. Blog: Sustainable Demolition
+
+**Filename**: `blog-sustainable.webp`
+
+**Prompt**:
+
+```
+Sustainable demolition and recycling concept, organized sorting of demolition waste materials into separate containers labeled for concrete, metal, wood, and insulation, recycling symbols prominently displayed, clean efficient waste separation system, modern recycling facility background, environmental sustainability theme, bright industrial lighting, photorealistic environmental photography style --ar 16:9 --style raw --v 6.0
+```
+
+---
+
+## ✅ EXISTING IMAGES (Reference Only)
+
+These already exist in `/public/media/` - DO NOT REGENERATE:
+
+### Hero & About
+
+- ✅ `hero-demolition.webp` - Homepage hero
+- ✅ `about-team.webp` - About page team photo
+
+### Services (4/6 complete)
+
+- ✅ `service-manual.webp` - Manual Demolition
+- ✅ `interior-demolishion.webp` - Interior Demolition (used for service-interior)
+- ✅ `service-selective.webp` - Selective Demolition
+- ✅ `service-kitchen-bathroom.webp` - Kitchen & Bathroom
+
+### Projects (6/6 complete)
+
+- ✅ `project-1.webp` - Kitchen Renovation Amsterdam
+- ✅ `project-2.webp` - Bathroom Demolition Utrecht
+- ✅ `project-3.webp` - Office Strip-out Rotterdam
+- ✅ `project-4.webp` - Property Clearing Eindhoven
+- ✅ `project-5.webp` - Apartment Renovation The Hague
+- ✅ `project-6.webp` - Retail Space Stripping
+
+---
+
+## 📊 IMAGE INVENTORY SUMMARY
+
+| Category   | Total  | Complete | Missing |
+| ---------- | ------ | -------- | ------- |
+| Hero/About | 2      | 2        | 0       |
+| Services   | 6      | 4        | 2       |
+| Projects   | 6      | 6        | 0       |
+| Blog Posts | 6      | 0        | 6       |
+| **TOTAL**  | **20** | **12**   | **8**   |
+
+**Completion: 60%**
+
+---
+
+## 🚀 AFTER GENERATING
+
+Once you generate the 8 missing images and save them to `/public/media/`:
+
+```bash
+# Clear database and re-seed with all images
+pnpm seed:all
+```
+
+This will upload all new images to Payload CMS and assign them to the appropriate content.
+
+---
+
+## 💡 QUALITY REQUIREMENTS
+
+**All images must include:**
+
+- ✅ Hand tools prominently featured (hammer, chisel, crowbar, pry bar)
+- ✅ Indoor residential or commercial interior settings
+- ✅ Professional workers with proper safety gear (hard hats, vests, gloves)
+- ✅ Renovation/demolition work actively in progress
+- ✅ Natural or professional lighting (no harsh artificial)
+- ✅ Sharp focus and high detail
+- ✅ NO heavy machinery (excavators, bulldozers, cranes)
+- ✅ NO outdoor construction sites
+
+**Technical Requirements:**
+
+- Format: WebP (best compression)
+- Quality: High (80-95%)
+- Color Profile: sRGB
+- Save to: `/public/media/` folder
+
+---
+
+**Quick Start**: Generate the 2 service images first (asbestos & property-clearing), then work on the 6 blog images.

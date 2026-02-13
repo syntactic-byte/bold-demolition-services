@@ -170,22 +170,26 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 min-h-[500px] flex items-center">
+      <section
+        className="relative flex items-center w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+        style={{ aspectRatio: '16/9', maxHeight: '70vh' }}
+      >
         {/* Background Image */}
         {hero.backgroundImage && (
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 w-full h-full">
             <img
               src={hero.backgroundImage.url || `/api/media/file/${hero.backgroundImage.filename}`}
               alt={hero.backgroundImage.alt || 'TitanBreakers team'}
               className="w-full h-full object-cover"
+              style={{ objectPosition: 'center 30%' }}
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
           </div>
         )}
 
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 pt-32 pb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">

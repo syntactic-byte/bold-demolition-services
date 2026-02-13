@@ -28,6 +28,7 @@ const publicPaths: Record<string, Record<string, string>> = {
     home: '/',
     services: '/diensten',
     projects: '/projecten',
+    blog: '/nieuws',
     about: '/over-ons',
     contact: '/contact',
   },
@@ -35,6 +36,7 @@ const publicPaths: Record<string, Record<string, string>> = {
     home: '/',
     services: '/services',
     projects: '/projects',
+    blog: '/blog',
     about: '/about',
     contact: '/contact',
   },
@@ -45,6 +47,7 @@ const internalPaths: Record<string, string> = {
   home: '/',
   services: '/diensten',
   projects: '/projecten',
+  blog: '/nieuws',
   about: '/over-ons',
   contact: '/contact',
 }
