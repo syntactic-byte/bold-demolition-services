@@ -65,15 +65,27 @@ const ORIGINAL_MEDIA_FILES = [
   'service-selective.webp',
   'service-kitchen-bathroom.webp',
   'interior-demolishion.webp',
+  'service-interior.webp',
 ]
 
-function clearMediaDuplicates(mediaDir: string): void {
-  if (!fs.existsSync(mediaDir)) return
+function clearMediaDuplicates(sourceMediaDir: string): void {
+  if (!fs.existsSync(sourceMediaDir)) return
 
-  const files = fs.readdirSync(mediaDir)
+  const files = fs.readdirSync(sourceMediaDir)
   for (const file of files) {
+    // Skip system files and non-image files
+    if (file === '.DS_Store' || file.startsWith('.')) continue
+    if (
+      !file.endsWith('.webp') &&
+      !file.endsWith('.jpg') &&
+      !file.endsWith('.jpeg') &&
+      !file.endsWith('.png') &&
+      !file.endsWith('.gif')
+    )
+      continue
+
     if (!ORIGINAL_MEDIA_FILES.includes(file)) {
-      const filePath = path.join(mediaDir, file)
+      const filePath = path.join(sourceMediaDir, file)
       fs.unlinkSync(filePath)
       console.log(`  ✓ Removed duplicate: ${file}`)
     }
@@ -125,9 +137,10 @@ export const seed = async ({
       .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
   )
 
-  const mediaDir = path.join(process.cwd(), 'public', 'media')
-  payload.logger.info(`— Clearing duplicate media files...`)
-  clearMediaDuplicates(mediaDir)
+  const sourceMediaDir = path.join(process.cwd(), 'public')
+  const uploadMediaDir = path.join(process.cwd(), 'public', 'media')
+  payload.logger.info(`— Clearing uploaded media files...`)
+  clearMediaDuplicates(uploadMediaDir)
 
   payload.logger.info(`— Seeding demo author and user...`)
 
@@ -160,21 +173,21 @@ export const seed = async ({
     serviceAsbestosBuffer,
     servicePropertyClearingBuffer,
   ] = await Promise.all([
-    fetchFileFromMedia(mediaDir, 'project-1.webp'),
-    fetchFileFromMedia(mediaDir, 'project-2.webp'),
-    fetchFileFromMedia(mediaDir, 'project-3.webp'),
-    fetchFileFromMedia(mediaDir, 'project-4.webp'),
-    fetchFileFromMedia(mediaDir, 'project-5.webp'),
-    fetchFileFromMedia(mediaDir, 'project-6.webp'),
-    fetchFileFromMedia(mediaDir, 'hero-demolition.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-manual-demo.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-asbestos-safety.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-kitchen-prep.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-bathroom-tips.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-anniversary.webp'),
-    fetchFileFromMedia(mediaDir, 'blog-sustainable.webp'),
-    fetchFileFromMedia(mediaDir, 'service-asbestos.webp'),
-    fetchFileFromMedia(mediaDir, 'service-property-clearing.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-1.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-2.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-3.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-4.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-5.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'project-6.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'hero-demolition.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-manual-demo.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-asbestos-safety.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-kitchen-prep.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-bathroom-tips.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-anniversary.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'blog-sustainable.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'service-asbestos.webp'),
+    fetchFileFromMedia(sourceMediaDir, 'service-property-clearing.webp'),
   ])
 
   const [
@@ -293,13 +306,18 @@ export const seed = async ({
 
   // Do not create posts with `Promise.all` because we want the posts to be created in order
   // This way we can sort them by `createdAt` or `publishedAt` and they will be in the expected order
+  // Use blog images for blog posts now!
   const post1Doc = await payload.create({
     collection: 'posts',
     depth: 0,
     context: {
       disableRevalidate: true,
     },
-    data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+    data: post1({
+      heroImage: blogManualDemoDoc,
+      blockImage: blogAsbestosSafetyDoc,
+      author: demoAuthor,
+    }),
   })
 
   const post2Doc = await payload.create({
@@ -308,7 +326,11 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post2({ heroImage: image2Doc, blockImage: image3Doc, author: demoAuthor }),
+    data: post2({
+      heroImage: blogKitchenPrepDoc,
+      blockImage: blogBathroomTipsDoc,
+      author: demoAuthor,
+    }),
   })
 
   const post3Doc = await payload.create({
@@ -317,7 +339,11 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
+    data: post3({
+      heroImage: blogAnniversaryDoc,
+      blockImage: blogSustainableDoc,
+      author: demoAuthor,
+    }),
   })
 
   // update each post with related posts
@@ -466,8 +492,8 @@ export const seed = async ({
   payload.logger.info('Seeded database successfully!')
 }
 
-async function fetchFileFromMedia(mediaDir: string, filename: string): Promise<File> {
-  const filePath = path.join(mediaDir, filename)
+async function fetchFileFromMedia(sourceMediaDir: string, filename: string): Promise<File> {
+  const filePath = path.join(sourceMediaDir, filename)
 
   if (!fs.existsSync(filePath)) {
     throw new Error(`File not found: ${filePath}`)
