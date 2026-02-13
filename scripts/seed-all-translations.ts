@@ -15,7 +15,7 @@ const { default: config } = await import(path.join(__dirname, '..', 'src', 'payl
 
 // Helper function to upload images
 async function uploadImage(payload: any, filename: string, alt: string) {
-  const mediaDir = path.join(process.cwd(), 'public', 'media')
+  const mediaDir = path.join(process.cwd(), 'public')
   const filePath = path.join(mediaDir, filename)
 
   if (!fs.existsSync(filePath)) {

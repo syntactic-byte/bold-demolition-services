@@ -182,56 +182,56 @@ async function seed() {
     }
     console.log('✅ Services seeded')
 
-    // Seed Projects with correct images - reorder so different ones show
+    // Seed Projects - Interior Demolition focused
     console.log('\n📦 Seeding Projects...')
     const projects = [
       {
-        title: 'Oude Fabriek Rotterdam',
-        description: 'Complete demontage van een voormalige staalfabriek van 15.000m².',
-        category: 'demolition',
+        title: 'Winkelruimte Stripping',
+        description: 'Complete strip-out van winkelruimte voor herontwikkeling.',
+        category: 'renovation',
         completed: new Date('2024-06-15').toISOString(),
         featured: true,
-        image: project4Image?.id,
+        image: project6Image?.id, // was interieur renovatie
       },
       {
-        title: 'Kantoorcomplex Zuidas',
-        description: 'Gecontroleerde sloop van een 12-verdiepingen kantoorgebouw.',
-        category: 'demolition',
+        title: 'Appartement Renovatie Den Haag',
+        description: 'Volledige renovatie van een appartement in Den Haag.',
+        category: 'renovation',
         completed: new Date('2024-03-20').toISOString(),
         featured: true,
-        image: project5Image?.id,
-      },
-      {
-        title: 'Ziekenhuis Renovatie',
-        description: 'Gefaseerde strip-out van ziekenhuisvleugels tijdens operationele bezetting.',
-        category: 'renovation',
-        completed: new Date('2023-11-10').toISOString(),
-        featured: true,
-        image: project6Image?.id,
+        image: project4Image?.id, // was keuken renovatie
       },
       {
         title: 'Woning Ontruiming Eindhoven',
         description: 'Complete ontruiming van een woning in Eindhoven.',
         category: 'demolition',
-        completed: new Date('2023-09-05').toISOString(),
+        completed: new Date('2023-11-10').toISOString(),
         featured: true,
-        image: project1Image?.id,
+        image: project5Image?.id, // was badkamer verbouwing
       },
       {
-        title: 'Appartement Renovatie Den Haag',
-        description: 'Strip-out van een appartementencomplex in Den Haag.',
+        title: 'Keuken Renovatie Amsterdam',
+        description: 'Strip-out van keuken voor complete renovatie.',
+        category: 'renovation',
+        completed: new Date('2023-09-05').toISOString(),
+        featured: true,
+        image: project1Image?.id, // was winkelruimte stripping
+      },
+      {
+        title: 'Badkamer Verbouwing Rotterdam',
+        description: 'Sloop en renovatie van badkamer in Rotterdam.',
         category: 'renovation',
         completed: new Date('2023-07-22').toISOString(),
         featured: true,
-        image: project2Image?.id,
+        image: project2Image?.id, // was appartement renovatie
       },
       {
-        title: 'Winkelruimte Stripping',
-        description: 'Complete strip-out van winkelruimte voor herontwikkeling.',
+        title: 'Interieur Renovatie Utrecht',
+        description: 'Complete interieur renovatie van woning in Utrecht.',
         category: 'renovation',
         completed: new Date('2022-12-15').toISOString(),
         featured: true,
-        image: project3Image?.id,
+        image: project3Image?.id, // was woning ontruiming
       },
     ]
 
