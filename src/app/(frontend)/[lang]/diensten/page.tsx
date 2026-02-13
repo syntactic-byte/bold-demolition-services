@@ -2,23 +2,30 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import DienstenClient from './page.client'
 
-export default async function Diensten() {
+export const dynamic = 'force-dynamic'
+
+export default async function Diensten({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  const locale = lang === 'en' ? 'en' : 'nl'
+
   let pageData: any = null
   let servicesData: any[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
 
-    // Fetch the services page global data
+    // Fetch the services page global data with locale
     pageData = await payload.findGlobal({
       slug: 'services-page',
+      locale: locale as any,
     })
 
-    // Fetch the actual services from the collection
+    // Fetch the actual services from the collection with locale
     const services = await payload.find({
       collection: 'services',
       sort: 'featured DESC, title ASC',
-      depth: 1, // Populate images
+      depth: 1,
+      locale: locale as any,
     })
 
     servicesData = services.docs || []

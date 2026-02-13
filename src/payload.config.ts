@@ -70,6 +70,20 @@ export default buildConfig({
   collections: [Pages, Posts, Media, Categories, Users, Services, Projects],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer, SiteSettings, HomePage, AboutPage, ServicesPage, ContactPage],
+  localization: {
+    locales: [
+      {
+        code: 'nl',
+        label: 'Nederlands',
+      },
+      {
+        code: 'en',
+        label: 'English',
+      },
+    ],
+    defaultLocale: 'nl',
+    fallback: true,
+  },
   plugins,
   secret: process.env.PAYLOAD_SECRET,
   sharp,

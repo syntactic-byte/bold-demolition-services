@@ -1,14 +1,27 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import type { Locale } from '@/utilities/translations'
 
 interface FooterClientProps {
   footerData?: any
 }
 
 const FooterClient = ({ footerData }: FooterClientProps) => {
-  // Use CMS navigation data if available, otherwise fallback to hardcoded links
+  const [locale, setLocale] = useState<Locale>('nl')
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
+    }
+  }, [])
+
+  const isEnglish = locale === 'en'
+
+  // Translated navigation links
   const navLinks =
     footerData?.navItems?.length > 0
       ? footerData.navItems.map((item: any) => ({
@@ -17,11 +30,27 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         }))
       : [
           { name: 'Home', path: '/' },
-          { name: 'Diensten', path: '/diensten' },
-          { name: 'Projecten', path: '/projecten' },
-          { name: 'Over Ons', path: '/over-ons' },
-          { name: 'Contact', path: '/contact' },
+          { name: isEnglish ? 'Services' : 'Diensten', path: '/diensten' },
+          { name: isEnglish ? 'Projects' : 'Projecten', path: '/projecten' },
+          { name: isEnglish ? 'About Us' : 'Over Ons', path: '/over-ons' },
+          { name: isEnglish ? 'Contact' : 'Contact', path: '/contact' },
         ]
+
+  const services = isEnglish
+    ? [
+        'Manual Demolition',
+        'Interior Demolition',
+        'Selective Demolition',
+        'Kitchen & Bathroom',
+        'Property Clearing',
+      ]
+    : [
+        'Handmatige Sloop',
+        'Interieur Sloop',
+        'Selectieve Sloop',
+        'Keuken & Badkamer',
+        'Woning Ontruiming',
+      ]
 
   return (
     <footer className="bg-card border-t border-border">
@@ -37,18 +66,21 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
                 <span className="font-display text-2xl text-primary-foreground font-bold">T</span>
               </div>
               <span className="font-display text-2xl tracking-wider text-foreground">
-                TITAN<span className="text-primary">BREKERS</span>
+                TITAN<span className="text-primary">BREAKERS</span>
               </span>
             </div>
             <p className="text-muted-foreground mb-6">
-              Professioneel sloopwerk met kracht en precisie. Al meer dan 25 jaar uw partner in
-              sloop en demontage.
+              {isEnglish
+                ? 'Manual demolition work with hammer and chisel. For more than 25 years your partner in indoor demolition and renovation.'
+                : 'Handmatig sloopwerk met hamer en beitel. Al meer dan 25 jaar uw partner in binnensloop en renovatie.'}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-xl mb-6 text-foreground">Navigatie</h4>
+            <h4 className="font-display text-xl mb-6 text-foreground">
+              {isEnglish ? 'Navigation' : 'Navigatie'}
+            </h4>
             <ul className="space-y-3">
               {navLinks.map((link: any) => (
                 <li key={link.path}>
@@ -65,15 +97,11 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-xl mb-6 text-foreground">Diensten</h4>
+            <h4 className="font-display text-xl mb-6 text-foreground">
+              {isEnglish ? 'Services' : 'Diensten'}
+            </h4>
             <ul className="space-y-3">
-              {[
-                'Gebouwen Sloop',
-                'Industriële Demontage',
-                'Asbest Sanering',
-                'Recycling',
-                'Grondwerk',
-              ].map((service) => (
+              {services.map((service) => (
                 <li key={service}>
                   <span className="text-muted-foreground">{service}</span>
                 </li>
@@ -83,7 +111,9 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display text-xl mb-6 text-foreground">Contact</h4>
+            <h4 className="font-display text-xl mb-6 text-foreground">
+              {isEnglish ? 'Contact' : 'Contact'}
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
@@ -113,7 +143,9 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-muted-foreground">Ma-Vr: 07:00 - 18:00</span>
+                <span className="text-muted-foreground">
+                  {isEnglish ? 'Mon-Fri: 07:00 - 18:00' : 'Ma-Vr: 07:00 - 18:00'}
+                </span>
               </li>
             </ul>
           </div>
@@ -125,7 +157,9 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2024 TitanBrekers. Alle rechten voorbehouden.
+              {isEnglish
+                ? '© 2024 TitanBrekers. All rights reserved.'
+                : '© 2024 TitanBrekers. Alle rechten voorbehouden.'}
             </p>
             <div className="flex gap-6 text-sm">
               <Link
@@ -138,7 +172,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
                 href="/voorwaarden"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                Algemene Voorwaarden
+                {isEnglish ? 'Terms & Conditions' : 'Algemene Voorwaarden'}
               </Link>
             </div>
           </div>

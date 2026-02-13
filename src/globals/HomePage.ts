@@ -13,16 +13,20 @@ export const HomePage: GlobalConfig = {
           name: 'title',
           type: 'text',
           defaultValue: 'KRACHT IN',
+          localized: true,
         },
         {
           name: 'subtitle',
           type: 'text',
           defaultValue: 'SLOOPWERK',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue: 'TitanBrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+          defaultValue:
+            'TitanBrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+          localized: true,
         },
         {
           name: 'backgroundImage',
@@ -39,11 +43,7 @@ export const HomePage: GlobalConfig = {
               name: 'text',
               type: 'text',
               required: true,
-            },
-            {
-              name: 'url',
-              type: 'text',
-              required: true,
+              localized: true,
             },
             {
               name: 'style',
@@ -69,6 +69,7 @@ export const HomePage: GlobalConfig = {
               name: 'label',
               type: 'text',
               required: true,
+              localized: true,
             },
           ],
         },
@@ -88,10 +89,12 @@ export const HomePage: GlobalConfig = {
               name: 'title',
               type: 'text',
               required: true,
+              localized: true,
             },
             {
               name: 'description',
               type: 'text',
+              localized: true,
             },
           ],
         },
@@ -106,11 +109,14 @@ export const HomePage: GlobalConfig = {
           name: 'title',
           type: 'text',
           defaultValue: 'OVER TITANBREKERS',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue: 'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.',
+          defaultValue:
+            'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.',
+          localized: true,
         },
         {
           name: 'highlights',
@@ -121,6 +127,7 @@ export const HomePage: GlobalConfig = {
               name: 'text',
               type: 'text',
               required: true,
+              localized: true,
             },
           ],
         },

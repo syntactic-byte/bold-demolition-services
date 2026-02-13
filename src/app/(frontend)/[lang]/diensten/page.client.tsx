@@ -1,9 +1,11 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CTA from '@/components/CTA'
 import { Building2, Factory, Trash2, Recycle, Shovel, Home, CheckCircle } from 'lucide-react'
+import type { Locale } from '@/utilities/translations'
 
 interface DienstenClientProps {
   pageData?: any
@@ -23,14 +25,27 @@ const getIconComponent = (iconName: string) => {
 }
 
 export default function DienstenClient({ pageData, services = [] }: DienstenClientProps) {
+  const [locale, setLocale] = useState<Locale>('nl')
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
+    }
+  }, [])
+
+  const isEnglish = locale === 'en'
+
   const hero = pageData?.hero || {
-    title: 'WAT WIJ DOEN',
-    description:
-      'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise, het materieel en de certificeringen voor elk sloop- en demontageproject.',
+    title: isEnglish ? 'WHAT WE DO' : 'WAT WIJ DOEN',
+    description: isEnglish
+      ? 'From small strip-outs to complete building demolition - we have the expertise, equipment, and certifications for every demolition and dismantling project.'
+      : 'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise, het materieel en de certificeringen voor elk sloop- en demontageproject.',
   }
 
-  // Use services from CMS if available, otherwise fallback to global data
-  const serviceDetails = services.length > 0 ? services : pageData?.serviceDetails || []
+  // Use services from CMS if available, otherwise fallback to empty
+  const serviceDetails = services.length > 0 ? services : []
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -41,7 +56,7 @@ export default function DienstenClient({ pageData, services = [] }: DienstenClie
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                Onze Diensten
+                {isEnglish ? 'Our Services' : 'Onze Diensten'}
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl mb-4">
@@ -76,7 +91,9 @@ export default function DienstenClient({ pageData, services = [] }: DienstenClie
                     <p className="text-muted-foreground text-lg mb-8">{service.description}</p>
                     {service.featured && (
                       <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-1 mb-6">
-                        <span className="text-sm font-medium text-primary">Aanbevolen</span>
+                        <span className="text-sm font-medium text-primary">
+                          {isEnglish ? 'Featured' : 'Aanbevolen'}
+                        </span>
                       </div>
                     )}
                     {service.features && (

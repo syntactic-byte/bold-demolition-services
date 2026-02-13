@@ -112,7 +112,7 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('nl' | 'en') | ('nl' | 'en')[];
   globals: {
     header: Header;
     footer: Footer;
@@ -131,7 +131,7 @@ export interface Config {
     'services-page': ServicesPageSelect<false> | ServicesPageSelect<true>;
     'contact-page': ContactPageSelect<false> | ContactPageSelect<true>;
   };
-  locale: null;
+  locale: 'nl' | 'en';
   user: User & {
     collection: 'users';
   };
@@ -1820,7 +1820,6 @@ export interface HomePage {
     ctaButtons?:
       | {
           text: string;
-          url: string;
           style?: ('primary' | 'secondary') | null;
           id?: string | null;
         }[]
@@ -1917,11 +1916,11 @@ export interface ServicesPage {
   };
   serviceDetails?:
     | {
-        title: string;
-        description: string;
+        title?: string | null;
+        description?: string | null;
         features?:
           | {
-              feature: string;
+              feature?: string | null;
               id?: string | null;
             }[]
           | null;
@@ -2054,7 +2053,6 @@ export interface HomePageSelect<T extends boolean = true> {
           | T
           | {
               text?: T;
-              url?: T;
               style?: T;
               id?: T;
             };

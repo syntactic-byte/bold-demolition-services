@@ -1,8 +1,9 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Shield, Clock, Award } from 'lucide-react'
-import Image from 'next/image'
+import type { Locale } from '@/utilities/translations'
 
 interface HeroData {
   title: string
@@ -33,40 +34,83 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ data }) => {
-  // Fallback data if no CMS data
+  const [locale, setLocale] = useState<Locale>('nl')
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
+    }
+  }, [])
+
+  const isEnglish = locale === 'en'
+
+  // Fallback data based on locale
   const fallbackData = {
     backgroundImage: {
       url: '/hero-demolition.jpg',
-      alt: 'Demolition equipment and machinery',
+      alt: isEnglish ? 'Demolition equipment and machinery' : 'Sloopapparatuur en machines',
     },
-    title: 'KRACHT IN',
-    subtitle: 'SLOOPWERK',
-    description:
-      'TitanBrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
-    ctaButtons: [
-      { text: 'Gratis Offerte', url: '/contact', style: 'primary' },
-      { text: 'Bekijk Projecten', url: '/projecten', style: 'secondary' },
-    ],
-    stats: [
-      { number: '25+', label: 'Jaar Ervaring' },
-      { number: '500+', label: 'Projecten' },
-      { number: '100%', label: 'Veilig' },
-    ],
-    features: [
-      { icon: 'Clock', title: 'Snelle Respons', description: 'Binnen 24 uur reactie' },
-      { icon: 'Shield', title: 'Volledig Verzekerd', description: 'Tot €5 miljoen dekking' },
-      { icon: 'Award', title: 'VCA Gecertificeerd', description: 'Hoogste veiligheidsnormen' },
-    ],
+    title: data?.title?.trim() ? data.title : isEnglish ? 'POWER IN' : 'KRACHT IN',
+    subtitle: data?.subtitle?.trim() ? data.subtitle : isEnglish ? 'DEMOLITION' : 'SLOOPWERK',
+    description: data?.description?.trim()
+      ? data.description
+      : isEnglish
+        ? 'TitanBrekers is your reliable partner for professional demolition work. With more than 25 years of experience, we make room for your future.'
+        : 'TitanBrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+    ctaButtons:
+      data?.ctaButtons && data.ctaButtons.length > 0 && data.ctaButtons[0]?.text
+        ? data.ctaButtons
+        : [
+            {
+              text: isEnglish ? 'Free Quote' : 'Gratis Offerte',
+              url: '/contact',
+              style: 'primary',
+            },
+            {
+              text: isEnglish ? 'View Projects' : 'Bekijk Projecten',
+              url: '/projecten',
+              style: 'secondary',
+            },
+          ],
+    stats:
+      data?.stats && data.stats.length > 0
+        ? data.stats
+        : [
+            { number: '25+', label: isEnglish ? 'Years Experience' : 'Jaar Ervaring' },
+            { number: '500+', label: isEnglish ? 'Projects' : 'Projecten' },
+            { number: '100%', label: isEnglish ? 'Safe' : 'Veilig' },
+          ],
+    features:
+      data?.features && data.features.length > 0 && data.features[0]?.title
+        ? data.features
+        : [
+            {
+              icon: 'Clock',
+              title: isEnglish ? 'Fast Response' : 'Snelle Respons',
+              description: isEnglish ? 'Response within 24 hours' : 'Binnen 24 uur reactie',
+            },
+            {
+              icon: 'Shield',
+              title: isEnglish ? 'Fully Insured' : 'Volledig Verzekerd',
+              description: isEnglish ? 'Up to €5 million coverage' : 'Tot €5 miljoen dekking',
+            },
+            {
+              icon: 'Award',
+              title: isEnglish ? 'VCA Certified' : 'VCA Gecertificeerd',
+              description: isEnglish ? 'Highest safety standards' : 'Hoogste veiligheidsnormen',
+            },
+          ],
   }
 
   const heroData: HeroData = {
-    title: data?.title || fallbackData.title,
-    subtitle: data?.subtitle || fallbackData.subtitle,
-    description: data?.description || fallbackData.description,
+    title: fallbackData.title,
+    subtitle: fallbackData.subtitle,
+    description: fallbackData.description,
     backgroundImage: data?.backgroundImage,
-    ctaButtons: data?.ctaButtons || fallbackData.ctaButtons,
-    stats: data?.stats || fallbackData.stats,
-    features: data?.features || fallbackData.features,
+    ctaButtons: fallbackData.ctaButtons,
+    stats: fallbackData.stats,
+    features: fallbackData.features,
   }
 
   const getIcon = (iconName: string) => {
@@ -103,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-6 sm:px-4 sm:mb-8 animate-fade-in">
             <Shield className="w-4 h-4 text-primary" />
             <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-              Gecertificeerd & Verzekerd
+              {isEnglish ? 'Certified & Insured' : 'Gecertificeerd & Verzekerd'}
             </span>
           </div>
 
@@ -133,7 +177,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             {heroData.ctaButtons.map((button, index) => (
               <Link
                 key={index}
-                href={button.url}
+                href={button.url || '#'}
                 className={
                   button.style === 'primary'
                     ? 'btn-power flex items-center gap-2 justify-center sm:justify-start'

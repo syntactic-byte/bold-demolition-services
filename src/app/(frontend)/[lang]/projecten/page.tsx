@@ -2,16 +2,23 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import ProjectenClient from './page.client'
 
-export default async function Projecten() {
+export const dynamic = 'force-dynamic'
+
+export default async function Projecten({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  const locale = lang === 'en' ? 'en' : 'nl'
+
   let projects: any[] = []
-  
+
   try {
     const payload = await getPayload({ config: configPromise })
+
     const projectsData = await payload.find({
       collection: 'projects',
       sort: '-completed',
       limit: 100,
-      depth: 1, // Populate image relationship
+      depth: 1,
+      locale: locale as any,
     })
     projects = projectsData.docs
   } catch (error) {

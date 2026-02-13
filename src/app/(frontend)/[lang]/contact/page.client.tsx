@@ -1,60 +1,87 @@
 'use client'
 
-import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { useState, useEffect } from 'react'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import type { Locale } from '@/utilities/translations'
 
 interface ContactClientProps {
-  pageData?: any;
-  siteSettings?: any;
+  pageData?: any
+  siteSettings?: any
 }
 
 export default function ContactClient({ pageData, siteSettings }: ContactClientProps) {
+  const [locale, setLocale] = useState<Locale>('nl')
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
+    }
+  }, [])
+
+  const isEnglish = locale === 'en'
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    alert("Bericht verzonden! Wij nemen binnen 24 uur contact met u op.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    setIsSubmitting(false);
-  };
+    e.preventDefault()
+    setIsSubmitting(true)
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+    alert(
+      isEnglish
+        ? 'Message sent! We will contact you within 24 hours.'
+        : 'Bericht verzonden! Wij nemen binnen 24 uur contact met u op.',
+    )
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    setIsSubmitting(false)
+  }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const hero = pageData?.hero || {
-    title: 'NEEM CONTACT OP',
-    description: 'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
+    title: isEnglish ? 'GET IN TOUCH' : 'NEEM CONTACT OP',
+    description: isEnglish
+      ? 'Do you have a demolition or dismantling project? Feel free to contact us for a quote or advice. We respond within 24 hours.'
+      : 'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
   }
 
   const contact = siteSettings?.contact || {
     phone: '06-12345678',
     email: 'info@titanbrekers.nl',
-    address: 'Industrieweg 45\n1234 AB Rotterdam',
-    hours: 'Maandag - Vrijdag: 07:00 - 18:00\nZaterdag: Op afspraak',
+    address: isEnglish
+      ? 'Industrieweg 45\n1234 AB Rotterdam'
+      : 'Industrieweg 45\n1234 AB Rotterdam',
+    hours: isEnglish
+      ? 'Monday - Friday: 07:00 - 18:00\nSaturday: By appointment'
+      : 'Maandag - Vrijdag: 07:00 - 18:00\nZaterdag: Op afspraak',
   }
 
-  const formTitle = pageData?.formSettings?.title || 'STUUR EEN BERICHT'
+  const formTitle =
+    pageData?.formSettings?.title || (isEnglish ? 'SEND A MESSAGE' : 'STUUR EEN BERICHT')
   const subjects = pageData?.formSettings?.subjects || [
-    { value: 'offerte', label: 'Offerte aanvragen' },
-    { value: 'informatie', label: 'Informatie aanvragen' },
-    { value: 'samenwerking', label: 'Samenwerking' },
-    { value: 'anders', label: 'Anders' },
+    { value: 'offerte', label: isEnglish ? 'Request Quote' : 'Offerte aanvragen' },
+    { value: 'informatie', label: isEnglish ? 'Request Information' : 'Informatie aanvragen' },
+    { value: 'samenwerking', label: isEnglish ? 'Partnership' : 'Samenwerking' },
+    { value: 'anders', label: isEnglish ? 'Other' : 'Anders' },
   ]
 
   const certifications = siteSettings?.certifications?.map((c: any) => c.name) || [
-    "VCA**", "SC-530", "ISO 9001", "ISO 14001"
+    'VCA**',
+    'SC-530',
+    'ISO 9001',
+    'ISO 14001',
   ]
 
   return (
@@ -67,15 +94,14 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                Contact
+                {isEnglish ? 'Contact' : 'Contact'}
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl mb-4">
-              {hero.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient">{hero.title.split(' ').slice(-1)}</span>
+              {hero.title.split(' ').slice(0, -1).join(' ')}{' '}
+              <span className="text-gradient">{hero.title.split(' ').slice(-1)}</span>
             </h1>
-            <p className="text-muted-foreground text-lg">
-              {hero.description}
-            </p>
+            <p className="text-muted-foreground text-lg">{hero.description}</p>
           </div>
         </div>
       </section>
@@ -86,7 +112,9 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <h2 className="font-display text-3xl mb-8 text-foreground">CONTACTGEGEVENS</h2>
+              <h2 className="font-display text-3xl mb-8 text-foreground">
+                {isEnglish ? 'CONTACT DETAILS' : 'CONTACTGEGEVENS'}
+              </h2>
 
               <div className="space-y-6">
                 <div className="card-industrial flex items-start gap-4">
@@ -94,10 +122,10 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Adres</h3>
-                    <p className="text-muted-foreground whitespace-pre-line">
-                      {contact.address}
-                    </p>
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {isEnglish ? 'Address' : 'Adres'}
+                    </h3>
+                    <p className="text-muted-foreground whitespace-pre-line">{contact.address}</p>
                   </div>
                 </div>
 
@@ -106,8 +134,13 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Telefoon</h3>
-                    <a href={`tel:${contact.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {isEnglish ? 'Phone' : 'Telefoon'}
+                    </h3>
+                    <a
+                      href={`tel:${contact.phone}`}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       {contact.phone}
                     </a>
                   </div>
@@ -118,8 +151,13 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">E-mail</h3>
-                    <a href={`mailto:${contact.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {isEnglish ? 'Email' : 'E-mail'}
+                    </h3>
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       {contact.email}
                     </a>
                   </div>
@@ -130,17 +168,19 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Openingstijden</h3>
-                    <p className="text-muted-foreground whitespace-pre-line">
-                      {contact.hours}
-                    </p>
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {isEnglish ? 'Opening Hours' : 'Openingstijden'}
+                    </h3>
+                    <p className="text-muted-foreground whitespace-pre-line">{contact.hours}</p>
                   </div>
                 </div>
               </div>
 
               {/* Certifications */}
               <div className="mt-10">
-                <h3 className="font-display text-xl mb-4 text-foreground">CERTIFICERINGEN</h3>
+                <h3 className="font-display text-xl mb-4 text-foreground">
+                  {isEnglish ? 'CERTIFICATIONS' : 'CERTIFICERINGEN'}
+                </h3>
                 <div className="flex flex-wrap gap-3">
                   {certifications.map((cert: string) => (
                     <div key={cert} className="flex items-center gap-2 bg-primary/10 px-3 py-2">
@@ -159,8 +199,11 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Naam *
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {isEnglish ? 'Name *' : 'Naam *'}
                       </label>
                       <input
                         type="text"
@@ -170,12 +213,15 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                        placeholder="Uw naam"
+                        placeholder={isEnglish ? 'Your name' : 'Uw naam'}
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        E-mail *
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {isEnglish ? 'Email *' : 'E-mail *'}
                       </label>
                       <input
                         type="email"
@@ -185,15 +231,18 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                        placeholder="uw@email.nl"
+                        placeholder={isEnglish ? 'your@email.com' : 'uw@email.nl'}
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Telefoonnummer
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {isEnglish ? 'Phone Number' : 'Telefoonnummer'}
                       </label>
                       <input
                         type="tel"
@@ -206,8 +255,11 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                        Onderwerp *
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {isEnglish ? 'Subject *' : 'Onderwerp *'}
                       </label>
                       <select
                         id="subject"
@@ -217,17 +269,24 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         required
                         className="w-full px-4 py-3 bg-background border border-border text-foreground focus:border-primary focus:outline-none transition-colors"
                       >
-                        <option value="">Selecteer onderwerp</option>
+                        <option value="">
+                          {isEnglish ? 'Select subject' : 'Selecteer onderwerp'}
+                        </option>
                         {subjects.map((subj: any) => (
-                          <option key={subj.value} value={subj.value}>{subj.label}</option>
+                          <option key={subj.value} value={subj.value}>
+                            {subj.label}
+                          </option>
                         ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Bericht *
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      {isEnglish ? 'Message *' : 'Bericht *'}
                     </label>
                     <textarea
                       id="message"
@@ -237,7 +296,11 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                       required
                       rows={6}
                       className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-none"
-                      placeholder="Beschrijf uw project of vraag..."
+                      placeholder={
+                        isEnglish
+                          ? 'Describe your project or question...'
+                          : 'Beschrijf uw project of vraag...'
+                      }
                     />
                   </div>
 
@@ -247,10 +310,14 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     className="btn-power w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
-                      "Verzenden..."
+                      isEnglish ? (
+                        'Sending...'
+                      ) : (
+                        'Verzenden...'
+                      )
                     ) : (
                       <>
-                        Bericht Verzenden
+                        {isEnglish ? 'Send Message' : 'Bericht Verzenden'}
                         <Send className="w-5 h-5" />
                       </>
                     )}
@@ -264,5 +331,5 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
 
       <Footer />
     </div>
-  );
+  )
 }

@@ -13,11 +13,14 @@ export const ContactPage: GlobalConfig = {
           name: 'title',
           type: 'text',
           defaultValue: 'NEEM CONTACT OP',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue: 'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
+          defaultValue:
+            'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
+          localized: true,
         },
       ],
     },
@@ -30,6 +33,7 @@ export const ContactPage: GlobalConfig = {
           name: 'title',
           type: 'text',
           defaultValue: 'STUUR EEN BERICHT',
+          localized: true,
         },
         {
           name: 'subjects',
@@ -51,6 +55,7 @@ export const ContactPage: GlobalConfig = {
               name: 'label',
               type: 'text',
               required: true,
+              localized: true,
             },
           ],
         },

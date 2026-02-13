@@ -8,49 +8,57 @@ import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 
-export default async function HomePage() {
+export const dynamic = 'force-dynamic'
+
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  const locale = lang === 'en' ? 'en' : 'nl'
+
   let homePageData: any = null
   let services: any[] = []
   let projects: any[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
-    
-    // Get home page global data
-    homePageData = await payload.findGlobal({
-      slug: 'home-page',
-    })
 
-    // Get services
+    // Get featured services with explicit locale
     const servicesData = await payload.find({
       collection: 'services',
       where: {
         featured: {
-          equals: true
-        }
+          equals: true,
+        },
       },
       sort: '-createdAt',
-      depth: 1, // Populate image relationship
+      depth: 1,
+      locale: locale as any,
     })
+
+    services = servicesData.docs
 
     // Get projects
     const projectsData = await payload.find({
       collection: 'projects',
       where: {
         featured: {
-          equals: true
-        }
+          equals: true,
+        },
       },
       sort: '-completed',
       limit: 6,
-      depth: 1, // Populate image relationship
+      depth: 1,
+      locale: locale as any,
     })
 
-    services = servicesData.docs
     projects = projectsData.docs
+
+    // Get home page global data
+    homePageData = await payload.findGlobal({
+      slug: 'home-page',
+      locale: locale as any,
+    })
   } catch (error) {
     console.error('Error fetching CMS data:', error)
-    // Will use fallback data in components
   }
 
   return (

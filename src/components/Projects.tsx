@@ -1,33 +1,72 @@
 'use client'
 
-import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
-import type { Project } from '@/payload-types';
-import Image from "next/image";
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { ArrowRight, MapPin } from 'lucide-react'
+import type { Project } from '@/payload-types'
+import type { Locale } from '@/utilities/translations'
 
 interface ProjectsProps {
-  projects?: Project[];
+  projects?: Project[]
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
-  const getCategoryLabel = (category: string) => {
-    switch (category) {
-      case 'demolition': return 'Industriële Sloop';
-      case 'asbestos': return 'Asbestsanering';
-      case 'renovation': return 'Gebouwen Sloop';
-      case 'environmental': return 'Milieusanering';
-      default: return 'Sloopwerk';
+  const [locale, setLocale] = useState<Locale>('nl')
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
     }
-  };
+  }, [])
+
+  const isEnglish = locale === 'en'
+
+  const getCategoryLabel = (category: string) => {
+    if (isEnglish) {
+      switch (category) {
+        case 'demolition':
+          return 'Industrial Demolition'
+        case 'asbestos':
+          return 'Asbestos Removal'
+        case 'renovation':
+          return 'Building Demolition'
+        case 'environmental':
+          return 'Environmental Remediation'
+        default:
+          return 'Demolition Work'
+      }
+    }
+    switch (category) {
+      case 'demolition':
+        return 'Industriële Sloop'
+      case 'asbestos':
+        return 'Asbestsanering'
+      case 'renovation':
+        return 'Gebouwen Sloop'
+      case 'environmental':
+        return 'Milieusanering'
+      default:
+        return 'Sloopwerk'
+    }
+  }
 
   const getProjectImage = (project: any, index: number) => {
     // Use CMS image if available, otherwise fallback
     if (project.image && typeof project.image === 'object' && project.image.url) {
       return project.image.url
     }
-    const fallbackImages = ['/project-1.jpg', '/project-2.jpg', '/project-3.jpg'];
-    return fallbackImages[index % fallbackImages.length];
-  };
+    const fallbackImages = ['/project-1.jpg', '/project-2.jpg', '/project-3.jpg']
+    return fallbackImages[index % fallbackImages.length]
+  }
+
+  const formatDate = (dateString: string | null | undefined) => {
+    if (!dateString) return isEnglish ? 'Completed' : 'Voltooid'
+    return new Date(dateString).toLocaleDateString(isEnglish ? 'en-US' : 'nl-NL', {
+      year: 'numeric',
+      month: 'long',
+    })
+  }
 
   return (
     <section className="py-24 bg-card">
@@ -37,18 +76,21 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-4 sm:px-4 sm:mb-6">
               <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-                Onze Projecten
+                {isEnglish ? 'Our Projects' : 'Onze Projecten'}
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
-              RECENT <span className="text-gradient">WERK</span>
+              {isEnglish ? 'RECENT ' : 'RECENT '}
+              <span className="text-gradient">{isEnglish ? 'WORK' : 'WERK'}</span>
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg">
-              Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.
+              {isEnglish
+                ? 'Discover our most recent demolition and dismantling projects throughout the Netherlands.'
+                : 'Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.'}
             </p>
           </div>
           <Link href="/projecten" className="btn-outline-power flex items-center gap-2 self-start">
-            Alle Projecten
+            {isEnglish ? 'All Projects' : 'Alle Projecten'}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -80,7 +122,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
               <div className="p-4 sm:p-6">
                 <div className="flex items-center gap-2 text-muted-foreground text-xs sm:text-sm mb-2">
                   <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>{project.completed ? new Date(project.completed).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' }) : 'Voltooid'}</span>
+                  <span>{formatDate(project.completed)}</span>
                 </div>
                 <h3 className="font-display text-lg sm:text-xl md:text-2xl mb-2 text-foreground group-hover:text-primary transition-colors">
                   {project.title}
@@ -94,7 +136,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

@@ -13,11 +13,14 @@ export const ServicesPage: GlobalConfig = {
           name: 'title',
           type: 'text',
           defaultValue: 'WAT WIJ DOEN',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue: 'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise, het materieel en de certificeringen voor elk sloop- en demontageproject.',
+          defaultValue:
+            'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise, het materieel en de certificeringen voor elk sloop- en demontageproject.',
+          localized: true,
         },
       ],
     },
@@ -29,12 +32,12 @@ export const ServicesPage: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
-          required: true,
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          required: true,
+          localized: true,
         },
         {
           name: 'features',
@@ -43,7 +46,7 @@ export const ServicesPage: GlobalConfig = {
             {
               name: 'feature',
               type: 'text',
-              required: true,
+              localized: true,
             },
           ],
         },

@@ -1,21 +1,61 @@
 'use client'
 
-import Link from "next/link";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { CheckCircle, ArrowRight } from 'lucide-react'
+import type { Locale } from '@/utilities/translations'
 
 interface AboutPreviewProps {
-  data?: any;
+  data?: any
 }
 
 const AboutPreview = ({ data }: AboutPreviewProps) => {
-  const title = data?.title || 'OVER TITANBREKERS'
-  const description = data?.description || 'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.'
-  
+  const [locale, setLocale] = useState<Locale>('nl')
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('locale') as Locale
+    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
+      setLocale(storedLang)
+    }
+  }, [])
+
+  const isEnglish = locale === 'en'
+
+  const title = data?.title || (isEnglish ? 'ABOUT TITANBREKERS' : 'OVER TITANBREKERS')
+  const description =
+    data?.description ||
+    (isEnglish
+      ? 'With more than 25 years of experience, TitanBrekers has grown into one of the most respected demolition companies in the Netherlands. We combine craftsmanship with modern techniques for every type of demolition and dismantling project.'
+      : 'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.')
+
   const highlights = data?.highlights || [
-    { text: 'VCA** gecertificeerd en volledig verzekerd' },
-    { text: 'Modern machinepark en ervaren vakmensen' },
-    { text: '98% recycling van alle sloopafval' },
-    { text: 'Landelijke dekking met lokale service' },
+    {
+      text: isEnglish
+        ? 'VCA** certified and fully insured'
+        : 'VCA** gecertificeerd en volledig verzekerd',
+    },
+    {
+      text: isEnglish
+        ? 'Modern equipment and experienced professionals'
+        : 'Modern machinepark en ervaren vakmensen',
+    },
+    {
+      text: isEnglish
+        ? '98% recycling of all demolition waste'
+        : '98% recycling van alle sloopafval',
+    },
+    {
+      text: isEnglish
+        ? 'National coverage with local service'
+        : 'Landelijke dekking met lokale service',
+    },
+  ]
+
+  const stats = [
+    { number: '25+', label: isEnglish ? 'Years Active' : 'Jaar Actief' },
+    { number: '500+', label: isEnglish ? 'Projects' : 'Projecten' },
+    { number: '50+', label: isEnglish ? 'Employees' : 'Medewerkers' },
+    { number: '98%', label: isEnglish ? 'Recycling' : 'Recycling' },
   ]
 
   return (
@@ -29,15 +69,14 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
           <div>
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                Over TitanBrekers
+                {isEnglish ? 'About TitanBrekers' : 'Over TitanBrekers'}
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl mb-6">
-              {title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient">{title.split(' ').slice(-1)}</span>
+              {title.split(' ').slice(0, -1).join(' ')}{' '}
+              <span className="text-gradient">{title.split(' ').slice(-1)}</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              {description}
-            </p>
+            <p className="text-muted-foreground text-lg mb-8">{description}</p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4 mb-10">
@@ -50,7 +89,7 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
             </div>
 
             <Link href="/over-ons" className="btn-power inline-flex items-center gap-2">
-              Meer Over Ons
+              {isEnglish ? 'More About Us' : 'Meer Over Ons'}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -58,22 +97,17 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
           {/* Right - Stats Cards */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <div className="card-industrial p-8 text-center">
-                <div className="font-display text-6xl text-primary mb-2">25+</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm">Jaar Actief</div>
-              </div>
-              <div className="card-industrial p-8 text-center mt-8">
-                <div className="font-display text-6xl text-primary mb-2">500+</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm">Projecten</div>
-              </div>
-              <div className="card-industrial p-8 text-center">
-                <div className="font-display text-6xl text-primary mb-2">50+</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm">Medewerkers</div>
-              </div>
-              <div className="card-industrial p-8 text-center mt-8">
-                <div className="font-display text-6xl text-primary mb-2">98%</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm">Recycling</div>
-              </div>
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`card-industrial p-8 text-center ${index % 2 === 1 ? 'mt-8' : ''}`}
+                >
+                  <div className="font-display text-6xl text-primary mb-2">{stat.number}</div>
+                  <div className="text-muted-foreground uppercase tracking-wider text-sm">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Decorative Warning Stripe */}
@@ -82,7 +116,7 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutPreview;
+export default AboutPreview
