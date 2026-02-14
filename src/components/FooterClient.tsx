@@ -10,6 +10,10 @@ interface FooterClientProps {
 
 const FooterClient = ({ footerData }: FooterClientProps) => {
   const { t, locale } = useTranslation()
+  const currentYear = new Date().getFullYear()
+
+  const logoFirstPart = t.company?.logoFirst || 'titaan'
+  const logoSecondPart = t.company?.logoSecond || 'brekers'
 
   const paths = t.paths || {
     home: '/',
@@ -81,7 +85,8 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
                 <span className="font-display text-2xl text-primary-foreground font-bold">T</span>
               </div>
               <span className="font-display text-2xl tracking-wider text-foreground">
-                TITAN<span className="text-primary">BREAKERS</span>
+                <span>{logoFirstPart}</span>
+                <span className="text-primary">{logoSecondPart}</span>
               </span>
             </div>
             <p className="text-muted-foreground mb-6">
@@ -177,9 +182,10 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
+              © {currentYear} {t.company?.name || 'TitanBreakers'}.{' '}
               {locale === 'en'
-                ? t.footer?.copyright || '© 2024 TitanBreakers. All rights reserved.'
-                : t.footer?.copyright || '© 2024 TitanBreakers. Alle rechten voorbehouden.'}
+                ? t.footer?.copyrightSuffix || 'All rights reserved.'
+                : t.footer?.copyrightSuffix || 'Alle rechten voorbehouden.'}
             </p>
             <div className="flex gap-6 text-sm">
               <Link

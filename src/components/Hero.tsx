@@ -33,23 +33,40 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ data }) => {
-  const { t, locale } = useTranslation()
-  const isEnglish = locale === 'en'
+  const { t, locale, loading } = useTranslation()
+
+  // Use translations when available, otherwise fall back to CMS data or defaults
+  const getLocalizedValue = (
+    cmsValue: string | undefined,
+    translationValue: string | undefined,
+    defaultValue: string,
+  ) => {
+    // Always prefer translation if available
+    if (translationValue) {
+      return translationValue
+    }
+    // Otherwise use CMS data if available
+    if (cmsValue?.trim()) {
+      return cmsValue
+    }
+    // Final fallback
+    return defaultValue
+  }
 
   const fallbackData = {
     backgroundImage: {
-      url: '/hero-demolition.jpg',
-      alt: isEnglish ? 'Demolition equipment and machinery' : 'Sloopapparatuur en machines',
+      url: '/hero-demolition.webp',
+      alt: t.hero?.backgroundAlt || 'Sloopapparatuur en machines',
     },
-    title: data?.title?.trim() ? data.title : isEnglish ? 'POWER IN' : 'KRACHT IN',
-    subtitle: data?.subtitle?.trim() ? data.subtitle : isEnglish ? 'DEMOLITION' : 'SLOOPWERK',
-    description: data?.description?.trim()
-      ? data.description
-      : isEnglish
-        ? 'TitanBreakers is your reliable partner for professional demolition work. With more than 25 years of experience, we make room for your future.'
-        : 'titaanbrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+    title: getLocalizedValue(data?.title, t.hero?.title, 'KRACHT IN'),
+    subtitle: getLocalizedValue(data?.subtitle, t.hero?.subtitle, 'SLOOPWERK'),
+    description: getLocalizedValue(
+      data?.description,
+      t.hero?.description,
+      'titaanbrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+    ),
     ctaButtons:
-      data?.ctaButtons && data.ctaButtons.length > 0 && data.ctaButtons[0]?.text
+      data?.ctaButtons && data.ctaButtons.length > 0 && data.ctaButtons[0]?.text && loading
         ? data.ctaButtons
         : [
             {
@@ -59,12 +76,12 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             },
             {
               text: t.cta?.viewProjects || 'Bekijk Projecten',
-              url: isEnglish ? '/projects' : '/projecten',
+              url: t.paths?.projects || '/projecten',
               style: 'secondary',
             },
           ],
     stats:
-      data?.stats && data.stats.length > 0
+      data?.stats && data.stats.length > 0 && loading
         ? data.stats
         : [
             { number: '25+', label: t.hero?.stats?.years || 'Jaar Ervaring' },
@@ -72,7 +89,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             { number: '100%', label: t.hero?.stats?.safety || 'Veilig' },
           ],
     features:
-      data?.features && data.features.length > 0 && data.features[0]?.title
+      data?.features && data.features.length > 0 && data.features[0]?.title && loading
         ? data.features
         : [
             {
@@ -97,7 +114,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
     title: fallbackData.title,
     subtitle: fallbackData.subtitle,
     description: fallbackData.description,
-    backgroundImage: data?.backgroundImage,
+    backgroundImage: data?.backgroundImage || fallbackData.backgroundImage,
     ctaButtons: fallbackData.ctaButtons,
     stats: fallbackData.stats,
     features: fallbackData.features,
@@ -126,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
         style={{
           backgroundImage: heroData.backgroundImage?.url
             ? `url(${heroData.backgroundImage.url})`
-            : `url('/hero-demolition.jpg')`,
+            : `url('/hero-demolition.webp')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
@@ -139,7 +156,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-6 sm:px-4 sm:mb-8 animate-fade-in">
             <Shield className="w-4 h-4 text-primary" />
             <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-              {isEnglish ? 'Certified & Insured' : 'Gecertificeerd & Verzekerd'}
+              {t.hero?.certifiedBadge || 'Gecertificeerd & Verzekerd'}
             </span>
           </div>
 

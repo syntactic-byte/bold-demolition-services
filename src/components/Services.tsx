@@ -52,13 +52,16 @@ const Services: React.FC<ServicesProps> = ({ services = [] }) => {
         <div className="max-w-2xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-4 sm:px-4 sm:mb-6">
             <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-              {t.sections?.ourServices || (locale === 'en' ? 'Our Services' : 'Onze Diensten')}
+              {t.sections?.ourServices || 'Onze Diensten'}
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
-            {locale === 'en' ? (
+            {t.services?.sectionTitle ? (
               <>
-                PROFESSIONAL <span className="text-gradient">DEMOLITION</span>
+                {t.services.sectionTitle.split(' ').slice(0, -1).join(' ')}{' '}
+                <span className="text-gradient">
+                  {t.services.sectionTitle.split(' ').slice(-1)}
+                </span>
               </>
             ) : (
               <>
@@ -68,9 +71,7 @@ const Services: React.FC<ServicesProps> = ({ services = [] }) => {
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg">
             {t.services?.description ||
-              (locale === 'en'
-                ? 'From small strip-outs to complete building demolition - we have the expertise and equipment for every project.'
-                : 'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise en het materieel voor elk project.')}
+              'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise en het materieel voor elk project.'}
           </p>
         </div>
 
@@ -94,7 +95,7 @@ const Services: React.FC<ServicesProps> = ({ services = [] }) => {
                   {service.description}
                 </p>
                 <div className="flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-sm">{locale === 'en' ? 'More Info' : 'Meer Info'}</span>
+                  <span className="text-sm">{t.services?.moreInfo || 'Meer Info'}</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
@@ -105,11 +106,10 @@ const Services: React.FC<ServicesProps> = ({ services = [] }) => {
         {/* CTA */}
         <div className="mt-12 sm:mt-16 text-center">
           <Link
-            href={locale === 'en' ? '/services' : '/diensten'}
+            href={t.paths?.services || '/diensten'}
             className="btn-power inline-flex items-center gap-2"
           >
-            {t.cta?.viewAllServices ||
-              (locale === 'en' ? 'View All Services' : 'Alle Diensten Bekijken')}
+            {t.cta?.viewAllServices || 'Alle Diensten Bekijken'}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

@@ -2820,6 +2820,771 @@ const blogContent = {
       },
     },
   },
+  preparation: {
+    nl: {
+      title: 'Voorbereiding Voor Sloopwerkzaamheden',
+      excerpt:
+        'Goede voorbereiding is essentieel voor een succesvol sloopproject. Ontdek waar u op moet letten voordat de sloop begint.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Een succesvol sloopproject begint met een grondige voorbereiding. Of het nu gaat om een kleine badkamer of een groot industrieel complex, de voorbereidende werkzaamheden bepalen voor een groot deel het succes van het project. In dit artikel nemen wij u mee in de essentiële stappen die u moet doorlopen voordat de sloop begint.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Inventarisatie en inspectie', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: "Voordat u begint met slopen, is het essentieel om een grondige inventarisatie te maken van het pand en de omgeving. Dit omvat het in kaart brengen van belangrijke zaken zoals de aanwezigheid van asbest, de staat van de fundering, en eventuele risico's voor omliggende gebouwen.",
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Een professionele inspectie kan u helpen om potentiële problemen vroegtijdig te identificeren. Dit voorkomt verrassingen tijdens de sloop en zorgt ervoor dat u een realistisch tijdschema en budget kunt opstellen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Vergunningen en regelgeving', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Afhankelijk van de omvang en locatie van het project kan het nodig zijn om verschillende vergunningen aan te vragen. Dit kan variëren van een sloopvergunning tot milieuvergunningen. Zorg ervoor dat u op de hoogte bent van de lokale regelgeving en dat alle benodigde papieren op tijd zijn geregeld.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Het niet naleven van regelgeving kan leiden tot boetes, vertragingen of zelfs het stilleggen van het project. Investeer daarom tijd in het goed voorbereiden van de administratieve kant van het project.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Veiligheid eerst', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: "Veiligheid moet altijd de hoogste prioriteit hebben bij sloopwerkzaamheden. Zorg ervoor dat er een gedetailleerd veiligheidsplan is opgesteld dat alle mogelijke risico's in kaart brengt en maatregelen beschrijft om deze te mitigeren.",
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Afzetting van het werkterrein', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Bescherming van publiek en omgeving', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Persoonlijke beschermingsmiddelen (PBM)',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Noodprocedures en evacuatieplannen', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Logistieke planning', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Een goede logistieke planning is cruciaal voor een efficiënt sloopproject. Denk na over de aan- en afvoer van materialen, de routing van vrachtwagens, en de afzetting van het werkterrein. Zorg er ook voor dat er voldoende ruimte is voor het tijdelijk opslaan van sloopafval.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Met de juiste voorbereiding zorgt u voor een soepel verloop van het project en minimaliseert u de kans op verrassingen. Bij titaanbrekers helpen wij u graag bij het opstellen van een gedetailleerd plan voor uw sloopproject.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+    en: {
+      title: 'Preparation for Demolition Work',
+      excerpt:
+        'Good preparation is essential for a successful demolition project. Discover what you need to pay attention to before demolition begins.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: "A successful demolition project starts with thorough preparation. Whether it's a small bathroom or a large industrial complex, the preparatory work largely determines the success of the project. In this article, we take you through the essential steps you need to go through before demolition begins.",
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Inventory and inspection', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: "Before you start demolishing, it's essential to make a thorough inventory of the building and its surroundings. This includes mapping out important matters such as the presence of asbestos, the condition of the foundation, and any risks to adjacent buildings.",
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'A professional inspection can help you identify potential problems early on. This prevents surprises during demolition and ensures that you can establish a realistic schedule and budget.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Permits and regulations', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Depending on the scope and location of the project, it may be necessary to apply for various permits. This can range from a demolition permit to environmental permits. Make sure you are aware of local regulations and that all necessary paperwork is arranged on time.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Safety first', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Safety must always be the top priority in demolition work. Ensure that a detailed safety plan is drawn up that maps out all possible risks and describes measures to mitigate them.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Logistical planning', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'With proper preparation, you ensure smooth project execution and minimize the chance of surprises. At TitanBreakers, we are happy to help you draw up a detailed plan for your demolition project.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+  },
+  asbestos: {
+    nl: {
+      title: 'Asbest Verwijdering: Protocollen en Veiligheid',
+      excerpt:
+        'Asbest verwijdering vereist strikte protocollen. Ontdek hoe titaanbrekers veilig en gecertificeerd asbest verwijdert.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Asbest is een gevaarlijk materiaal dat tot 1994 veel werd gebruikt in de bouw. Het verwijderen ervan vereist specialistische kennis, strikte protocollen en gecertificeerde professionals. In dit artikel leggen wij uit hoe wij bij titaanbrekers asbest veilig verwijderen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Wat is asbest?', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Asbest is een verzamelnaam voor zes verschillende mineralen die van nature in de aarde voorkomen. Vanwege de vezelstructuur, hittebestendigheid en sterkte werd asbest jarenlang veel gebruikt in bouwmaterialen. Echter, wanneer asbestvezels vrijkomen en worden ingeademd, kunnen ze ernstige gezondheidsproblemen veroorzaken, waaronder longkanker en asbestose.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Herkennen van asbest', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Asbest is niet altijd eenvoudig te herkennen. Het kan voorkomen in diverse materialen zoals golfplaten, leidingisolatie, vloertegels, kitvoegen en spuitcement. Gebouwen die voor 1994 zijn gebouwd, hebben een verhoogde kans op asbesthoudende materialen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Het verwijderingsproces', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Als gecertificeerd asbestverwijderingsbedrijf volgen wij strikte protocollen:',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Asbestinventarisatie door gecertificeerd deskundige',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Melding bij gemeente en arbeidsinspectie',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Afzetting en ontsmetting van werkgebied',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Verwijdering door gecertificeerde professionals',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Veilig transport naar erkende stortplaats',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Eindinspectie en oplevering', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Onze medewerkers zijn allen gecertificeerd volgens de SC-530 norm en werken volgens de strengste veiligheidsprotocollen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+    en: {
+      title: 'Asbestos Removal: Protocols and Safety',
+      excerpt:
+        'Asbestos removal requires strict protocols. Discover how TitanBreakers safely removes asbestos with certified procedures.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Asbestos is a dangerous material that was widely used in construction until 1994. Its removal requires specialized knowledge, strict protocols, and certified professionals. In this article, we explain how we at TitanBreakers safely remove asbestos.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'What is asbestos?', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Asbestos is a collective name for six different minerals that occur naturally in the earth. Due to its fiber structure, heat resistance, and strength, asbestos was widely used in building materials for many years. However, when asbestos fibers are released and inhaled, they can cause serious health problems, including lung cancer and asbestosis.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'The removal process', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'As a certified asbestos removal company, we follow strict protocols to ensure safe removal.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Our employees are all certified according to the SC-530 standard and work according to the strictest safety protocols.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+  },
+  sustainable: {
+    nl: {
+      title: 'Duurzaam Slopen: Onze Visie op Circulariteit',
+      excerpt:
+        'Duurzaamheid is een kernwaarde bij titaanbrekers. Wij zorgen voor 98% recycling van alle sloopmaterialen.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Bij titaanbrekers geloven wij dat sloop en duurzaamheid hand in hand kunnen gaan. Waar veel mensen denken aan puin en afval wanneer ze aan sloop denken, zien wij juist mogelijkheden voor hergebruik en recycling. In dit artikel delen wij onze visie op duurzaam slopen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Het probleem van bouwafval', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'De bouwsector is verantwoordelijk voor een groot deel van het totale afval in Nederland. Traditioneel belandt het grootste deel van dit afval op de stortplaats, wat zorgt voor milieubelasting en verspilling van waardevolle grondstoffen. Dit moet anders kunnen, vonden wij.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Onze aanpak', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Wij streven naar 98% recycling van alle sloopmaterialen. Dit betekent dat bijna alles wat wij slopen, een tweede leven krijgt. Beton wordt verwerkt tot granulaat voor nieuwe wegen, metalen worden gesmolten en hergebruikt, en hout kan na bewerking weer als bouwmateriaal dienen.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Voordelen van duurzaam slopen', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Minder belasting van het milieu', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Lagere afvalstortkosten', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Behoud van waardevolle grondstoffen', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Bijdrage aan circulariteit', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Betere CO2-prestatie', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Door te kiezen voor titaanbrekers kiest u niet alleen voor vakmanschap, maar ook voor een duurzame toekomst. Samen maken we de bouwsector groener!',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+    en: {
+      title: 'Sustainable Demolition: Our Vision on Circularity',
+      excerpt:
+        'Sustainability is a core value at TitanBreakers. We ensure 98% recycling of all demolition materials.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'At TitanBreakers, we believe that demolition and sustainability can go hand in hand. While many people think of rubble and waste when they think of demolition, we see opportunities for reuse and recycling. In this article, we share our vision on sustainable demolition.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'The problem of construction waste', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'The construction sector is responsible for a large part of total waste. Traditionally, most of this waste ends up in landfills, causing environmental burden and wasting valuable raw materials. We believe this can be done differently.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Our approach', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'We strive for 98% recycling of all demolition materials. This means that almost everything we demolish gets a second life. Concrete is processed into aggregate for new roads, metals are melted down and reused, and wood can serve again as building material after processing.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'By choosing TitanBreakers, you not only choose craftsmanship but also a sustainable future. Together we make the construction sector greener!',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+  },
 }
 
 async function seed() {

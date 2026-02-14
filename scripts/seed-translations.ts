@@ -34,8 +34,19 @@ const allTranslations = {
       viewAllServices: 'Alle Diensten Bekijken',
       viewAllProjects: 'Alle Projecten Bekijken',
       sendMessage: 'Verstuur Bericht',
+      readyToStart: 'KLAAR OM TE STARTEN?',
+      contactToday:
+        'Neem vandaag nog contact met ons op voor een vrijblijvende offerte. Wij reageren binnen 24 uur op uw aanvraag.',
+      requestQuote: 'Offerte Aanvragen',
+      callDirect: 'Bel Direct: 06-12345678',
     },
     hero: {
+      title: 'KRACHT IN',
+      subtitle: 'SLOOPWERK',
+      description:
+        'titaanbrekers is uw betrouwbare partner voor professioneel sloop- en demontagewerk. Met meer dan 25 jaar ervaring maken wij ruimte voor uw toekomst.',
+      certifiedBadge: 'Gecertificeerd & Verzekerd',
+      backgroundAlt: 'Sloopapparatuur en machines',
       stats: {
         years: 'Jaar Ervaring',
         projects: 'Projecten',
@@ -66,12 +77,17 @@ const allTranslations = {
       navigation: 'Navigatie',
       privacy: 'Privacybeleid',
       terms: 'Algemene Voorwaarden',
-      copyright: '© 2024 titaanbrekers. Alle rechten voorbehouden.',
+      copyrightSuffix: 'Alle rechten voorbehouden.',
+      hours: {
+        weekday: 'Ma-Vr: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'titaanbrekers',
       tagline:
         'Professioneel sloopwerk met kracht en precisie. Al meer dan 25 jaar uw partner in sloop en demontage.',
+      logoFirst: 'titaan',
+      logoSecond: 'brekers',
     },
     form: {
       name: 'Naam',
@@ -98,6 +114,8 @@ const allTranslations = {
     },
     services: {
       title: 'Onze Specialisaties',
+      sectionTitle: 'PROFESSIONEEL SLOOPWERK',
+      moreInfo: 'Meer Info',
       description:
         'Van keukenstripping tot complete woningontruiming - wij voeren alle sloopwerkzaamheden handmatig uit met hamer en beitel. Perfect voor renovaties waar machines niet kunnen komen.',
       manual: 'Handmatige Sloop',
@@ -118,8 +136,18 @@ const allTranslations = {
     },
     about: {
       title: 'Wie Zijn Wij',
+      titleShort: 'Over titaanbrekers',
       description:
         'Al meer dan 25 jaar is titaanbrekers dé specialist in handmatig sloopwerk voor woningen en bedrijfspanden. Met hamer en beitel, passie en vakmanschap maken wij ruimte voor uw renovatie.',
+      certifications: 'VCA** gecertificeerd en volledig verzekerd',
+      equipment: 'Modern machinepark en ervaren vakmensen',
+      recycling: '98% recycling van alle sloopafval',
+      coverage: 'Landelijke dekking met lokale service',
+      yearsActive: 'Jaar Actief',
+      projects: 'Projecten',
+      employees: 'Medewerkers',
+      recyclingStat: 'Recycling',
+      moreAbout: 'Meer Over Ons',
       story: {
         title: 'Ons Verhaal',
         paragraphs: [
@@ -151,6 +179,94 @@ const allTranslations = {
       latestNews: 'Laatste Nieuws',
       readMore: 'Lees Meer',
     },
+    projects: {
+      sectionTitle: 'RECENT WERK',
+      description: 'Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.',
+      completed: 'Voltooid',
+      viewAllProjects: 'Alle Projecten',
+      title: 'ONZE PROJECTEN',
+      all: 'Alle',
+      industrial: 'Industriële Sloop',
+      renovation: 'Renovatie',
+      asbestos: 'Asbest Sanering',
+      environmental: 'Milieusanering',
+      image: 'Project afbeelding',
+    },
+    servicesPage: {
+      heroTitle: 'WAT WIJ DOEN',
+      heroDescription:
+        'Van kleine stripwerken tot complete gebouwsloop - wij hebben de expertise, het materieel en de certificeringen voor elk sloop- en demontageproject.',
+      ourServices: 'Onze Diensten',
+      featured: 'Aanbevolen',
+    },
+    contactPage: {
+      title: 'NEEM CONTACT OP',
+      description:
+        'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
+      contactDetails: 'CONTACTGEGEVENS',
+      address: 'Adres',
+      phone: 'Telefoon',
+      email: 'E-mail',
+      openingHours: 'Openingstijden',
+      hoursValue: 'Maandag - Vrijdag: 07:00 - 18:00',
+      certifications: 'CERTIFICERINGEN',
+      formTitle: 'STUUR EEN BERICHT',
+      namePlaceholder: 'Uw naam',
+      emailPlaceholder: 'uw@email.nl',
+      phoneLabel: 'Telefoonnummer',
+      subjectLabel: 'Onderwerp',
+      subjectSelect: 'Selecteer onderwerp',
+      messagePlaceholder: 'Beschrijf uw project of vraag...',
+      sending: 'Verzenden...',
+      sendMessage: 'Bericht Verzenden',
+      messageSent: 'Bericht verzonden! Wij nemen binnen 24 uur contact met u op.',
+    },
+    aboutPage: {
+      aboutUs: 'Over Ons',
+      ourValues: 'ONZE WAARDEN',
+      valuesDesc: 'Deze kernwaarden vormen de basis van alles wat wij doen.',
+      ourHistory: 'ONZE GESCHIEDENIS',
+      certifications: 'CERTIFICERINGEN & ERKENNINGEN',
+      certificationsDesc:
+        'Wij voldoen aan de hoogste eisen op het gebied van veiligheid, kwaliteit en milieu.',
+      storyTitle: 'ONS VERHAAL',
+      story1:
+        'TitanBrekers werd in 1999 opgericht door twee ervaren slopers met een duidelijke missie: professioneel sloopwerk leveren met oog voor veiligheid, kwaliteit en milieu.',
+      story2:
+        'Wat begon als een klein familiebedrijf is uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Met meer dan 50 medewerkers, een modern machinepark en alle benodigde certificeringen pakken wij elk project aan - groot of klein.',
+      story3:
+        'Onze kracht zit in ons team. Ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat. Samen met onze opdrachtgevers vinden wij oplossingen voor de meest complexe sloopprojecten.',
+      safety: 'Veiligheid',
+      safetyDesc:
+        'Veiligheid staat altijd voorop. Wij werken volgens VCA** en hanteren de hoogste veiligheidsnormen op al onze projecten.',
+      quality: 'Kwaliteit',
+      qualityDesc:
+        'Wij leveren kwaliteitswerk, op tijd en binnen budget. Onze klanten kunnen rekenen op professionele uitvoering.',
+      sustainability: 'Duurzaamheid',
+      sustainabilityDesc:
+        'Met 98% recycling van sloopafval dragen wij bij aan een circulaire economie en een schonere toekomst.',
+      craftsmanship: 'Vakmanschap',
+      craftsmanshipDesc:
+        'Ons team bestaat uit ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat.',
+      foundation: 'Oprichting',
+      foundationDesc: 'TitanBrekers wordt opgericht in Rotterdam',
+      vca: 'VCA Certificering',
+      vcaDesc: 'Behalen van VCA** certificering',
+      sc530: 'SC-530 Erkenning',
+      sc530Desc: 'Erkenning voor asbestverwijdering',
+      national: 'Landelijke Dekking',
+      nationalDesc: 'Uitbreiding naar heel Nederland',
+      employees50: '50 Medewerkers',
+      employees50Desc: 'Groei naar 50+ vakmensen',
+      projects500: '500+ Projecten',
+      projects500Desc: 'Mijlpaal van 500 succesvolle projecten',
+      vcaCert: 'VCA** Gecertificeerd',
+      sc530Cert: 'SC-530 Asbestverwijdering',
+      iso9001: 'ISO 9001 Kwaliteitsmanagement',
+      iso14001: 'ISO 14001 Milieumanagement',
+      training: 'Erkend Leerbedrijf',
+      association: 'Lid Vereniging Sloopbedrijven',
+    },
   },
   en: {
     nav: {
@@ -175,8 +291,19 @@ const allTranslations = {
       viewAllServices: 'View All Services',
       viewAllProjects: 'View All Projects',
       sendMessage: 'Send Message',
+      readyToStart: 'READY TO START?',
+      contactToday:
+        'Contact us today for a free quote. We respond to your request within 24 hours.',
+      requestQuote: 'Request Quote',
+      callDirect: 'Call Direct: 06-12345678',
     },
     hero: {
+      title: 'POWER IN',
+      subtitle: 'DEMOLITION',
+      description:
+        'TitanBreakers is your reliable partner for professional demolition work. With more than 25 years of experience, we make room for your future.',
+      certifiedBadge: 'Certified & Insured',
+      backgroundAlt: 'Demolition equipment and machinery',
       stats: {
         years: 'Years Experience',
         projects: 'Projects',
@@ -207,12 +334,17 @@ const allTranslations = {
       navigation: 'Navigation',
       privacy: 'Privacy Policy',
       terms: 'Terms & Conditions',
-      copyright: '© 2024 TitanBreakers. All rights reserved.',
+      copyrightSuffix: 'All rights reserved.',
+      hours: {
+        weekday: 'Mon-Fri: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Professional demolition work with power and precision. Your partner in demolition and dismantling for over 25 years.',
+      logoFirst: 'titan',
+      logoSecond: 'breakers',
     },
     form: {
       name: 'Name',
@@ -239,6 +371,8 @@ const allTranslations = {
     },
     services: {
       title: 'Our Specialties',
+      sectionTitle: 'PROFESSIONAL DEMOLITION',
+      moreInfo: 'More Info',
       description:
         'From kitchen stripping to complete property clearing - we carry out all demolition work manually with hammer and chisel. Perfect for renovations where machinery cannot access.',
       manual: 'Manual Demolition',
@@ -260,8 +394,18 @@ const allTranslations = {
     },
     about: {
       title: 'Who We Are',
+      titleShort: 'About TitanBreakers',
       description:
         'For more than 25 years, TitanBreakers has been the specialist in manual demolition work for homes and commercial properties. With hammer and chisel, passion and craftsmanship, we make room for your renovation.',
+      certifications: 'VCA** certified and fully insured',
+      equipment: 'Modern equipment and experienced professionals',
+      recycling: '98% recycling of all demolition waste',
+      coverage: 'National coverage with local service',
+      yearsActive: 'Years Active',
+      projects: 'Projects',
+      employees: 'Employees',
+      recyclingStat: 'Recycling',
+      moreAbout: 'More About Us',
       story: {
         title: 'Our Story',
         paragraphs: [
@@ -294,6 +438,94 @@ const allTranslations = {
       latestNews: 'Latest News',
       readMore: 'Read More',
     },
+    projects: {
+      sectionTitle: 'RECENT WORK',
+      description:
+        'Discover our most recent demolition and dismantling projects throughout the Netherlands.',
+      completed: 'Completed',
+      viewAllProjects: 'All Projects',
+      title: 'OUR PROJECTS',
+      all: 'All',
+      industrial: 'Industrial Demolition',
+      renovation: 'Renovation',
+      asbestos: 'Asbestos Removal',
+      environmental: 'Environmental Remediation',
+      image: 'Project image',
+    },
+    servicesPage: {
+      heroTitle: 'WHAT WE DO',
+      heroDescription:
+        'From small strip-outs to complete building demolition - we have the expertise, equipment, and certifications for every demolition and dismantling project.',
+      ourServices: 'Our Services',
+      featured: 'Featured',
+    },
+    contactPage: {
+      title: 'GET IN TOUCH',
+      description:
+        'Do you have a demolition or dismantling project? Feel free to contact us for a quote or advice. We respond within 24 hours.',
+      contactDetails: 'CONTACT DETAILS',
+      address: 'Address',
+      phone: 'Phone',
+      email: 'Email',
+      openingHours: 'Opening Hours',
+      hoursValue: 'Monday - Friday: 07:00 - 18:00',
+      certifications: 'CERTIFICATIONS',
+      formTitle: 'SEND A MESSAGE',
+      namePlaceholder: 'Your name',
+      emailPlaceholder: 'your@email.com',
+      phoneLabel: 'Phone Number',
+      subjectLabel: 'Subject',
+      subjectSelect: 'Select subject',
+      messagePlaceholder: 'Describe your project or question...',
+      sending: 'Sending...',
+      sendMessage: 'Send Message',
+      messageSent: 'Message sent! We will contact you within 24 hours.',
+    },
+    aboutPage: {
+      aboutUs: 'About Us',
+      ourValues: 'OUR VALUES',
+      valuesDesc: 'These core values form the foundation of everything we do.',
+      ourHistory: 'OUR HISTORY',
+      certifications: 'CERTIFICATIONS & RECOGNITIONS',
+      certificationsDesc: 'We meet the highest standards in safety, quality, and environment.',
+      storyTitle: 'OUR STORY',
+      story1:
+        'TitanBreakers was founded in 1999 by two experienced demolition workers with a clear mission: to deliver professional demolition work with attention to safety, quality, and environment.',
+      story2:
+        'What started as a small family business has grown into one of the most respected demolition companies in the Netherlands. With more than 50 employees, a modern fleet of equipment, and all necessary certifications, we tackle every project - big or small.',
+      story3:
+        'Our strength lies in our team. Experienced professionals who are proud of their work and always strive for the best results. Together with our clients, we find solutions for the most complex demolition projects.',
+      safety: 'Safety',
+      safetyDesc:
+        'Safety always comes first. We work according to VCA** and maintain the highest safety standards on all our projects.',
+      quality: 'Quality',
+      qualityDesc:
+        'We deliver quality work, on time and within budget. Our clients can count on professional execution.',
+      sustainability: 'Sustainability',
+      sustainabilityDesc:
+        'With 98% recycling of demolition waste, we contribute to a circular economy and a cleaner future.',
+      craftsmanship: 'Craftsmanship',
+      craftsmanshipDesc:
+        'Our team consists of experienced professionals who are proud of their work and always strive for the best results.',
+      foundation: 'Foundation',
+      foundationDesc: 'TitanBreakers is founded in Rotterdam',
+      vca: 'VCA Certification',
+      vcaDesc: 'Achieving VCA** certification',
+      sc530: 'SC-530 Recognition',
+      sc530Desc: 'Recognition for asbestos removal',
+      national: 'National Coverage',
+      nationalDesc: 'Expansion throughout the Netherlands',
+      employees50: '50 Employees',
+      employees50Desc: 'Growth to 50+ professionals',
+      projects500: '500+ Projects',
+      projects500Desc: 'Milestone of 500 successful projects',
+      vcaCert: 'VCA** Certified',
+      sc530Cert: 'SC-530 Asbestos Removal',
+      iso9001: 'ISO 9001 Quality Management',
+      iso14001: 'ISO 14001 Environmental Management',
+      training: 'Recognized Training Company',
+      association: 'Member Demolition Association',
+    },
   },
   fr: {
     nav: {
@@ -318,8 +550,19 @@ const allTranslations = {
       viewAllServices: 'Voir Tous les Services',
       viewAllProjects: 'Voir Tous les Projets',
       sendMessage: 'Envoyer',
+      readyToStart: 'PRÊT À COMMENCER?',
+      contactToday:
+        "Contactez-nous aujourd'hui pour un devis gratuit. Nous répondons à votre demande dans les 24 heures.",
+      requestQuote: 'Demander un Devis',
+      callDirect: 'Appeler Directement: 06-12345678',
     },
     hero: {
+      title: 'PUISSANCE EN',
+      subtitle: 'DÉMOLITION',
+      description:
+        "TitanFracteurs est votre partenaire fiable pour les travaux de démolition professionnels. Avec plus de 25 ans d'expérience, nous faisons de la place pour votre avenir.",
+      certifiedBadge: 'Certifié & Assuré',
+      backgroundAlt: 'Équipement et machines de démolition',
       stats: { years: "Années d'Expérience", projects: 'Projets', homes: 'Maisons', safety: 'Sûr' },
       features: {
         fastResponse: 'Réponse Rapide',
@@ -345,12 +588,17 @@ const allTranslations = {
       navigation: 'Navigation',
       privacy: 'Politique de Confidentialité',
       terms: 'Conditions Générales',
-      copyright: '© 2024 TitanBreakers. Tous droits réservés.',
+      copyrightSuffix: 'Tous droits réservés.',
+      hours: {
+        weekday: 'Lun-Ven: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Démolition professionnelle avec puissance et précision. Votre partenaire depuis plus de 25 ans.',
+      logoFirst: 'titan',
+      logoSecond: 'fracteurs',
     },
     form: {
       name: 'Nom',
@@ -376,6 +624,8 @@ const allTranslations = {
     },
     services: {
       title: 'Nos Spécialités',
+      sectionTitle: 'DÉMOLITION PROFESSIONNELLE',
+      moreInfo: "Plus d'Info",
       description: 'Du stripping de cuisine au déblayage complet - nous faisons tout manuellement.',
       manual: 'Démolition Manuelle',
       manualDesc: 'Travaux de démolition qualifiés avec marteau et outils.',
@@ -392,7 +642,17 @@ const allTranslations = {
     },
     about: {
       title: 'Qui Sommes-Nous',
+      titleShort: 'À Propos de TitanFracteurs',
       description: "Plus de 25 ans d'expertise en démolition manuelle.",
+      certifications: 'Certifié VCA** et entièrement assuré',
+      equipment: 'Équipement moderne et professionnels expérimentés',
+      recycling: '98% de recyclage des déchets de démolition',
+      coverage: 'Couverture nationale avec service local',
+      yearsActive: "Années d'Activité",
+      projects: 'Projets',
+      employees: 'Employés',
+      recyclingStat: 'Recyclage',
+      moreAbout: 'En Savoir Plus',
       story: {
         title: 'Notre Histoire',
         paragraphs: [
@@ -418,6 +678,13 @@ const allTranslations = {
       },
     },
     blog: { title: 'Actualités', latestNews: 'Dernières Nouvelles', readMore: 'Lire Plus' },
+    projects: {
+      sectionTitle: 'TRAVAUX RÉCENTS',
+      description:
+        'Découvrez nos projets de démolition et de démontage les plus récents dans tout les Pays-Bas.',
+      completed: 'Terminé',
+      viewAllProjects: 'Tous les Projets',
+    },
   },
   de: {
     nav: {
@@ -442,8 +709,19 @@ const allTranslations = {
       viewAllServices: 'Alle Leistungen',
       viewAllProjects: 'Alle Projekte',
       sendMessage: 'Nachricht Senden',
+      readyToStart: 'BEREIT ZUM STARTEN?',
+      contactToday:
+        'Kontaktieren Sie uns heute für ein kostenloses Angebot. Wir antworten innerhalb von 24 Stunden.',
+      requestQuote: 'Angebot Anfordern',
+      callDirect: 'Direkt Anrufen: 06-12345678',
     },
     hero: {
+      title: 'KRAFT IN',
+      subtitle: 'ABBRUCH',
+      description:
+        'TitanBrecher ist Ihr zuverlässiger Partner für professionelle Abbrucharbeiten. Mit mehr als 25 Jahren Erfahrung schaffen wir Raum für Ihre Zukunft.',
+      certifiedBadge: 'Zertifiziert & Versichert',
+      backgroundAlt: 'Abbruchausrüstung und Maschinen',
       stats: { years: 'Jahre Erfahrung', projects: 'Projekte', homes: 'Häuser', safety: 'Sicher' },
       features: {
         fastResponse: 'Schnelle Antwort',
@@ -469,12 +747,17 @@ const allTranslations = {
       navigation: 'Navigation',
       privacy: 'Datenschutz',
       terms: 'AGB',
-      copyright: '© 2024 TitanBreakers. Alle Rechte vorbehalten.',
+      copyrightSuffix: 'Alle Rechte vorbehalten.',
+      hours: {
+        weekday: 'Mo-Fr: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Professionelle Abbrucharbeit mit Kraft und Präzision. Ihr Partner seit über 25 Jahren.',
+      logoFirst: 'titan',
+      logoSecond: 'brecher',
     },
     form: {
       name: 'Name',
@@ -500,6 +783,8 @@ const allTranslations = {
     },
     services: {
       title: 'Unsere Spezialitäten',
+      sectionTitle: 'PROFESSIONELLER ABBRUCH',
+      moreInfo: 'Mehr Info',
       description: 'Von Küchenstripping bis zur kompletten Räumung - alles manuell.',
       manual: 'Manueller Abbruch',
       manualDesc: 'Qualifizierte Abbrucharbeiten mit Hammer und Werkzeug.',
@@ -516,7 +801,17 @@ const allTranslations = {
     },
     about: {
       title: 'Wer Wir Sind',
+      titleShort: 'Über TitanBrecher',
       description: 'Über 25 Jahre Erfahrung im manuellen Abbruch.',
+      certifications: 'VCA** zertifiziert und voll versichert',
+      equipment: 'Moderne Ausrüstung und erfahrene Fachleute',
+      recycling: '98% Recycling aller Abbruchabfälle',
+      coverage: 'Nationale Abdeckung mit lokalem Service',
+      yearsActive: 'Aktive Jahre',
+      projects: 'Projekte',
+      employees: 'Mitarbeiter',
+      recyclingStat: 'Recycling',
+      moreAbout: 'Mehr Erfahren',
       story: {
         title: 'Unsere Geschichte',
         paragraphs: ['Gegründet 1998 in Rotterdam.', 'Ein Team erfahrener Experten.'],
@@ -539,6 +834,13 @@ const allTranslations = {
       },
     },
     blog: { title: 'Neuigkeiten', latestNews: 'Aktuelles', readMore: 'Mehr Lesen' },
+    projects: {
+      sectionTitle: 'NEUESTE ARBEITEN',
+      description:
+        'Entdecken Sie unsere neuesten Abbruch- und Demontageprojekte in ganz den Niederlanden.',
+      completed: 'Abgeschlossen',
+      viewAllProjects: 'Alle Projekte',
+    },
   },
   it: {
     nav: {
@@ -563,8 +865,19 @@ const allTranslations = {
       viewAllServices: 'Tutti i Servizi',
       viewAllProjects: 'Tutti i Progetti',
       sendMessage: 'Invia Messaggio',
+      readyToStart: 'PRONTO PER INIZIARE?',
+      contactToday:
+        'Contattaci oggi per un preventivo gratuito. Rispondiamo alla tua richiesta entro 24 ore.',
+      requestQuote: 'Richiedi Preventivo',
+      callDirect: 'Chiama Direttamente: 06-12345678',
     },
     hero: {
+      title: 'POTENZA NELLA',
+      subtitle: 'DEMOLIZIONE',
+      description:
+        'TitanDemolitores è il vostro partner affidabile per i lavori di demolizione professionale. Con più di 25 anni di esperienza, creiamo spazio per il vostro futuro.',
+      certifiedBadge: 'Certificato & Assicurato',
+      backgroundAlt: 'Attrezzature e macchinari per la demolizione',
       stats: { years: 'Anni di Esperienza', projects: 'Progetti', homes: 'Case', safety: 'Sicuro' },
       features: {
         fastResponse: 'Risposta Veloce',
@@ -588,14 +901,19 @@ const allTranslations = {
       services: 'Servizi',
       contact: 'Contatti',
       navigation: 'Navigazione',
-      privacy: 'Privacy',
-      terms: 'Condizioni',
-      copyright: '© 2024 TitanBreakers. Tutti i diritti riservati.',
+      privacy: 'Informativa sulla Privacy',
+      terms: 'Condizioni Generali',
+      copyrightSuffix: 'Tutti i diritti riservati.',
+      hours: {
+        weekday: 'Lun-Ven: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Lavori di demolizione professionali con potenza e precisione. Il vostro partner da oltre 25 anni.',
+      logoFirst: 'titan',
+      logoSecond: 'demolitores',
     },
     form: {
       name: 'Nome',
@@ -621,6 +939,8 @@ const allTranslations = {
     },
     services: {
       title: 'Le Nostre Specialità',
+      sectionTitle: 'DEMOLIZIONE PROFESSIONALE',
+      moreInfo: 'Maggiori Info',
       description: 'Dallo stripping di cucine alla rimozione completa - tutto manualmente.',
       manual: 'Demolizione Manuale',
       manualDesc: 'Lavori di demolizione qualificati con martello e attrezzi.',
@@ -660,6 +980,13 @@ const allTranslations = {
       },
     },
     blog: { title: 'News', latestNews: 'Ultime Notizie', readMore: 'Leggi Altro' },
+    projects: {
+      sectionTitle: 'LAVORI RECENTI',
+      description:
+        'Scopri i nostri progetti di demolizione e smantellamento più recenti in tutti i Paesi Bassi.',
+      completed: 'Completato',
+      viewAllProjects: 'Tutti i Progetti',
+    },
   },
   es: {
     nav: {
@@ -684,8 +1011,19 @@ const allTranslations = {
       viewAllServices: 'Todos los Servicios',
       viewAllProjects: 'Todos los Proyectos',
       sendMessage: 'Enviar Mensaje',
+      readyToStart: '¿LISTO PARA COMENZAR?',
+      contactToday:
+        'Contáctenos hoy para un presupuesto gratuito. Respondemos a su solicitud en 24 horas.',
+      requestQuote: 'Solicitar Presupuesto',
+      callDirect: 'Llamar Directamente: 06-12345678',
     },
     hero: {
+      title: 'PODER EN',
+      subtitle: 'DEMOLICIÓN',
+      description:
+        'TitanDemoledores es su socio fiable para trabajos de demolición profesionales. Con más de 25 años de experiencia, hacemos espacio para su futuro.',
+      certifiedBadge: 'Certificado & Asegurado',
+      backgroundAlt: 'Equipos y maquinaria de demolición',
       stats: {
         years: 'Años de Experiencia',
         projects: 'Proyectos',
@@ -716,12 +1054,17 @@ const allTranslations = {
       navigation: 'Navegación',
       privacy: 'Privacidad',
       terms: 'Términos',
-      copyright: '© 2024 TitanBreakers. Todos los derechos reservados.',
+      copyrightSuffix: 'Todos los derechos reservados.',
+      hours: {
+        weekday: 'Lun-Vie: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Trabajos de demolición profesionales con potencia y precisión. Su socio desde hace más de 25 años.',
+      logoFirst: 'titan',
+      logoSecond: 'demoledores',
     },
     form: {
       name: 'Nombre',
@@ -747,6 +1090,8 @@ const allTranslations = {
     },
     services: {
       title: 'Nuestras Especialidades',
+      sectionTitle: 'DEMOLICIÓN PROFESIONAL',
+      moreInfo: 'Más Info',
       description: 'Desde stripping de cocinas hasta despeje completo - todo manualmente.',
       manual: 'Demolición Manual',
       manualDesc: 'Trabajos de demolición cualificados con martillo y herramientas.',
@@ -786,6 +1131,13 @@ const allTranslations = {
       },
     },
     blog: { title: 'Noticias', latestNews: 'Últimas Noticias', readMore: 'Leer Más' },
+    projects: {
+      sectionTitle: 'TRABAJOS RECIENTES',
+      description:
+        'Descubra nuestros proyectos de demolición y desmantelamiento más recientes en todos los Países Bajos.',
+      completed: 'Completado',
+      viewAllProjects: 'Todos los Proyectos',
+    },
   },
   sv: {
     nav: {
@@ -810,8 +1162,19 @@ const allTranslations = {
       viewAllServices: 'Alla Tjänster',
       viewAllProjects: 'Alla Projekt',
       sendMessage: 'Skicka Meddelande',
+      readyToStart: 'REDO ATT STARTA?',
+      contactToday:
+        'Kontakta oss idag för en gratis offert. Vi svarar på din förfrågan inom 24 timmar.',
+      requestQuote: 'Begär Offert',
+      callDirect: 'Ring Direkt: 06-12345678',
     },
     hero: {
+      title: 'KRAFT I',
+      subtitle: 'RIVNING',
+      description:
+        'TitanBrytare är din pålitliga partner för professionella rivningsarbeten. Med mer än 25 års erfarenhet skapar vi plats för din framtid.',
+      certifiedBadge: 'Certifierad & Försäkrad',
+      backgroundAlt: 'Rivningsutrustning och maskiner',
       stats: { years: 'Års Erfarenhet', projects: 'Projekt', homes: 'Hus', safety: 'Säker' },
       features: {
         fastResponse: 'Snabb Respons',
@@ -837,11 +1200,16 @@ const allTranslations = {
       navigation: 'Navigation',
       privacy: 'Integritet',
       terms: 'Villkor',
-      copyright: '© 2024 TitanBreakers. Alla rättigheter reserverade.',
+      copyrightSuffix: 'Alla rättigheter reserverade.',
+      hours: {
+        weekday: 'Mån-Fre: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'Professionella rivningsarbeten med kraft och precision. Er partner i över 25 år.',
+      logoFirst: 'titan',
+      logoSecond: 'brytare',
     },
     form: {
       name: 'Namn',
@@ -867,6 +1235,8 @@ const allTranslations = {
     },
     services: {
       title: 'Våra Specialiteter',
+      sectionTitle: 'PROFESSIONELL RIVNING',
+      moreInfo: 'Mer Info',
       description: 'Från köksstripping till fullständig rensning - allt manuellt.',
       manual: 'Manuell Rivning',
       manualDesc: 'Kvalificerade rivningsarbeten med hammare och verktyg.',
@@ -906,6 +1276,12 @@ const allTranslations = {
       },
     },
     blog: { title: 'Nyheter', latestNews: 'Senaste Nytt', readMore: 'Läs Mer' },
+    projects: {
+      sectionTitle: 'SENASTE ARBETEN',
+      description: 'Upptäck våra senaste rivnings- och demonteringsprojekt i hela Nederländerna.',
+      completed: 'Avslutat',
+      viewAllProjects: 'Alla Projekt',
+    },
   },
   fi: {
     nav: {
@@ -930,8 +1306,19 @@ const allTranslations = {
       viewAllServices: 'Kaikki Palvelut',
       viewAllProjects: 'Kaikki Projektit',
       sendMessage: 'Lähetä Viesti',
+      readyToStart: 'VALMIS ALOITTAMAAN?',
+      contactToday:
+        'Ota yhteyttä tänään ilmaiseen tarjoukseen. Vastaamme pyyntöösi 24 tunnin kuluessa.',
+      requestQuote: 'Pyydä Tarjous',
+      callDirect: 'Soita Suoraan: 06-12345678',
     },
     hero: {
+      title: 'VOIMAA',
+      subtitle: 'PURKUTYÖSSÄ',
+      description:
+        'TitaaniMurtajat on luotettava kumppanisi ammattimaisiin purkutöihin. Yli 25 vuoden kokemuksella luomme tilaa tulevaisuudellesi.',
+      certifiedBadge: 'Sertifioitu & Vakuutettu',
+      backgroundAlt: 'Purkulaitteet ja koneet',
       stats: {
         years: 'Vuoden Kokemus',
         projects: 'Projektit',
@@ -962,11 +1349,16 @@ const allTranslations = {
       navigation: 'Navigaatio',
       privacy: 'Tietosuoja',
       terms: 'Ehdot',
-      copyright: '© 2024 TitanBreakers. Kaikki oikeudet pidätetään.',
+      copyrightSuffix: 'Kaikki oikeudet pidätetään.',
+      hours: {
+        weekday: 'Ma-Pe: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'Ammattimaiset purkutyöt voimalla ja tarkkuudella. Kumppanisi yli 25 vuoden ajan.',
+      logoFirst: 'titaani',
+      logoSecond: 'murtajat',
     },
     form: {
       name: 'Nimi',
@@ -992,6 +1384,8 @@ const allTranslations = {
     },
     services: {
       title: 'Erikoisalat',
+      sectionTitle: 'AMMATTILAINEN PURKU',
+      moreInfo: 'Lisää Tietoa',
       description: 'Keittiön purkamisesta täydelliseen tyhjennykseen - kaikki käsin.',
       manual: 'Käsityöpurkaminen',
       manualDesc: 'Pätevät purkutyöt vasaralla ja työkaluilla.',
@@ -1031,6 +1425,12 @@ const allTranslations = {
       },
     },
     blog: { title: 'Uutiset', latestNews: 'Uusimmat Uutiset', readMore: 'Lue Lisää' },
+    projects: {
+      sectionTitle: 'VIIMEAIKAISET TYÖT',
+      description: 'Tutustu uusimpiin purku- ja purkuprojekteihimme koko Alankomaissa.',
+      completed: 'Valmistunut',
+      viewAllProjects: 'Kaikki Projektit',
+    },
   },
   pl: {
     nav: {
@@ -1055,8 +1455,19 @@ const allTranslations = {
       viewAllServices: 'Wszystkie Usługi',
       viewAllProjects: 'Wszystkie Projekty',
       sendMessage: 'Wyślij Wiadomość',
+      readyToStart: 'GOTOWY DO ROZPOCZĘCIA?',
+      contactToday:
+        'Skontaktuj się z nami już dziś, aby otrzymać bezpłatną wycenę. Odpowiadamy na Twoje zapytanie w ciągu 24 godzin.',
+      requestQuote: 'Poproś o Wycenę',
+      callDirect: 'Zadzwoń Bezpośrednio: 06-12345678',
     },
     hero: {
+      title: 'MOC W',
+      subtitle: 'ROZBIÓRCE',
+      description:
+        'TitanBurzyciele to Twój niezawodny partner w profesjonalnych pracach rozbiórkowych. Z ponad 25-letnim doświadczeniem tworzymy przestrzeń dla Twojej przyszłości.',
+      certifiedBadge: 'Certyfikowany & Ubezpieczony',
+      backgroundAlt: 'Sprzęt i maszyny do rozbiórki',
       stats: {
         years: 'Lat Doświadczenia',
         projects: 'Projekty',
@@ -1087,11 +1498,16 @@ const allTranslations = {
       navigation: 'Nawigacja',
       privacy: 'Polityka Prywatności',
       terms: 'Regulamin',
-      copyright: '© 2024 TitanBreakers. Wszelkie prawa zastrzeżone.',
+      copyrightSuffix: 'Wszelkie prawa zastrzeżone.',
+      hours: {
+        weekday: 'Pon-Pt: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'Profesjonalne prace rozbiórkowe z mocą i precyzją. Twój partner od ponad 25 lat.',
+      logoFirst: 'titan',
+      logoSecond: 'burzyciele',
     },
     form: {
       name: 'Imię',
@@ -1117,6 +1533,8 @@ const allTranslations = {
     },
     services: {
       title: 'Nasze Specjalności',
+      sectionTitle: 'PROFESJONALNA ROZBÓRKA',
+      moreInfo: 'Więcej Info',
       description: 'Od rozbiórki kuchni do pełnego oczyszczenia - wszystko ręcznie.',
       manual: 'Rozbiórka Ręczna',
       manualDesc: 'Wykwaliﬁkowane prace rozbiórkowe z młotkiem i narzędziami.',
@@ -1156,6 +1574,12 @@ const allTranslations = {
       },
     },
     blog: { title: 'Aktualności', latestNews: 'Najnowsze Wiadomości', readMore: 'Czytaj Więcej' },
+    projects: {
+      sectionTitle: 'NAJNOWSZE PRACE',
+      description: 'Odkryj nasze najnowsze projekty rozbiórkowe i demontażowe w całej Holandii.',
+      completed: 'Zakończony',
+      viewAllProjects: 'Wszystkie Projekty',
+    },
   },
   ar: {
     nav: {
@@ -1180,8 +1604,18 @@ const allTranslations = {
       viewAllServices: 'كل الخدمات',
       viewAllProjects: 'كل المشاريع',
       sendMessage: 'إرسال رسالة',
+      readyToStart: 'مستعد للبدء؟',
+      contactToday: 'اتصل بنا اليوم للحصول على عرض أسعار مجاني. نرد على طلبك خلال 24 ساعة.',
+      requestQuote: 'طلب عرض سعر',
+      callDirect: 'اتصل مباشرة: 06-12345678',
     },
     hero: {
+      title: 'القوة في',
+      subtitle: 'الهدم',
+      description:
+        'تيتان بريكرز هو شريكك الموثوق للأعمال الهدمية الاحترافية. مع أكثر من 25 عامًا من الخبرة، نخلق مساحة لمستقبلك.',
+      certifiedBadge: 'معتمد & مؤمن',
+      backgroundAlt: 'معدات وآلات الهدم',
       stats: { years: 'سنوات الخبرة', projects: 'المشاريع', homes: 'المنازل', safety: 'آمن' },
       features: {
         fastResponse: 'استجابة سريعة',
@@ -1207,11 +1641,16 @@ const allTranslations = {
       navigation: 'التنقل',
       privacy: 'الخصوصية',
       terms: 'الشروط',
-      copyright: '© 2024 TitanBreakers. جميع الحقوق محفوظة.',
+      copyrightSuffix: 'جميع الحقوق محفوظة.',
+      hours: {
+        weekday: 'الإثنين-الجمعة: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'أعمال الهدم المهنية بالقوة والدقة. شريكك منذ أكثر من 25 عامًا.',
+      logoFirst: 'عمال',
+      logoSecond: 'الهدم',
     },
     form: {
       name: 'الاسم',
@@ -1237,6 +1676,8 @@ const allTranslations = {
     },
     services: {
       title: 'تخصصتنا',
+      sectionTitle: 'هدم احترافي',
+      moreInfo: 'مزيد من المعلومات',
       description: 'من stripping المطابخ إلى التنظيف الكامل - كل شيء يدويًا.',
       manual: 'الهدم اليدوي',
       manualDesc: 'أعمال هدم ماهرة بالمطرقة والأدوات.',
@@ -1276,6 +1717,12 @@ const allTranslations = {
       },
     },
     blog: { title: 'الأخبار', latestNews: 'أحدث الأخبار', readMore: 'اقرأ المزيد' },
+    projects: {
+      sectionTitle: 'أعمال حديثة',
+      description: 'اكتشف أحدث مشاريع الهدم والتفكيك لدينا في جميع أنحاء هولندا.',
+      completed: 'مكتمل',
+      viewAllProjects: 'جميع المشاريع',
+    },
   },
   zh: {
     nav: {
@@ -1300,8 +1747,18 @@ const allTranslations = {
       viewAllServices: '所有服务',
       viewAllProjects: '所有项目',
       sendMessage: '发送消息',
+      readyToStart: '准备好开始了吗？',
+      contactToday: '今天联系我们获取免费报价。我们在24小时内回复您的请求。',
+      requestQuote: '请求报价',
+      callDirect: '直接致电：06-12345678',
     },
     hero: {
+      title: '力量在',
+      subtitle: '拆除中',
+      description:
+        '泰坦拆除是您专业拆除工作的可靠合作伙伴。凭借25年以上的经验，我们为您的未来创造空间。',
+      certifiedBadge: '认证 & 保险',
+      backgroundAlt: '拆除设备和机械',
       stats: { years: '年经验', projects: '项目', homes: '房屋', safety: '安全' },
       features: {
         fastResponse: '快速响应',
@@ -1327,9 +1784,17 @@ const allTranslations = {
       navigation: '导航',
       privacy: '隐私政策',
       terms: '条款',
-      copyright: '© 2024 TitanBreakers. 保留所有权利。',
+      copyrightSuffix: '保留所有权利。',
+      hours: {
+        weekday: '周一至周五: 07:00 - 18:00',
+      },
     },
-    company: { name: 'TitanBreakers', tagline: '专业拆迁工作，力量与精准。您的合作伙伴超过25年。' },
+    company: {
+      name: 'TitanBreakers',
+      tagline: '专业拆迁工作，力量与精准。您的合作伙伴超过25年。',
+      logoFirst: '泰坦',
+      logoSecond: '拆除',
+    },
     form: {
       name: '姓名',
       email: '邮箱',
@@ -1349,6 +1814,8 @@ const allTranslations = {
     },
     services: {
       title: '我们的专业',
+      sectionTitle: '专业拆除',
+      moreInfo: '更多信息',
       description: '从厨房拆除到完全清理 - 全部手动完成。',
       manual: '人工拆除',
       manualDesc: '使用锤子和工具进行熟练的拆除工作。',
@@ -1380,6 +1847,12 @@ const allTranslations = {
       stats: { years: '年经验', homes: '房屋', craftsmen: '工匠', recycling: '回收' },
     },
     blog: { title: '新闻', latestNews: '最新新闻', readMore: '阅读更多' },
+    projects: {
+      sectionTitle: '近期作品',
+      description: '了解我们在整个荷兰的最新拆除和拆卸项目。',
+      completed: '已完成',
+      viewAllProjects: '所有项目',
+    },
   },
   ja: {
     nav: {
@@ -1404,8 +1877,18 @@ const allTranslations = {
       viewAllServices: 'すべてのサービス',
       viewAllProjects: 'すべてのプロジェクト',
       sendMessage: 'メッセージを送る',
+      readyToStart: '始める準備はできましたか？',
+      contactToday: '無料見積もりのために今日お問い合わせください。24時間以内にご返信いたします。',
+      requestQuote: '見積もりを依頼',
+      callDirect: '直通電話：06-12345678',
     },
     hero: {
+      title: '解体における',
+      subtitle: '力',
+      description:
+        'タイタンブレーカーズは、専門的な解体作業のための信頼できるパートナーです。25年以上の経験を持ち、あなたの未来のための空間を創出します。',
+      certifiedBadge: '認定 & 保険加入',
+      backgroundAlt: '解体機材と機械',
       stats: { years: '年の経験', projects: 'プロジェクト', homes: '家', safety: '安全' },
       features: {
         fastResponse: '迅速な対応',
@@ -1431,11 +1914,16 @@ const allTranslations = {
       navigation: 'ナビゲーション',
       privacy: 'プライバシーポリシー',
       terms: '利用規約',
-      copyright: '© 2024 TitanBreakers. All rights reserved.',
+      copyrightSuffix: 'All rights reserved.',
+      hours: {
+        weekday: '月-金: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'プロフェッショナルな解体工事、力と精度。25年以上のパートナー。',
+      logoFirst: 'タイタン',
+      logoSecond: 'ブレーカーズ',
     },
     form: {
       name: '名前',
@@ -1461,6 +1949,8 @@ const allTranslations = {
     },
     services: {
       title: '専門分野',
+      sectionTitle: 'プロの解体',
+      moreInfo: '詳細情報',
       description: 'キッチンストッピングから完全なクリーニングまで - すべて手作業。',
       manual: '手動解体',
       manualDesc: 'ハンマーと工具による熟練の解体工事。',
@@ -1495,6 +1985,12 @@ const allTranslations = {
       stats: { years: '年の経験', homes: '家', craftsmen: '職人', recycling: 'リサイクル' },
     },
     blog: { title: 'ニュース', latestNews: '最新ニュース', readMore: 'もっと読む' },
+    projects: {
+      sectionTitle: '最近の仕事',
+      description: 'オランダ全体での最新の解体・撤去プロジェクトをご覧ください。',
+      completed: '完了',
+      viewAllProjects: 'すべてのプロジェクト',
+    },
   },
   pt: {
     nav: {
@@ -1519,8 +2015,19 @@ const allTranslations = {
       viewAllServices: 'Todos os Serviços',
       viewAllProjects: 'Todos os Projetos',
       sendMessage: 'Enviar Mensagem',
+      readyToStart: 'PRONTO PARA COMEÇAR?',
+      contactToday:
+        'Entre em contato conosco hoje para um orçamento gratuito. Respondemos ao seu pedido em 24 horas.',
+      requestQuote: 'Solicitar Orçamento',
+      callDirect: 'Ligar Diretamente: 06-12345678',
     },
     hero: {
+      title: 'PODER NA',
+      subtitle: 'DEMOLIÇÃO',
+      description:
+        'TitanDemolidores é o seu parceiro confiável para trabalhos de demolição profissionais. Com mais de 25 anos de experiência, criamos espaço para o seu futuro.',
+      certifiedBadge: 'Certificado & Seguro',
+      backgroundAlt: 'Equipamentos e máquinas de demolição',
       stats: {
         years: 'Anos de Experiência',
         projects: 'Projetos',
@@ -1551,12 +2058,17 @@ const allTranslations = {
       navigation: 'Navegação',
       privacy: 'Privacidade',
       terms: 'Termos',
-      copyright: '© 2024 TitanBreakers. Todos os direitos reservados.',
+      copyrightSuffix: 'Todos os direitos reservados.',
+      hours: {
+        weekday: 'Seg-Sex: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Trabalhos de demolição profissionais com poder e precisão. Seu parceiro há mais de 25 anos.',
+      logoFirst: 'titan',
+      logoSecond: 'demolidores',
     },
     form: {
       name: 'Nome',
@@ -1582,6 +2094,8 @@ const allTranslations = {
     },
     services: {
       title: 'Nossas Especialidades',
+      sectionTitle: 'DEMOLIÇÃO PROFISSIONAL',
+      moreInfo: 'Mais Info',
       description: 'From kitchen stripping to complete clearing - tudo manualmente.',
       manual: 'Demolição Manual',
       manualDesc: 'Trabalhos de demolição qualificados com martelo e ferramentas.',
@@ -1621,6 +2135,13 @@ const allTranslations = {
       },
     },
     blog: { title: 'Notícias', latestNews: 'Últimas Notícias', readMore: 'Ler Mais' },
+    projects: {
+      sectionTitle: 'TRABALHOS RECENTES',
+      description:
+        'Descubra nossos projetos mais recentes de demolição e desmontagem em toda a Holanda.',
+      completed: 'Concluído',
+      viewAllProjects: 'Todos os Projetos',
+    },
   },
   tr: {
     nav: {
@@ -1645,8 +2166,19 @@ const allTranslations = {
       viewAllServices: 'Tüm Hizmetler',
       viewAllProjects: 'Tüm Projeler',
       sendMessage: 'Mesaj Gönder',
+      readyToStart: 'BAŞLAMAYA HAZIR MISINIZ?',
+      contactToday:
+        'Ücretsiz teklif için bugün bizimle iletişime geçin. Talebinize 24 saat içinde yanıt veriyoruz.',
+      requestQuote: 'Teklif İste',
+      callDirect: 'Direkt Ara: 06-12345678',
     },
     hero: {
+      title: 'YIKIMDA',
+      subtitle: 'GÜÇ',
+      description:
+        'TitanYıkıcılar, profesyonel yıkım işleri için güvenilir ortağınızdır. 25 yılı aşkın deneyimimizle geleceğiniz için alan yaratıyoruz.',
+      certifiedBadge: 'Sertifikalı & Sigortalı',
+      backgroundAlt: 'Yıkım ekipmanları ve makineleri',
       stats: { years: 'Yıl Deneyim', projects: 'Projeler', homes: 'Evler', safety: 'Güvenli' },
       features: {
         fastResponse: 'Hızlı Yanıt',
@@ -1672,11 +2204,16 @@ const allTranslations = {
       navigation: 'Navigasyon',
       privacy: 'Gizlilik',
       terms: 'Şartlar',
-      copyright: '© 2024 TitanBreakers. Tüm hakları saklıdır.',
+      copyrightSuffix: 'Tüm hakları saklıdır.',
+      hours: {
+        weekday: 'Pzt-Cum: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline: 'Güç ve hassasiyetle profesyonel yıkım işleri. 25 yılı aşkın süredir ortağınız.',
+      logoFirst: 'titan',
+      logoSecond: 'yıkıcılar',
     },
     form: {
       name: 'İsim',
@@ -1702,6 +2239,8 @@ const allTranslations = {
     },
     services: {
       title: 'Uzmanlıklarımız',
+      sectionTitle: 'PROFESYONEL YIKIM',
+      moreInfo: 'Daha Fazla Bilgi',
       description: 'Mutfak sökmeden tam temizliğe - her şey manuel.',
       manual: 'Manuel Yıkım',
       manualDesc: 'Çekiç ve aletlerle vasıflı yıkım işleri.',
@@ -1741,6 +2280,12 @@ const allTranslations = {
       },
     },
     blog: { title: 'Haberler', latestNews: 'Son Haberler', readMore: 'Devamını Oku' },
+    projects: {
+      sectionTitle: 'SON ÇALIŞMALAR',
+      description: 'Hollanda genelindeki en son yıkım ve söküm projelerimizi keşfedin.',
+      completed: 'Tamamlandı',
+      viewAllProjects: 'Tüm Projeler',
+    },
   },
   ru: {
     nav: {
@@ -1765,8 +2310,19 @@ const allTranslations = {
       viewAllServices: 'Все Услуги',
       viewAllProjects: 'Все Проекты',
       sendMessage: 'Отправить Сообщение',
+      readyToStart: 'ГОТОВЫ НАЧАТЬ?',
+      contactToday:
+        'Свяжитесь с нами сегодня для бесплатного расчета. Мы ответим на ваш запрос в течение 24 часов.',
+      requestQuote: 'Запросить Расчет',
+      callDirect: 'Позвонить Напрямую: 06-12345678',
     },
     hero: {
+      title: 'СИЛА В',
+      subtitle: 'ДЕМОНТАЖЕ',
+      description:
+        'ТитанРазрушители - ваш надежный партнер для профессиональных демонтажных работ. С опытом более 25 лет мы создаем пространство для вашего будущего.',
+      certifiedBadge: 'Сертифицировано & Застраховано',
+      backgroundAlt: 'Демонтажное оборудование и техника',
       stats: { years: 'Лет Опыта', projects: 'Проектов', homes: 'Домов', safety: 'Безопасно' },
       features: {
         fastResponse: 'Быстрый Ответ',
@@ -1792,12 +2348,17 @@ const allTranslations = {
       navigation: 'Навигация',
       privacy: 'Конфиденциальность',
       terms: 'Условия',
-      copyright: '© 2024 TitanBreakers. Все права защищены.',
+      copyrightSuffix: 'Все права защищены.',
+      hours: {
+        weekday: 'Пн-Пт: 07:00 - 18:00',
+      },
     },
     company: {
       name: 'TitanBreakers',
       tagline:
         'Профессиональные демонтажные работы с силой и точностью. Ваш партнёр уже более 25 лет.',
+      logoFirst: 'титан',
+      logoSecond: 'разрушители',
     },
     form: {
       name: 'Имя',
@@ -1823,6 +2384,8 @@ const allTranslations = {
     },
     services: {
       title: 'Наши Специализации',
+      sectionTitle: 'ПРОФЕССИОНАЛЬНЫЙ ДЕМОНТАЖ',
+      moreInfo: 'Подробнее',
       description: 'От демонтажа кухни до полной очистки - всё вручную.',
       manual: 'Ручной Демонтаж',
       manualDesc: 'Квалифицированные демонтажные работы с молотком и инструментами.',
@@ -1857,6 +2420,13 @@ const allTranslations = {
       stats: { years: 'Лет Опыта', homes: 'Домов', craftsmen: 'Мастера', recycling: 'Переработка' },
     },
     blog: { title: 'Новости', latestNews: 'Последние Новости', readMore: 'Читать Далее' },
+    projects: {
+      sectionTitle: 'НЕДАВНИЕ РАБОТЫ',
+      description:
+        'Откройте для себя наши самые последние проекты по сносу и демонтажу во всей Голландии.',
+      completed: 'Завершено',
+      viewAllProjects: 'Все Проекты',
+    },
   },
 }
 

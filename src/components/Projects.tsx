@@ -1,54 +1,89 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import type { Project } from '@/payload-types'
-import type { Locale } from '@/utilities/translations'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface ProjectsProps {
   projects?: Project[]
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
-  const [locale, setLocale] = useState<Locale>('nl')
-
-  useEffect(() => {
-    const storedLang = localStorage.getItem('locale') as Locale
-    if (storedLang && (storedLang === 'nl' || storedLang === 'en')) {
-      setLocale(storedLang)
-    }
-  }, [])
-
-  const isEnglish = locale === 'en'
+  const { t, locale } = useTranslation()
 
   const getCategoryLabel = (category: string) => {
-    if (isEnglish) {
-      switch (category) {
-        case 'demolition':
-          return 'Industrial Demolition'
-        case 'asbestos':
-          return 'Asbestos Removal'
-        case 'renovation':
-          return 'Building Demolition'
-        case 'environmental':
-          return 'Environmental Remediation'
-        default:
-          return 'Demolition Work'
-      }
+    const labels: Record<string, Record<string, string>> = {
+      demolition: {
+        nl: 'Industriële Sloop',
+        en: 'Industrial Demolition',
+        fr: 'Démolition Industrielle',
+        de: 'Industrieller Abriss',
+        it: 'Demolizione Industriale',
+        es: 'Demolición Industrial',
+        sv: 'Industriell Rivning',
+        fi: 'Teollinen Purku',
+        pl: 'Rozbiórka Przemysłowa',
+        ar: 'هدم صناعي',
+        zh: '工业拆除',
+        ja: '産業解体',
+        pt: 'Demolição Industrial',
+        tr: 'Endüstriyel Yıkım',
+        ru: 'Промышленный Демонтаж',
+      },
+      asbestos: {
+        nl: 'Asbestsanering',
+        en: 'Asbestos Removal',
+        fr: 'Désamiantage',
+        de: 'Asbestsanierung',
+        it: 'Rimozione Amianto',
+        es: 'Retiro de Amianto',
+        sv: 'Asbestsanering',
+        fi: 'Asbestin Poisto',
+        pl: 'Usuwanie Azbestu',
+        ar: 'إزالة الأسبستوس',
+        zh: '石棉清除',
+        ja: 'アスベスト除去',
+        pt: 'Remoção de Amianto',
+        tr: 'Asbet Temizleme',
+        ru: 'Удаление Асбеста',
+      },
+      renovation: {
+        nl: 'Gebouwen Sloop',
+        en: 'Building Demolition',
+        fr: 'Démolition de Bâtiments',
+        de: 'Gebäudeabbriss',
+        it: 'Demolizione Edile',
+        es: 'Demolición de Edificios',
+        sv: 'Byggnadsrivning',
+        fi: 'Rakennuspurku',
+        pl: 'Rozbiórka Budynków',
+        ar: 'هدم المباني',
+        zh: '建筑拆除',
+        ja: '建物解体',
+        pt: 'Demolição de Edifícios',
+        tr: 'Bina Yıkımı',
+        ru: 'Демонтаж Зданий',
+      },
+      environmental: {
+        nl: 'Milieusanering',
+        en: 'Environmental Remediation',
+        fr: 'Assainissement Environnemental',
+        de: 'Umweltsanierung',
+        it: 'Bonifica Ambientale',
+        es: 'Remediación Ambiental',
+        sv: 'Miljösanering',
+        fi: 'Ympäristön Puhdistus',
+        pl: 'Sanacja Środowiska',
+        ar: 'التصحيح البيئي',
+        zh: '环境修复',
+        ja: '環境修復',
+        pt: 'Remediação Ambiental',
+        tr: 'Çevre Temizliği',
+        ru: 'Экологическое Восстановление',
+      },
     }
-    switch (category) {
-      case 'demolition':
-        return 'Industriële Sloop'
-      case 'asbestos':
-        return 'Asbestsanering'
-      case 'renovation':
-        return 'Gebouwen Sloop'
-      case 'environmental':
-        return 'Milieusanering'
-      default:
-        return 'Sloopwerk'
-    }
+    return labels[category]?.[locale] || labels[category]?.['nl'] || 'Sloopwerk'
   }
 
   const getProjectImage = (project: any, index: number) => {
@@ -56,13 +91,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
     if (project.image && typeof project.image === 'object' && project.image.url) {
       return project.image.url
     }
-    const fallbackImages = ['/project-1.jpg', '/project-2.jpg', '/project-3.jpg']
+    const fallbackImages = ['/project-1.webp', '/project-2.webp', '/project-3.webp']
     return fallbackImages[index % fallbackImages.length]
   }
 
   const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return isEnglish ? 'Completed' : 'Voltooid'
-    return new Date(dateString).toLocaleDateString(isEnglish ? 'en-US' : 'nl-NL', {
+    if (!dateString) return t.projects?.completed || 'Voltooid'
+    return new Date(dateString).toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
     })
@@ -76,21 +111,33 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-2 mb-4 sm:px-4 sm:mb-6">
               <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-                {isEnglish ? 'Our Projects' : 'Onze Projecten'}
+                {t.sections?.ourProjects || 'Onze Projecten'}
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
-              {isEnglish ? 'RECENT ' : 'RECENT '}
-              <span className="text-gradient">{isEnglish ? 'WORK' : 'WERK'}</span>
+              {t.projects?.sectionTitle ? (
+                <>
+                  {t.projects.sectionTitle.split(' ').slice(0, -1).join(' ')}{' '}
+                  <span className="text-gradient">
+                    {t.projects.sectionTitle.split(' ').slice(-1)}
+                  </span>
+                </>
+              ) : (
+                <>
+                  RECENT <span className="text-gradient">WERK</span>
+                </>
+              )}
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg">
-              {isEnglish
-                ? 'Discover our most recent demolition and dismantling projects throughout the Netherlands.'
-                : 'Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.'}
+              {t.projects?.description ||
+                'Ontdek onze meest recente sloop- en demontageprojecten door heel Nederland.'}
             </p>
           </div>
-          <Link href="/projecten" className="btn-outline-power flex items-center gap-2 self-start">
-            {isEnglish ? 'All Projects' : 'Alle Projecten'}
+          <Link
+            href={t.paths?.projects || '/projecten'}
+            className="btn-outline-power flex items-center gap-2 self-start"
+          >
+            {t.cta?.viewAllProjects || 'Alle Projecten'}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

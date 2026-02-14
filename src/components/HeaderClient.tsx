@@ -48,6 +48,8 @@ export default function HeaderClient({ siteSettings }: HeaderClientProps) {
   const paths = t.paths || {}
 
   const companyName = t.company?.name || 'titaanbrekers'
+  const logoFirstPart = t.company?.logoFirst || 'titaan'
+  const logoSecondPart = t.company?.logoSecond || 'brekers'
 
   const getPathForLocale = (pathKey: keyof typeof paths): string => {
     const path = paths[pathKey]
@@ -86,17 +88,8 @@ export default function HeaderClient({ siteSettings }: HeaderClientProps) {
               </span>
             </div>
             <span className="font-display text-2xl tracking-wider text-foreground">
-              {companyName === 'titaanbrekers' ? (
-                <>
-                  <span>titaan</span>
-                  <span className="text-primary">brekers</span>
-                </>
-              ) : (
-                <>
-                  <span>titan</span>
-                  <span className="text-primary">breakers</span>
-                </>
-              )}
+              <span>{logoFirstPart}</span>
+              <span className="text-primary">{logoSecondPart}</span>
             </span>
           </Link>
 

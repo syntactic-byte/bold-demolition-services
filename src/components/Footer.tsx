@@ -6,6 +6,7 @@ import { useTranslation } from '@/hooks/useTranslation'
 
 const Footer = () => {
   const { t, locale } = useTranslation()
+  const currentYear = new Date().getFullYear()
 
   const paths = t.paths || {
     home: '/',
@@ -136,7 +137,8 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              {t.footer?.copyright || '© 2024. Alle rechten voorbehouden.'}
+              © {currentYear} {t.company?.name || 'TitanBreakers'}.{' '}
+              {t.footer?.copyrightSuffix || 'Alle rechten voorbehouden.'}
             </p>
             <div className="flex gap-6 text-sm">
               <Link
