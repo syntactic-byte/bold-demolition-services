@@ -8,7 +8,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslation } from '@/hooks/useTranslation'
 
 interface HeaderClientProps {
-  siteSettings?: any
+  siteSettings?: Record<string, unknown>
 }
 
 export default function HeaderClient({ siteSettings }: HeaderClientProps) {
@@ -47,7 +47,6 @@ export default function HeaderClient({ siteSettings }: HeaderClientProps) {
 
   const paths = t.paths || {}
 
-  const companyName = t.company?.name || 'titaanbrekers'
   const logoFirstPart = t.company?.logoFirst || 'titaan'
   const logoSecondPart = t.company?.logoSecond || 'brekers'
 

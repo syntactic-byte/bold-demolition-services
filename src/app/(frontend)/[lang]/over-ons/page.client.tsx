@@ -1,18 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CTA from '@/components/CTA'
-import { CheckCircle, Users, Target, Heart, Shield } from 'lucide-react'
+import { CheckCircle, Users, Target, Heart, Shield, LucideIcon } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
+import type { AboutPage } from '@/payload-types'
 
 interface OverOnsClientProps {
-  pageData?: any
+  pageData?: AboutPage | null
 }
 
-const getIconComponent = (iconName: string) => {
-  const icons: any = {
+const getIconComponent = (iconName: string): LucideIcon => {
+  const icons: Record<string, LucideIcon> = {
     Shield,
     Target,
     Heart,
@@ -22,7 +22,7 @@ const getIconComponent = (iconName: string) => {
 }
 
 export default function OverOnsClient({ pageData }: OverOnsClientProps) {
-  const { t, locale } = useTranslation()
+  const { t } = useTranslation()
 
   // Use translations as primary source, CMS data as fallback
   const hero = {
@@ -71,7 +71,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
   // Use translations as primary source, CMS data as fallback
   const stats =
     pageData?.stats?.length > 0
-      ? pageData.stats.map((stat: any, idx: number) => ({
+      ? pageData.stats.map((stat: { number: string; label: string }, idx: number) => ({
           number: stat.number,
           label:
             stat.label ||
@@ -124,11 +124,13 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
 
   const values =
     pageData?.values?.length > 0
-      ? pageData.values.map((val: any, idx: number) => ({
-          icon: val.icon || defaultValues[idx].icon,
-          title: defaultValues[idx].title, // Always use translations
-          description: defaultValues[idx].description, // Always use translations
-        }))
+      ? pageData.values.map(
+          (val: { icon: string; title: string; description: string }, idx: number) => ({
+            icon: val.icon || defaultValues[idx].icon,
+            title: defaultValues[idx].title, // Always use translations
+            description: defaultValues[idx].description, // Always use translations
+          }),
+        )
       : defaultValues
 
   // Use translations as primary source, CMS data as fallback
@@ -230,7 +232,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
                 {story.title.split(' ').slice(0, -1).join(' ')}{' '}
                 <span className="text-gradient">{story.title.split(' ').slice(-1)}</span>
               </h2>
-              {story.paragraphs.map((para: any, idx: number) => (
+              {story.paragraphs?.map((para: { text?: string | null }, idx: number) => (
                 <p key={idx} className="text-muted-foreground text-lg mb-6">
                   {para.text}
                 </p>
@@ -238,7 +240,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
             </div>
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat: any, idx: number) => (
+                {stats.map((stat: { number: string; label: string }, idx: number) => (
                   <div
                     key={idx}
                     className={`card-industrial p-8 text-center ${idx % 2 === 1 ? 'mt-8' : ''}`}
@@ -269,7 +271,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value: any) => {
+            {values.map((value: { icon: string; title: string; description: string }) => {
               const Icon = getIconComponent(value.icon)
               return (
                 <div key={value.title} className="card-industrial text-center">
@@ -295,23 +297,25 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item: any, index: number) => (
-              <div key={item.year} className="flex gap-8 mb-8 last:mb-0">
-                <div className="w-20 flex-shrink-0 text-right">
-                  <span className="font-display text-2xl text-primary">{item.year}</span>
-                </div>
-                <div className="relative pb-8">
-                  <div className="absolute left-0 top-2 w-3 h-3 bg-primary rounded-full" />
-                  {index !== timeline.length - 1 && (
-                    <div className="absolute left-1.5 top-5 w-px h-full bg-border" />
-                  )}
-                  <div className="pl-8">
-                    <h3 className="font-display text-xl text-foreground mb-1">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+            {timeline.map(
+              (item: { year: string; title: string; description: string }, index: number) => (
+                <div key={item.year} className="flex gap-8 mb-8 last:mb-0">
+                  <div className="w-20 flex-shrink-0 text-right">
+                    <span className="font-display text-2xl text-primary">{item.year}</span>
+                  </div>
+                  <div className="relative pb-8">
+                    <div className="absolute left-0 top-2 w-3 h-3 bg-primary rounded-full" />
+                    {index !== timeline.length - 1 && (
+                      <div className="absolute left-1.5 top-5 w-px h-full bg-border" />
+                    )}
+                    <div className="pl-8">
+                      <h3 className="font-display text-xl text-foreground mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
       </section>

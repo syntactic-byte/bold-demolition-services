@@ -3,7 +3,7 @@
 import { cn } from '@/utilities/ui'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { Fragment } from 'react'
+import React from 'react'
 import type { Post } from '@/payload-types'
 import { Media } from '@/components/Media'
 import type { Locale } from '@/utilities/translations'

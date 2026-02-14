@@ -5,14 +5,15 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
+import type { ContactPage, SiteSetting } from '@/payload-types'
 
 interface ContactClientProps {
-  pageData?: any
-  siteSettings?: any
+  pageData?: ContactPage | null
+  siteSettings?: SiteSetting | null
 }
 
 export default function ContactClient({ pageData, siteSettings }: ContactClientProps) {
-  const { t, locale } = useTranslation()
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,7 +68,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
     { value: 'anders', label: t.contact?.subjects?.other || 'Anders' },
   ]
 
-  const certifications = siteSettings?.certifications?.map((c: any) => c.name) || [
+  const certifications = siteSettings?.certifications?.map((c: { name: string }) => c.name) || [
     'VCA**',
     'SC-530',
     'ISO 9001',
@@ -262,7 +263,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         <option value="">
                           {t.contactPage?.subjectSelect || 'Selecteer onderwerp'}
                         </option>
-                        {subjects.map((subj: any) => (
+                        {subjects.map((subj: { value: string; label: string }) => (
                           <option key={subj.value} value={subj.value}>
                             {subj.label}
                           </option>

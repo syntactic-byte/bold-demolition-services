@@ -3,13 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { Check } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select'
 
 interface Language {
   code: string
@@ -211,7 +205,7 @@ export default function LanguageSwitcher() {
 
       // Get the current public path (without locale prefix)
       const pathParts = decodedPathname.split('/').filter(Boolean)
-      const currentLocale = pathParts[0]
+      const _currentLocale = pathParts[0]
       const currentPublicPath = '/' + pathParts.slice(1).join('/') || '/'
 
       // Detect special dynamic routes that need slug translation
@@ -220,7 +214,7 @@ export default function LanguageSwitcher() {
       )
       const isProject = currentPublicPath.match(/^\/(projecten|projects)\/.+/)
       const isService = currentPublicPath.match(/^\/(diensten|services)\/.+/)
-      const isPage =
+      const _isPage =
         currentPublicPath.match(/^\/[^/]+$/) &&
         ![
           'nieuws',
@@ -312,7 +306,10 @@ export default function LanguageSwitcher() {
 
   return (
     <Select value={currentLang} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-auto border-0 bg-transparent hover:bg-accent focus:ring-0 focus:ring-offset-0 px-2 gap-2">
+      <SelectTrigger
+        className="w-auto border-0 bg-transparent hover:bg-accent focus:ring-0 focus:ring-offset-0 px-2 gap-2"
+        aria-label={`Select language, current: ${currentLanguage.label}`}
+      >
         <span className="text-lg" role="img" aria-label={currentLanguage.label}>
           {currentLanguage.flag}
         </span>

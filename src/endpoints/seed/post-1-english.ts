@@ -10,7 +10,7 @@ export type PostArgs = {
 // Manual vs Mechanical Demolition - Comprehensive English Version
 export const post1English: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   heroImage,
-  blockImage,
+  blockImage: _blockImage,
   author,
 }) => {
   return {

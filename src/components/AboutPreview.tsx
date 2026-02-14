@@ -6,8 +6,14 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useTranslation } from '@/hooks/useTranslation'
 
+interface AboutPreviewData {
+  title?: string | null
+  description?: string | null
+  highlights?: { text: string }[]
+}
+
 interface AboutPreviewProps {
-  data?: any
+  data?: AboutPreviewData
 }
 
 const AboutPreview = ({ data }: AboutPreviewProps) => {
@@ -86,7 +92,7 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4 mb-10">
-              {highlights.map((highlight: any, index: number) => (
+              {highlights.map((highlight: { text: string }, index: number) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{highlight.text}</span>

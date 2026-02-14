@@ -1,11 +1,13 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import DienstenClient from './page.client'
+import type { ServicesPage, Service } from '@/payload-types'
+import type { Locale } from '@/utilities/translations'
 
 export const dynamic = 'force-dynamic'
 
 // Supported locales
-const supportedLocales = [
+const supportedLocales: Locale[] = [
   'nl',
   'en',
   'fr',
@@ -25,10 +27,10 @@ const supportedLocales = [
 
 export default async function Diensten({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const locale = supportedLocales.includes(lang) ? lang : 'nl'
+  const locale = supportedLocales.includes(lang as Locale) ? (lang as Locale) : 'nl'
 
-  let pageData: any = null
-  let servicesData: any[] = []
+  let pageData: ServicesPage | null = null
+  let servicesData: Service[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
@@ -36,7 +38,7 @@ export default async function Diensten({ params }: { params: Promise<{ lang: str
     // Fetch the services page global data with locale
     pageData = await payload.findGlobal({
       slug: 'services-page',
-      locale: locale as any,
+      locale,
     })
 
     // Fetch the actual services from the collection with locale
@@ -44,7 +46,7 @@ export default async function Diensten({ params }: { params: Promise<{ lang: str
       collection: 'services',
       sort: 'featured DESC, title ASC',
       depth: 1,
-      locale: locale as any,
+      locale,
     })
 
     servicesData = services.docs || []

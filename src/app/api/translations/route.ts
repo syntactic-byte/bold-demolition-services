@@ -18,10 +18,12 @@ export async function GET(request: Request) {
     console.log(`[Translations API] Found translations global:`, translations ? 'YES' : 'NO')
     console.log(
       `[Translations API] Available locales:`,
-      translations?.translations?.map((t: any) => t.locale),
+      translations?.translations?.map((t: { locale: string }) => t.locale),
     )
 
-    const localeData = translations.translations?.find((t: any) => t.locale === locale)
+    const localeData = translations.translations?.find(
+      (t: { locale: string }) => t.locale === locale,
+    )
 
     if (!localeData) {
       console.log(`[Translations API] Locale ${locale} not found, returning 404`)

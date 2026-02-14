@@ -7,11 +7,13 @@ import AboutPreview from '@/components/AboutPreview'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import type { HomePage, Service, Project } from '@/payload-types'
+import type { Locale } from '@/utilities/translations'
 
 export const dynamic = 'force-dynamic'
 
 // Supported locales
-const supportedLocales = [
+const supportedLocales: Locale[] = [
   'nl',
   'en',
   'fr',
@@ -31,11 +33,11 @@ const supportedLocales = [
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const locale = supportedLocales.includes(lang) ? lang : 'nl'
+  const locale = supportedLocales.includes(lang as Locale) ? (lang as Locale) : 'nl'
 
-  let homePageData: any = null
-  let services: any[] = []
-  let projects: any[] = []
+  let homePageData: HomePage | null = null
+  let services: Service[] = []
+  let projects: Project[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
@@ -50,7 +52,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       },
       sort: '-createdAt',
       depth: 1,
-      locale: locale as any,
+      locale,
     })
 
     services = servicesData.docs
@@ -66,7 +68,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       sort: '-completed',
       limit: 6,
       depth: 1,
-      locale: locale as any,
+      locale,
     })
 
     projects = projectsData.docs
@@ -74,7 +76,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     // Get home page global data
     homePageData = await payload.findGlobal({
       slug: 'home-page',
-      locale: locale as any,
+      locale,
     })
   } catch (error) {
     console.error('Error fetching CMS data:', error)

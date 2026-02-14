@@ -6,9 +6,10 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { format } from 'date-fns'
 import { nl, enUS, fr, de, it, es, sv, fi, pl, ar, zhCN, ja, pt, tr, ru } from 'date-fns/locale'
-import type { Locale } from '@/utilities/translations'
+import type { Locale as AppLocale } from '@/utilities/translations'
+import type { Locale as DateFnsLocale } from 'date-fns'
 
-const localeMap: Record<string, Locale> = {
+const localeMap: Record<string, AppLocale> = {
   nl: 'nl',
   en: 'en',
   fr: 'fr',
@@ -26,7 +27,7 @@ const localeMap: Record<string, Locale> = {
   ru: 'ru',
 }
 
-const dateLocaleMap: Record<Locale, any> = {
+const dateLocaleMap: Record<AppLocale, DateFnsLocale> = {
   nl,
   en: enUS,
   fr,
@@ -44,7 +45,7 @@ const dateLocaleMap: Record<Locale, any> = {
   ru,
 }
 
-const supportedLocales: Locale[] = [
+const _supportedLocales: AppLocale[] = [
   'nl',
   'en',
   'fr',
@@ -79,7 +80,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         equals: slug,
       },
     },
-    locale: locale as any,
+    locale,
     depth: 1,
   })
 
@@ -111,7 +112,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         equals: slug,
       },
     },
-    locale: locale as any,
+    locale,
     depth: 2,
   })
 
@@ -122,13 +123,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   // Extract plain text from rich content for preview
-  const getPlainText = (content: any) => {
+  interface ContentChild {
+    text?: string
+    children?: ContentChild[]
+  }
+
+  interface ContentNode {
+    root?: {
+      children?: ContentChild[]
+    }
+  }
+
+  const getPlainText = (content: ContentNode) => {
     if (!content?.root?.children) return ''
     return (
       content.root.children
-        .map((child: any) => {
+        .map((child: ContentChild) => {
           if (child.children) {
-            return child.children.map((c: any) => c.text || '').join(' ')
+            return child.children.map((c: ContentChild) => c.text || '').join(' ')
           }
           return ''
         })
@@ -137,7 +149,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     )
   }
 
-  const plainText = getPlainText(post.content)
+  const _plainText = getPlainText(post.content as ContentNode)
 
   // Get the blog path for the current locale
   const blogPath = locale === 'nl' ? '/nieuws' : '/blog'
@@ -185,7 +197,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Categories */}
             {post.categories && post.categories.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.categories.map((category: any) => (
+                {post.categories.map((category: string | { id?: string; title?: string }) => (
                   <span
                     key={typeof category === 'object' ? category.id : category}
                     className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 text-sm font-medium"
@@ -214,27 +226,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-3xl mx-auto">
             {/* Post Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              {post.content?.root?.children?.map((block: any, index: number) => (
-                <div key={index}>
-                  {block.type === 'paragraph' && (
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {block.children?.map((child: any, i: number) => (
-                        <span key={i}>{child.text}</span>
-                      ))}
-                    </p>
-                  )}
-                  {block.type === 'heading' && block.tag === 'h2' && (
-                    <h2 className="font-display text-3xl mt-12 mb-6">
-                      {block.children?.map((child: any, i: number) => child.text).join('')}
-                    </h2>
-                  )}
-                  {block.type === 'heading' && block.tag === 'h3' && (
-                    <h3 className="font-display text-2xl mt-8 mb-4">
-                      {block.children?.map((child: any, i: number) => child.text).join('')}
-                    </h3>
-                  )}
-                </div>
-              ))}
+              {post.content?.root?.children?.map(
+                (
+                  block: { type?: string; tag?: string; children?: { text?: string }[] },
+                  index: number,
+                ) => (
+                  <div key={index}>
+                    {block.type === 'paragraph' && (
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {block.children?.map((child: { text?: string }, i: number) => (
+                          <span key={i}>{child.text}</span>
+                        ))}
+                      </p>
+                    )}
+                    {block.type === 'heading' && block.tag === 'h2' && (
+                      <h2 className="font-display text-3xl mt-12 mb-6">
+                        {block.children?.map((child: { text?: string }) => child.text).join('')}
+                      </h2>
+                    )}
+                    {block.type === 'heading' && block.tag === 'h3' && (
+                      <h3 className="font-display text-2xl mt-8 mb-4">
+                        {block.children?.map((child: { text?: string }) => child.text).join('')}
+                      </h3>
+                    )}
+                  </div>
+                ),
+              )}
             </div>
 
             {/* Back to Blog */}

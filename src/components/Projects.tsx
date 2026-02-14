@@ -86,7 +86,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
     return labels[category]?.[locale] || labels[category]?.['nl'] || 'Sloopwerk'
   }
 
-  const getProjectImage = (project: any, index: number) => {
+  const getProjectImage = (project: Project, index: number) => {
     // Use CMS image if available, otherwise fallback
     if (project.image && typeof project.image === 'object' && project.image.url) {
       return project.image.url

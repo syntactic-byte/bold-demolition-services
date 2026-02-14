@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-type TranslationKeys = Record<string, any>
+type TranslationKeys = Record<string, unknown>
 
 interface I18nContextType {
   t: TranslationKeys

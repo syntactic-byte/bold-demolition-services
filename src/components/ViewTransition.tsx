@@ -1,28 +1,4 @@
-import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-
-type ViewTransitionName =
-  | 'hero'
-  | 'hero-image'
-  | 'hero-title'
-  | 'hero-description'
-  | 'services'
-  | 'services-title'
-  | 'projects'
-  | 'projects-title'
-  | 'blog'
-  | 'blog-title'
-  | 'about'
-  | 'about-title'
-  | 'contact'
-  | 'contact-title'
-  | 'footer'
-  | 'header'
-  | 'logo'
-  | 'nav'
-  | 'page-title'
-  | 'content'
-  | string
 
 interface ViewTransitionProps {
   children: React.ReactNode

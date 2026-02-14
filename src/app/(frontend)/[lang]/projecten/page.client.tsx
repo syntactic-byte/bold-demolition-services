@@ -6,13 +6,14 @@ import Footer from '@/components/Footer'
 import CTA from '@/components/CTA'
 import { MapPin } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
+import type { Project } from '@/payload-types'
 
 interface ProjectenClientProps {
-  projects?: any[]
+  projects?: Project[]
 }
 
 export default function ProjectenClient({ projects = [] }: ProjectenClientProps) {
-  const { t, locale } = useTranslation()
+  const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   const categories = [

@@ -72,7 +72,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   const posts = await payload.find({
     collection: 'posts',
-    locale: locale as any,
+    locale,
     depth: 2,
     limit: 12,
     overrideAccess: false,

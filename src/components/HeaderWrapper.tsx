@@ -1,10 +1,11 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import HeaderClient from './HeaderClient'
+import type { SiteSetting } from '@/payload-types'
 
 export default async function Header() {
-  let siteSettings: any = null
-  
+  let siteSettings: SiteSetting | null = null
+
   try {
     const payload = await getPayload({ config: configPromise })
     siteSettings = await payload.findGlobal({

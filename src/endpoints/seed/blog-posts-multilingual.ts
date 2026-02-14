@@ -2070,3 +2070,4 @@ Of u ervoor kiest om keukensloop zelf aan te pakken of professionele diensten zo
 Neem vandaag nog contact op met TitanBreakers voor een professionele consultatie en offerte voor uw keukensloopproject. Wij helpen u uw opties te begrijpen en zorgen ervoor dat uw project op het juiste fundament begint.`,
       tags: ["keuken renovatie", "sloop gids", "huisverbetering", "keuken verbouwing", "interieur sloop"]
     }
+    }

@@ -2,7 +2,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { NextResponse } from 'next/server'
 
-export async function GET(request: Request) {
+export async function GET(_request: Request) {
   try {
     const payload = await getPayload({ config: configPromise })
 

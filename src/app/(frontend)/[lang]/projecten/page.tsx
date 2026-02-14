@@ -1,11 +1,13 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import ProjectenClient from './page.client'
+import type { Project } from '@/payload-types'
+import type { Locale } from '@/utilities/translations'
 
 export const dynamic = 'force-dynamic'
 
 // Supported locales
-const supportedLocales = [
+const supportedLocales: Locale[] = [
   'nl',
   'en',
   'fr',
@@ -25,9 +27,9 @@ const supportedLocales = [
 
 export default async function Projecten({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const locale = supportedLocales.includes(lang) ? lang : 'nl'
+  const locale = supportedLocales.includes(lang as Locale) ? (lang as Locale) : 'nl'
 
-  let projects: any[] = []
+  let projects: Project[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
@@ -37,7 +39,7 @@ export default async function Projecten({ params }: { params: Promise<{ lang: st
       sort: '-completed',
       limit: 100,
       depth: 1,
-      locale: locale as any,
+      locale,
     })
     projects = projectsData.docs
   } catch (error) {

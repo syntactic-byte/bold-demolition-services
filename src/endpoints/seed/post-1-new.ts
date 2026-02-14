@@ -8,16 +8,22 @@ export type PostArgs = {
   locale: string
 }
 
+type ContentChild = {
+  text?: string
+  type?: string
+  [key: string]: unknown
+}
+
 type ContentBlock = {
   type: string
-  children?: any[]
+  children?: ContentChild[]
   direction?: string
   format?: string
   indent?: number
   version?: number
   tag?: string
   textFormat?: number
-  fields?: any
+  fields?: Record<string, unknown>
 }
 
 // Translations for Post 1: Manual vs Mechanical Demolition
@@ -1147,7 +1153,7 @@ const post1Translations: Record<
 
 export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   heroImage,
-  blockImage,
+  blockImage: _blockImage,
   author,
   locale,
 }) => {
@@ -1167,7 +1173,7 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
           indent: 0,
           version: 1,
           ...(block.children && {
-            children: block.children.map((child: any) => ({
+            children: block.children.map((child: ContentChild) => ({
               ...child,
               detail: 0,
               format: 0,

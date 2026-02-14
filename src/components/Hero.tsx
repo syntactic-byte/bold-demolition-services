@@ -33,7 +33,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ data }) => {
-  const { t, locale, loading } = useTranslation()
+  const { t, loading } = useTranslation()
 
   // Use translations when available, otherwise fall back to CMS data or defaults
   const getLocalizedValue = (

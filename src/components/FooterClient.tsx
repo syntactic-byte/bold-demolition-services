@@ -4,8 +4,19 @@ import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 
+interface FooterNavItem {
+  link?: {
+    label?: string
+    url?: string
+  }
+  label?: string
+  url?: string
+}
+
 interface FooterClientProps {
-  footerData?: any
+  footerData?: {
+    navItems?: FooterNavItem[]
+  }
 }
 
 const FooterClient = ({ footerData }: FooterClientProps) => {
@@ -33,7 +44,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
   // Translated navigation links
   const navLinks =
     footerData?.navItems?.length > 0
-      ? footerData.navItems.map((item: any) => ({
+      ? footerData.navItems.map((item: FooterNavItem) => ({
           name: item.link?.label || item.label,
           path: item.link?.url || item.url || '/',
         }))
@@ -91,7 +102,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
               {t.footer?.navigation || 'Navigatie'}
             </h4>
             <ul className="space-y-3">
-              {navLinks.map((link: any) => (
+              {navLinks.map((link: { name: string; path: string }) => (
                 <li key={link.path}>
                   <Link
                     href={link.path}

@@ -1,25 +1,32 @@
 import type { Metadata } from 'next'
-
-import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-import { homeStatic } from '@/endpoints/seed/home-static'
-
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { RenderHero } from '@/heros/RenderHero'
-import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { PageClient } from './page.client'
+import type { Locale } from '@/utilities/translations'
 
-type Args = {
-  params: Promise<{
-    lang: string
-    slug?: string
-  }>
+const supportedLocales: Locale[] = [
+  'nl',
+  'en',
+  'fr',
+  'de',
+  'it',
+  'es',
+  'sv',
+  'fi',
+  'pl',
+  'ar',
+  'zh',
+  'ja',
+  'pt',
+  'tr',
+  'ru',
+]
+
+interface PageProps {
+  params: Promise<{ lang: string; slug: string }>
 }
 
 const pathToSlugMap: Record<string, Record<string, string>> = {
@@ -211,7 +218,7 @@ const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: s
     limit: 1,
     pagination: false,
     overrideAccess: draft,
-    locale: locale as any,
+    locale: locale as Locale,
     where: {
       slug: {
         equals: slug,
