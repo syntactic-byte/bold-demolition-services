@@ -24,12 +24,14 @@ const getIconComponent = (iconName: string) => {
 export default function OverOnsClient({ pageData }: OverOnsClientProps) {
   const { t, locale } = useTranslation()
 
-  // Use CMS data for hero (now properly translated in all locales)
-  const hero = pageData?.hero || {
-    title: t.about?.title || 'WIE ZIJN WIJ',
+  // Use translations as primary source, CMS data as fallback
+  const hero = {
+    title: t.about?.title || pageData?.hero?.title || 'WIE ZIJN WIJ',
     description:
       t.about?.description ||
+      pageData?.hero?.description ||
       'Al meer dan 25 jaar is TitanBrekers dé specialist in professioneel sloopwerk. Met passie, vakmanschap en moderne apparatuur maken wij ruimte voor de toekomst.',
+    backgroundImage: pageData?.hero?.backgroundImage,
   }
 
   // Fallback background image if not provided by CMS
@@ -41,38 +43,55 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
         alt: 'TitanBreakers team',
       }
 
-  // Use CMS data for content sections (now properly translated in all locales)
-  const story = pageData?.story || {
-    title: t.aboutPage?.storyTitle || 'ONS VERHAAL',
-    paragraphs: [
-      {
-        text:
-          t.aboutPage?.story1 ||
-          'TitanBrekers werd in 1999 opgericht door twee ervaren slopers met een duidelijke missie: professioneel sloopwerk leveren met oog voor veiligheid, kwaliteit en milieu.',
-      },
-      {
-        text:
-          t.aboutPage?.story2 ||
-          'Wat begon als een klein familiebedrijf is uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Met meer dan 50 medewerkers, een modern machinepark en alle benodigde certificeringen pakken wij elk project aan - groot of klein.',
-      },
-      {
-        text:
-          t.aboutPage?.story3 ||
-          'Onze kracht zit in ons team. Ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat. Samen met onze opdrachtgevers vinden wij oplossingen voor de meest complexe sloopprojecten.',
-      },
-    ],
+  // Use translations as primary source, CMS data as fallback
+  const story = {
+    title: t.aboutPage?.storyTitle || pageData?.story?.title || 'ONS VERHAAL',
+    paragraphs:
+      pageData?.story?.paragraphs?.length > 0
+        ? pageData.story.paragraphs
+        : [
+            {
+              text:
+                t.aboutPage?.story1 ||
+                'TitanBrekers werd in 1999 opgericht door twee ervaren slopers met een duidelijke missie: professioneel sloopwerk leveren met oog voor veiligheid, kwaliteit en milieu.',
+            },
+            {
+              text:
+                t.aboutPage?.story2 ||
+                'Wat begon als een klein familiebedrijf is uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Met meer dan 50 medewerkers, een modern machinepark en alle benodigde certificeringen pakken wij elk project aan - groot of klein.',
+            },
+            {
+              text:
+                t.aboutPage?.story3 ||
+                'Onze kracht zit in ons team. Ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat. Samen met onze opdrachtgevers vinden wij oplossingen voor de meest complexe sloopprojecten.',
+            },
+          ],
   }
 
-  // Use CMS data for stats (now properly translated in all locales)
-  const stats = pageData?.stats || [
-    { number: '25+', label: t.aboutPage?.years || 'Jaar Ervaring' },
-    { number: '500+', label: t.aboutPage?.projects || 'Projecten' },
-    { number: '50+', label: t.aboutPage?.employees || 'Medewerkers' },
-    { number: '98%', label: t.aboutPage?.recycling || 'Recycling' },
-  ]
+  // Use translations as primary source, CMS data as fallback
+  const stats =
+    pageData?.stats?.length > 0
+      ? pageData.stats.map((stat: any, idx: number) => ({
+          number: stat.number,
+          label:
+            stat.label ||
+            [
+              t.aboutPage?.years,
+              t.aboutPage?.projects,
+              t.aboutPage?.employees,
+              t.aboutPage?.recycling,
+            ][idx] ||
+            ['Jaar Ervaring', 'Projecten', 'Medewerkers', 'Recycling'][idx],
+        }))
+      : [
+          { number: '25+', label: t.aboutPage?.years || 'Jaar Ervaring' },
+          { number: '500+', label: t.aboutPage?.projects || 'Projecten' },
+          { number: '50+', label: t.aboutPage?.employees || 'Medewerkers' },
+          { number: '98%', label: t.aboutPage?.recycling || 'Recycling' },
+        ]
 
-  // Use CMS data for values (now properly translated in all locales)
-  const values = pageData?.values || [
+  // Use translations as primary source, CMS data as fallback
+  const defaultValues = [
     {
       icon: 'Shield',
       title: t.aboutPage?.safety || 'Veiligheid',
@@ -103,8 +122,17 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
     },
   ]
 
-  // Use CMS data for timeline (now properly translated in all locales)
-  const timeline = pageData?.timeline || [
+  const values =
+    pageData?.values?.length > 0
+      ? pageData.values.map((val: any, idx: number) => ({
+          icon: val.icon || defaultValues[idx].icon,
+          title: defaultValues[idx].title, // Always use translations
+          description: defaultValues[idx].description, // Always use translations
+        }))
+      : defaultValues
+
+  // Use translations as primary source, CMS data as fallback
+  const defaultTimeline = [
     {
       year: '1999',
       title: t.aboutPage?.foundation || 'Oprichting',
@@ -136,6 +164,15 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
       description: t.aboutPage?.projects500Desc || 'Mijlpaal van 500 succesvolle projecten',
     },
   ]
+
+  const timeline =
+    pageData?.timeline?.length > 0
+      ? defaultTimeline.map((item, idx) => ({
+          year: item.year,
+          title: defaultTimeline[idx].title,
+          description: defaultTimeline[idx].description,
+        }))
+      : defaultTimeline
 
   const certifications = [
     t.aboutPage?.vcaCert || 'VCA** Gecertificeerd',
