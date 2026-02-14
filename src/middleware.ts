@@ -77,7 +77,7 @@ const urlMappings: Record<string, Record<string, string>> = {
     projektit: 'projecten',
     uutiset: 'nieuws',
     meista: 'over-ons',
-    yhteys: 'contact',
+    yhteystiedot: 'contact',
   },
   pl: {
     uslugi: 'diensten',
@@ -111,8 +111,8 @@ const urlMappings: Record<string, Record<string, string>> = {
     servicos: 'diensten',
     projetos: 'projecten',
     noticias: 'nieuws',
-    sobre: 'over-ons',
-    contacto: 'contact',
+    'sobre-nos': 'over-ons',
+    contato: 'contact',
   },
   tr: {
     hizmetler: 'diensten',
@@ -126,7 +126,7 @@ const urlMappings: Record<string, Record<string, string>> = {
     proekty: 'projecten',
     novosti: 'nieuws',
     'o-nas': 'over-ons',
-    kontakt: 'contact',
+    kontakty: 'contact',
   },
 }
 

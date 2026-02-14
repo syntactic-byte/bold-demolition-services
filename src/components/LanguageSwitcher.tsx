@@ -206,8 +206,11 @@ export default function LanguageSwitcher() {
       document.cookie = `locale=${langCode}; path=/; max-age=31536000; SameSite=Lax`
       localStorage.setItem('locale', langCode)
 
+      // Decode pathname to handle non-ASCII characters (Chinese, Arabic, Japanese, etc.)
+      const decodedPathname = decodeURI(pathname)
+
       // Get the current public path (without locale prefix)
-      const pathParts = pathname.split('/').filter(Boolean)
+      const pathParts = decodedPathname.split('/').filter(Boolean)
       const currentLocale = pathParts[0]
       const currentPublicPath = '/' + pathParts.slice(1).join('/') || '/'
 

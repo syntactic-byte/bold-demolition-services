@@ -52,7 +52,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
     phone: t.contact?.phone || '06-12345678',
     email: `info@${t.company?.name?.toLowerCase() || 'titaanbrekers'}.nl`,
     address: t.contact?.address || 'Industrieweg 45\n1234 AB Rotterdam',
-    hours: t.contactPage?.hoursValue || 'Maandag - Vrijdag: 07:00 - 18:00',
+    hours: `${t.contactPage?.hoursValue || 'Maandag - Vrijdag: 07:00 - 18:00'}\n${t.contactPage?.hoursWeekend || 'Zaterdag en zondag: gesloten'}`,
   }
 
   // Use CMS data for form (now properly translated in all locales)

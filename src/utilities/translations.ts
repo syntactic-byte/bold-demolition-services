@@ -1097,11 +1097,11 @@ export const translations = {
     },
     paths: {
       home: '/',
-      services: '/diensten',
-      projects: '/projecten',
-      blog: '/nieuws',
-      about: '/over-ons',
-      contact: '/contact',
+      services: '/tjanster',
+      projects: '/projekt',
+      blog: '/nyheter',
+      about: '/om-oss',
+      contact: '/kontakt',
     },
     cta: {
       quote: 'Begär Offert',
@@ -1285,11 +1285,11 @@ export const translations = {
     },
     paths: {
       home: '/',
-      services: '/diensten',
-      projects: '/projecten',
-      blog: '/nieuws',
-      about: '/over-ons',
-      contact: '/contact',
+      services: '/palvelut',
+      projects: '/projektit',
+      blog: '/uutiset',
+      about: '/meista',
+      contact: '/yhteystiedot',
     },
     cta: {
       quote: 'Pyydä Tarjous',
