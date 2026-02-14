@@ -1594,63 +1594,136 @@ async function seedCMSContent() {
   ] as const
 
   try {
+    // Helper function to ensure global exists before updating
+    const ensureGlobalExists = async (slug: string, defaultData: any) => {
+      try {
+        // Try to find the global
+        const existing = await payload.findGlobal({
+          slug: slug,
+        })
+
+        // If no data exists, create initial document for default locale
+        if (!existing || Object.keys(existing).length === 0 || !existing.hero) {
+          console.log(`   📝 Creating initial ${slug} document...`)
+          await payload.updateGlobal({
+            slug: slug,
+            locale: 'nl',
+            data: defaultData,
+          })
+        }
+      } catch (error) {
+        // Global might not exist yet, create it
+        console.log(`   📝 Creating ${slug} for first time...`)
+        await payload.updateGlobal({
+          slug: slug,
+          locale: 'nl',
+          data: defaultData,
+        })
+      }
+    }
+
+    // Default minimal data for each global type
+    const defaultAboutData = {
+      hero: { title: 'TitanBreakers', description: 'Demolition experts' },
+      story: { title: 'Our Story', paragraphs: [{ text: 'Founded in 1999' }] },
+      stats: [{ number: '25+', label: 'Years' }],
+      values: [{ icon: 'Shield', title: 'Safety', description: 'Safety first' }],
+      timeline: [{ year: '1999', title: 'Founded', description: 'Company founded' }],
+    }
+
+    const defaultContactData = {
+      hero: { title: 'Contact', description: 'Get in touch' },
+      formSettings: { title: 'Send Message', subjects: [{ value: 'quote', label: 'Quote' }] },
+    }
+
+    const defaultHomeData = {
+      hero: { title: 'TitanBreakers', subtitle: 'Demolition', description: 'Experts' },
+    }
+
+    const defaultServicesData = {
+      hero: { title: 'Our Services', description: 'What we do' },
+    }
+
+    // Ensure all globals exist first
+    console.log('\n🔧 Ensuring globals exist...')
+    await ensureGlobalExists('about-page', defaultAboutData)
+    await ensureGlobalExists('contact-page', defaultContactData)
+    await ensureGlobalExists('home-page', defaultHomeData)
+    await ensureGlobalExists('services-page', defaultServicesData)
+
     // Seed About Page for each locale
+    console.log('\n📝 Seeding About Page content...')
     for (const locale of locales) {
-      console.log(`\n📝 Seeding About Page for ${locale}...`)
       const content = (aboutPageContent as any)[locale]
 
       if (content) {
-        await payload.updateGlobal({
-          slug: 'about-page',
-          locale: locale as any,
-          data: content,
-        })
-        console.log(`   ✅ About Page seeded for ${locale}`)
+        try {
+          await payload.updateGlobal({
+            slug: 'about-page',
+            locale: locale as any,
+            data: content,
+          })
+          console.log(`   ✅ About Page seeded for ${locale}`)
+        } catch (error) {
+          console.error(`   ❌ Error seeding About Page for ${locale}:`, error)
+        }
       }
     }
 
     // Seed Contact Page for each locale
+    console.log('\n📝 Seeding Contact Page content...')
     for (const locale of locales) {
-      console.log(`\n📝 Seeding Contact Page for ${locale}...`)
       const content = (contactPageContent as any)[locale]
 
       if (content) {
-        await payload.updateGlobal({
-          slug: 'contact-page',
-          locale: locale as any,
-          data: content,
-        })
-        console.log(`   ✅ Contact Page seeded for ${locale}`)
+        try {
+          await payload.updateGlobal({
+            slug: 'contact-page',
+            locale: locale as any,
+            data: content,
+          })
+          console.log(`   ✅ Contact Page seeded for ${locale}`)
+        } catch (error) {
+          console.error(`   ❌ Error seeding Contact Page for ${locale}:`, error)
+        }
       }
     }
 
     // Seed Home Page for each locale
+    console.log('\n📝 Seeding Home Page content...')
     for (const locale of locales) {
-      console.log(`\n📝 Seeding Home Page for ${locale}...`)
       const content = (homePageContent as any)[locale]
 
       if (content) {
-        await payload.updateGlobal({
-          slug: 'home-page',
-          locale: locale as any,
-          data: content,
-        })
-        console.log(`   ✅ Home Page seeded for ${locale}`)
+        try {
+          await payload.updateGlobal({
+            slug: 'home-page',
+            locale: locale as any,
+            data: content,
+          })
+          console.log(`   ✅ Home Page seeded for ${locale}`)
+        } catch (error) {
+          console.error(`   ❌ Error seeding Home Page for ${locale}:`, error)
+        }
       }
     }
 
     // Seed Services Page for each locale
+    console.log('\n📝 Seeding Services Page content...')
     for (const locale of locales) {
-      console.log(`\n📝 Seeding Services Page for ${locale}...`)
       const content = (servicesPageContent as any)[locale]
 
       if (content) {
-        await payload.updateGlobal({
-          slug: 'services-page',
-          locale: locale as any,
-          data: content,
-        })
-        console.log(`   ✅ Services Page seeded for ${locale}`)
+        try {
+          await payload.updateGlobal({
+            slug: 'services-page',
+            locale: locale as any,
+            data: content,
+          })
+          console.log(`   ✅ Services Page seeded for ${locale}`)
+        } catch (error) {
+          console.error(`   ❌ Error seeding Services Page for ${locale}:`, error)
+        }
       }
     }
 

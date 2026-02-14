@@ -455,12 +455,12 @@ export const seed = async ({
   payload.logger.info(`— Seeding projects...`)
 
   const projectsWithImages = [
-    { ...projectsData[0], image: image1Doc.id },
-    { ...projectsData[1], image: image2Doc.id },
-    { ...projectsData[2], image: image3Doc.id },
-    { ...projectsData[3], image: image4Doc.id },
-    { ...projectsData[4], image: image5Doc.id },
-    { ...projectsData[5], image: image6Doc.id },
+    { ...projectsData[0], image: image4Doc.id }, // Oude Fabriek Rotterdam → Property Clearing (industrial)
+    { ...projectsData[1], image: image3Doc.id }, // Kantoorcomplex Zuidas → Office Strip-out
+    { ...projectsData[2], image: image6Doc.id }, // Winkelcentrum Renovatie → Retail Space Stripping
+    { ...projectsData[3], image: image1Doc.id }, // Haventerrein Demontage → Kitchen (interior demolition)
+    { ...projectsData[4], image: image5Doc.id }, // Woningbouwproject Den Haag → Apartment Renovation
+    { ...projectsData[5], image: image2Doc.id }, // Ziekenhuis Renovatie → Bathroom Demolition
   ]
 
   for (const project of projectsWithImages) {

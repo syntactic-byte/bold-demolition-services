@@ -991,92 +991,55 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2005: Certificering VCA** en start van professionele asbestsanering',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2005: Certificering VCA** en start professionele asbestsanering',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2010: Erkenning SC-530 voor gespecialiseerde asbestverwijdering',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2010: Erkenning SC-530 voor gespecialiseerde asbestverwijdering',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2015: Landelijke uitbreiding met vestigingen door heel Nederland',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2015: Landelijke uitbreiding met vestigingen door heel Nederland',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2020: Groei naar 50+ vakmensen en 100+ projecten per jaar',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2020: Groei naar 50+ vakmensen en 100+ projecten per jaar',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2024: 500+ succesvol afgeronde projecten en 25-jarig jubileum',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2024: 500+ succesvol afgeronde projecten en 25-jarig jubileum',
                   version: 1,
                 },
               ],
@@ -1232,92 +1195,55 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2005: VCA** certification and start of professional asbestos removal',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2005: VCA** certification and start of professional asbestos removal',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2010: SC-530 recognition for specialized asbestos removal',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2010: SC-530 recognition for specialized asbestos removal',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2015: National expansion with locations throughout the Netherlands',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2015: National expansion with locations throughout the Netherlands',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2020: Growth to 50+ professionals and 100+ projects per year',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2020: Growth to 50+ professionals and 100+ projects per year',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: '2024: 500+ successfully completed projects and 25th anniversary',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• 2024: 500+ successfully completed projects and 25th anniversary',
                   version: 1,
                 },
               ],
@@ -1448,86 +1374,49 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Het water afsluit en de leidingen leeg laat lopen',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Het water afsluit en de leidingen leeg laat lopen',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'De elektriciteit uitschakelt en verifieert dat er geen stroom loopt',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• De elektriciteit uitschakelt en verifieert dat er geen stroom loopt',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Beschermende kleding draagt: veiligheidsbril, werkhandschoenen en stevige schoenen',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Beschermende kleding draagt: veiligheidsbril, werkhandschoenen en stevige schoenen',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• De ruimte goed ventileert', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'De ruimte goed ventileert', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Beschermende afdekking aanbrengt voor vloeren en meubels in aangrenzende ruimtes',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Beschermende afdekking aanbrengt voor vloeren en meubels in aangrenzende ruimtes',
                   version: 1,
                 },
               ],
@@ -1626,75 +1515,36 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Aanwezigheid van asbest', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Grote badkamers of complexe situaties', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Behoud van specifieke elementen', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Aanwezigheid van asbest', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Grote badkamers of complexe situaties', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Behoud van specifieke elementen', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Tijdsdruk – professionals werken efficiënter',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: "Veiligheidsrisico's", version: 1 }],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Tijdsdruk – professionals werken efficiënter',
                   version: 1,
                 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: "• Veiligheidsrisico's", version: 1 }],
               version: 1,
             },
             {
@@ -1750,86 +1600,45 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Turn off the water and drain the pipes', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Turn off the water and drain the pipes',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Switch off the electricity and verify that no current is flowing',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Switch off the electricity and verify that no current is flowing',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Wear protective clothing: safety goggles, work gloves and sturdy shoes',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Ventilate the space well', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Wear protective clothing: safety goggles, work gloves and sturdy shoes',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Ventilate the space well', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Apply protective covering for floors and furniture in adjacent spaces',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Apply protective covering for floors and furniture in adjacent spaces',
                   version: 1,
                 },
               ],
@@ -1928,75 +1737,36 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Presence of asbestos', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Large bathrooms or complex situations', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Preservation of specific elements', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Presence of asbestos', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Large bathrooms or complex situations', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Preservation of specific elements', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Time pressure – professionals work more efficiently',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Safety risks', version: 1 }],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Time pressure – professionals work more efficiently',
                   version: 1,
                 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Safety risks', version: 1 }],
               version: 1,
             },
             {
@@ -2055,154 +1825,99 @@ const blogContent = {
             },
             {
               type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Voordelen van handmatige sloop:', version: 1 }],
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Voordelen van handmatige sloop', version: 1 }],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Maximale precisie en controle', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Ideaal voor kleine ruimtes waar machines niet passen',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Minimaal risico op beschadiging van omliggende structuren',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Betere sorteerbaarheid van afval', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Minder geluidsoverlast', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Geen vrachtwagenverkeer voor machines', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Maximale precisie en controle over het sloopproces',
                   version: 1,
                 },
               ],
               version: 1,
             },
             {
-              type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Nadelen van handmatige sloop:', version: 1 }],
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '• Minimale kans op beschadiging van omliggende structuren',
+                  version: 1,
+                },
+              ],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Arbeidsintensiever en daardoor duurder bij grote projecten',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Ideaal voor kleine ruimtes waar machines niet passen',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Langzamer dan mechanische sloop', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Betere sorteerbaarheid van afval voor recycling',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Minder geluidsoverlast en trillingen', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Geen vrachtwagenverkeer voor zware machines', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Nadelen van handmatige sloop', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Fysiek zwaar werk voor het team', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Arbeidsintensiever en duurder bij grote projecten',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Langzamer dan mechanische sloop', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Fysiek zwaar werk voor het team', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Beperkte capaciteit voor grote volumes', version: 1 },
               ],
               version: 1,
             },
@@ -2225,150 +1940,95 @@ const blogContent = {
             },
             {
               type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Voordelen van mechanische sloop:', version: 1 }],
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Voordelen van mechanische sloop', version: 1 }],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Zeer snel en efficiënt bij grote volumes', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Kosteneffectief voor grote projecten', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Kan zware constructies en beton aan', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Minder arbeidskrachten nodig', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Geschikt voor complete gebouwen en bruggen', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Nadelen van mechanische sloop', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Zeer snel en efficiënt bij grote volumes',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Kosteneffectief voor grote projecten', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Kan zware constructies aan', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Minder arbeidskrachten nodig', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Vereist veel ruimte voor machines en manoeuvreren',
                   version: 1,
                 },
               ],
               version: 1,
             },
             {
-              type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Nadelen van mechanische sloop:', version: 1 }],
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Meer geluidsoverlast en trillingen', version: 1 },
+              ],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Vereist veel ruimte voor machines', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Minder precisie – hoger risico op beschadiging',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Meer geluidsoverlast', version: 1 }],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Niet geschikt voor binnenruimtes en krappe plekken',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Minder precisie – hoger risico op schade',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Niet geschikt voor binnenruimtes', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Vrachtwagenverkeer voor transport machines',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Vrachtwagenverkeer voor transport zware machines',
                   version: 1,
                 },
               ],
@@ -2456,156 +2116,97 @@ const blogContent = {
             },
             {
               type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Advantages of manual demolition:', version: 1 }],
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Advantages of manual demolition', version: 1 }],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Maximum precision and control', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: "Ideal for small spaces where machines don't fit",
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Minimal risk of damage to surrounding structures',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Better waste sortability', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Less noise pollution', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'No truck traffic for machinery', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Maximum precision and control over the demolition process',
                   version: 1,
                 },
               ],
               version: 1,
             },
             {
-              type: 'heading',
-              tag: 'h3',
-              children: [{ type: 'text', text: 'Disadvantages of manual demolition:', version: 1 }],
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: "• Ideal for small spaces where machines don't fit",
+                  version: 1,
+                },
+              ],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'More labor-intensive and therefore more expensive for large projects',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Minimal risk of damage to surrounding structures',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Better waste sortability for recycling', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Less noise pollution and vibrations', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• No truck traffic for heavy machinery', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Disadvantages of manual demolition', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Slower than mechanical demolition', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• More labor-intensive and more expensive for large projects',
                   version: 1,
                 },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Physically demanding work for the team',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Slower than mechanical demolition', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Physically demanding work for the team', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Limited capacity for large volumes', version: 1 },
               ],
               version: 1,
             },
@@ -2628,148 +2229,91 @@ const blogContent = {
             },
             {
               type: 'heading',
-              tag: 'h3',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Advantages of mechanical demolition', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
-                { type: 'text', text: 'Advantages of mechanical demolition:', version: 1 },
+                { type: 'text', text: '• Very fast and efficient for large volumes', version: 1 },
               ],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Cost-effective for large projects', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Very fast and efficient for large volumes',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Cost-effective for large projects', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Can handle heavy structures', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Fewer workers needed', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+                { type: 'text', text: '• Can handle heavy structures and concrete', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Fewer workers needed', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Suitable for complete buildings and bridges', version: 1 },
               ],
               version: 1,
             },
             {
               type: 'heading',
-              tag: 'h3',
+              tag: 'h2',
               children: [
-                { type: 'text', text: 'Disadvantages of mechanical demolition:', version: 1 },
+                { type: 'text', text: 'Disadvantages of mechanical demolition', version: 1 },
               ],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Requires a lot of space for machinery', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Requires a lot of space for machinery and maneuvering',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• More noise pollution and vibrations', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Less precision – higher risk of damage', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'More noise pollution', version: 1 }],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Not suitable for interior spaces and tight spots',
                   version: 1,
                 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Less precision – higher risk of damage',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Not suitable for interior spaces', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Truck traffic for machinery transport', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Truck traffic for transport of heavy machinery',
                   version: 1,
                 },
               ],
@@ -2914,65 +2458,28 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Afzetting van het werkterrein', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Afzetting van het werkterrein', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Bescherming van publiek en omgeving', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Persoonlijke beschermingsmiddelen (PBM)',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Noodprocedures en evacuatieplannen', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+                { type: 'text', text: '• Bescherming van publiek en omgeving', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Persoonlijke beschermingsmiddelen (PBM)', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Noodprocedures en evacuatieplannen', version: 1 },
               ],
               version: 1,
             },
@@ -3185,106 +2692,51 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Asbestinventarisatie door gecertificeerd deskundige',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Melding bij gemeente en arbeidsinspectie',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Afzetting en ontsmetting van werkgebied',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Verwijdering door gecertificeerde professionals',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Veilig transport naar erkende stortplaats',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Eindinspectie en oplevering', version: 1 }],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Asbestinventarisatie door gecertificeerd deskundige',
                   version: 1,
                 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Melding bij gemeente en arbeidsinspectie', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Afzetting en ontsmetting van werkgebied', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '• Verwijdering door gecertificeerde professionals',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Veilig transport naar erkende stortplaats', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Eindinspectie en oplevering', version: 1 }],
               version: 1,
             },
             {
@@ -3434,69 +2886,30 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Minder belasting van het milieu', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Lagere afvalstortkosten', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Minder belasting van het milieu', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Lagere afvalstortkosten', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Behoud van waardevolle grondstoffen', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Bijdrage aan circulariteit', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Betere CO2-prestatie', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+                { type: 'text', text: '• Behoud van waardevolle grondstoffen', version: 1 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Bijdrage aan circulariteit', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Betere CO2-prestatie', version: 1 }],
               version: 1,
             },
             {
@@ -3623,74 +3036,33 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Schakel gas, water en elektriciteit af', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Verwijder alle losse items en apparatuur', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Schakel gas, water en elektriciteit af',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Verwijder alle losse items en apparatuur',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Bescherm vloeren en muren die behouden blijven',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Zorg voor adequate ventilatie', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Bescherm vloeren en muren die behouden blijven',
                   version: 1,
                 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Zorg voor adequate ventilatie', version: 1 }],
               version: 1,
             },
             {
@@ -3713,52 +3085,31 @@ const blogContent = {
             {
               type: 'heading',
               tag: 'h3',
-              children: [{ type: 'text', text: 'Stapsgewijze aanpak:', version: 1 }],
+              children: [{ type: 'text', text: 'Stapsgewijze aanpak', version: 1 }],
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Bovenkasten en wandelementen eerst', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
+                  type: 'text',
+                  text: '• Stap 1: Bovenkasten en wandelementen verwijderen',
                   version: 1,
                 },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Werkbladen en onderkasten vervolgens', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Vloeren en tegelwerk als laatste', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Stap 2: Werkbladen en onderkasten slopen', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Stap 3: Vloeren en tegelwerk als laatste', version: 1 },
               ],
               version: 1,
             },
@@ -3849,64 +3200,29 @@ const blogContent = {
               version: 1,
             },
             {
-              type: 'list',
-              listType: 'bullet',
+              type: 'paragraph',
               children: [
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Turn off gas, water, and electricity', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        { type: 'text', text: 'Remove all loose items and appliances', version: 1 },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          text: 'Protect floors and walls that will remain',
-                          version: 1,
-                        },
-                      ],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [{ type: 'text', text: 'Ensure adequate ventilation', version: 1 }],
-                      version: 1,
-                    },
-                  ],
-                  version: 1,
-                },
+                { type: 'text', text: '• Turn off gas, water, and electricity', version: 1 },
               ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Remove all loose items and appliances', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                { type: 'text', text: '• Protect floors and walls that will remain', version: 1 },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [{ type: 'text', text: '• Ensure adequate ventilation', version: 1 }],
               version: 1,
             },
             {
@@ -4170,12 +3486,12 @@ async function seed() {
     console.log('\n📦 Seeding Projects with translations...')
     const projectKeys = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6']
     const projectImages = [
-      images[2]?.id,
-      images[3]?.id,
-      images[4]?.id,
-      images[5]?.id,
-      images[6]?.id,
-      images[7]?.id,
+      images[7]?.id, // project1: Winkelruimte Stripping -> project-6.webp
+      images[5]?.id, // project2: Appartement Renovatie -> project-4.webp
+      images[6]?.id, // project3: Woning Ontruiming -> project-5.webp
+      images[2]?.id, // project4: Keuken Renovatie -> project-1.webp
+      images[3]?.id, // project5: Badkamer Verbouwing -> project-2.webp
+      images[4]?.id, // project6: Interieur Renovatie -> project-3.webp
     ]
     const projectDates = [
       new Date('2024-06-15').toISOString(),
@@ -4311,23 +3627,25 @@ async function seed() {
         context: { disableRevalidate: true },
       })
 
-      // Add translations for English
-      if (blogContent[post.key].en) {
-        const enData = blogContent[post.key].en
-        await payload.update({
-          collection: 'posts',
-          id: created.id,
-          data: {
-            title: enData.title,
-            content: enData.content,
-            meta: {
-              title: enData.title,
-              description: enData.excerpt,
+      // Add translations for all other locales
+      for (const locale of locales.filter((l) => l !== 'nl')) {
+        const localeData = blogContent[post.key][locale]
+        if (localeData) {
+          await payload.update({
+            collection: 'posts',
+            id: created.id,
+            data: {
+              title: localeData.title,
+              content: localeData.content,
+              meta: {
+                title: localeData.title,
+                description: localeData.excerpt,
+              },
             },
-          },
-          locale: 'en',
-          context: { disableRevalidate: true },
-        })
+            locale: locale,
+            context: { disableRevalidate: true },
+          })
+        }
       }
 
       console.log(`  ✓ Blog Post: ${postData.title}`)
