@@ -1,6 +1,22 @@
 import { cookies } from 'next/headers'
 
-export const locales = ['nl', 'en'] as const
+export const locales = [
+  'nl',
+  'en',
+  'fr',
+  'de',
+  'it',
+  'es',
+  'sv',
+  'fi',
+  'pl',
+  'ar',
+  'zh',
+  'ja',
+  'pt',
+  'tr',
+  'ru',
+] as const
 export type Locale = (typeof locales)[number]
 export const defaultLocale: Locale = 'nl'
 

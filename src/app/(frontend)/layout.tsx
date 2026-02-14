@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
-        <Providers>
+        <Providers initialLocale={locale}>
           <AdminBar
             adminBarProps={{
               preview: isEnabled,

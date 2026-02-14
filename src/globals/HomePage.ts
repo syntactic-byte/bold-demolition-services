@@ -108,14 +108,11 @@ export const HomePage: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
-          defaultValue: 'OVER TITANBREKERS',
           localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue:
-            'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.',
           localized: true,
         },
         {
@@ -127,7 +124,6 @@ export const HomePage: GlobalConfig = {
               name: 'text',
               type: 'text',
               required: true,
-              localized: true,
             },
           ],
         },

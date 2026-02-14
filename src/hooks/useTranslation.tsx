@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-type TranslationKeys = Record<string, string | TranslationKeys>
+type TranslationKeys = Record<string, any>
 
 interface I18nContextType {
   t: TranslationKeys
@@ -31,12 +31,15 @@ export function I18nProvider({
     localStorage.setItem('locale', newLocale)
   }
 
+  // Only sync with localStorage if no initialLocale was provided
   useEffect(() => {
-    const stored = localStorage.getItem('locale')
-    if (stored) {
-      setLocaleState(stored)
+    if (!initialLocale || initialLocale === 'nl') {
+      const stored = localStorage.getItem('locale')
+      if (stored) {
+        setLocaleState(stored)
+      }
     }
-  }, [])
+  }, [initialLocale])
 
   useEffect(() => {
     async function loadTranslations() {

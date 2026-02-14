@@ -6,11 +6,12 @@ import { I18nProvider } from '@/hooks/useTranslation'
 
 export const Providers: React.FC<{
   children: React.ReactNode
-}> = ({ children }) => {
+  initialLocale?: string
+}> = ({ children, initialLocale }) => {
   return (
     <ThemeProvider>
       <HeaderThemeProvider>
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider initialLocale={initialLocale}>{children}</I18nProvider>
       </HeaderThemeProvider>
     </ThemeProvider>
   )

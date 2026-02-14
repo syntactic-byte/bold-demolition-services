@@ -12,14 +12,11 @@ export const AboutPage: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
-          defaultValue: 'WIE ZIJN WIJ',
           localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          defaultValue:
-            'Al meer dan 25 jaar is TitanBrekers dé specialist in professioneel sloopwerk. Met passie, vakmanschap en moderne apparatuur maken wij ruimte voor de toekomst.',
           localized: true,
         },
         {
@@ -42,7 +39,6 @@ export const AboutPage: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
-          defaultValue: 'ONS VERHAAL',
           localized: true,
         },
         {

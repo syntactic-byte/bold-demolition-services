@@ -87,25 +87,25 @@ const urlMappings: Record<string, Record<string, string>> = {
     kontakt: 'contact',
   },
   ar: {
-    alkhdm: 'diensten',
-    mahdt: 'projecten',
-    akhbar: 'nieuws',
-    ana: 'over-ons',
-    tatsel: 'contact',
+    الخدمات: 'diensten',
+    المشاريع: 'projecten',
+    الأخبار: 'nieuws',
+    'من-نحن': 'over-ons',
+    'اتصل-بنا': 'contact',
   },
   zh: {
-    fuwu: 'diensten',
-    xiangmu: 'projecten',
-    xinwen: 'nieuws',
-    guanyu: 'over-ons',
-    lianxi: 'contact',
+    服务: 'diensten',
+    项目: 'projecten',
+    新闻: 'nieuws',
+    关于我们: 'over-ons',
+    联系我们: 'contact',
   },
   ja: {
-    saabisu: 'diensten',
-    purojekuto: 'projecten',
-    nyuusu: 'nieuws',
-    kaishame: 'over-ons',
-    renrakus: 'contact',
+    サービス: 'diensten',
+    プロジェクト: 'projecten',
+    ニュース: 'nieuws',
+    会社概要: 'over-ons',
+    お問い合わせ: 'contact',
   },
   pt: {
     servicos: 'diensten',
@@ -131,7 +131,8 @@ const urlMappings: Record<string, Record<string, string>> = {
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  // Decode pathname to handle non-ASCII characters (Chinese, Arabic, etc.)
+  const pathname = decodeURI(request.nextUrl.pathname)
 
   // Skip middleware for API routes, static files, and admin
   if (

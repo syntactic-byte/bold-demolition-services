@@ -24,7 +24,7 @@ const getIconComponent = (iconName: string) => {
 export default function OverOnsClient({ pageData }: OverOnsClientProps) {
   const { t, locale } = useTranslation()
 
-  // Use CMS data or fallback with translations
+  // Use CMS data for hero (now properly translated in all locales)
   const hero = pageData?.hero || {
     title: t.about?.title || 'WIE ZIJN WIJ',
     description:
@@ -32,105 +32,118 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
       'Al meer dan 25 jaar is TitanBrekers dé specialist in professioneel sloopwerk. Met passie, vakmanschap en moderne apparatuur maken wij ruimte voor de toekomst.',
   }
 
+  // Fallback background image if not provided by CMS
+  const heroBackgroundImage = hero.backgroundImage?.url
+    ? hero.backgroundImage
+    : {
+        url: '/about-team.webp',
+        filename: 'about-team.webp',
+        alt: 'TitanBreakers team',
+      }
+
+  // Use CMS data for content sections (now properly translated in all locales)
   const story = pageData?.story || {
-    title: t.about?.storyTitle || 'ONS VERHAAL',
+    title: t.aboutPage?.storyTitle || 'ONS VERHAAL',
     paragraphs: [
       {
         text:
-          t.about?.story1 ||
+          t.aboutPage?.story1 ||
           'TitanBrekers werd in 1999 opgericht door twee ervaren slopers met een duidelijke missie: professioneel sloopwerk leveren met oog voor veiligheid, kwaliteit en milieu.',
       },
       {
         text:
-          t.about?.story2 ||
+          t.aboutPage?.story2 ||
           'Wat begon als een klein familiebedrijf is uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Met meer dan 50 medewerkers, een modern machinepark en alle benodigde certificeringen pakken wij elk project aan - groot of klein.',
       },
       {
         text:
-          t.about?.story3 ||
+          t.aboutPage?.story3 ||
           'Onze kracht zit in ons team. Ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat. Samen met onze opdrachtgevers vinden wij oplossingen voor de meest complexe sloopprojecten.',
       },
     ],
   }
 
+  // Use CMS data for stats (now properly translated in all locales)
   const stats = pageData?.stats || [
-    { number: '25+', label: t.about?.years || 'Jaar Ervaring' },
-    { number: '500+', label: t.about?.projects || 'Projecten' },
-    { number: '50+', label: t.about?.employees || 'Medewerkers' },
-    { number: '98%', label: t.about?.recycling || 'Recycling' },
+    { number: '25+', label: t.aboutPage?.years || 'Jaar Ervaring' },
+    { number: '500+', label: t.aboutPage?.projects || 'Projecten' },
+    { number: '50+', label: t.aboutPage?.employees || 'Medewerkers' },
+    { number: '98%', label: t.aboutPage?.recycling || 'Recycling' },
   ]
 
+  // Use CMS data for values (now properly translated in all locales)
   const values = pageData?.values || [
     {
       icon: 'Shield',
-      title: t.about?.safety || 'Veiligheid',
+      title: t.aboutPage?.safety || 'Veiligheid',
       description:
-        t.about?.safetyDesc ||
+        t.aboutPage?.safetyDesc ||
         'Veiligheid staat altijd voorop. Wij werken volgens VCA** en hanteren de hoogste veiligheidsnormen op al onze projecten.',
     },
     {
       icon: 'Target',
-      title: t.about?.quality || 'Kwaliteit',
+      title: t.aboutPage?.quality || 'Kwaliteit',
       description:
-        t.about?.qualityDesc ||
+        t.aboutPage?.qualityDesc ||
         'Wij leveren kwaliteitswerk, op tijd en binnen budget. Onze klanten kunnen rekenen op professionele uitvoering.',
     },
     {
       icon: 'Heart',
-      title: t.about?.sustainability || 'Duurzaamheid',
+      title: t.aboutPage?.sustainability || 'Duurzaamheid',
       description:
-        t.about?.sustainabilityDesc ||
+        t.aboutPage?.sustainabilityDesc ||
         'Met 98% recycling van sloopafval dragen wij bij aan een circulaire economie en een schonere toekomst.',
     },
     {
       icon: 'Users',
-      title: t.about?.craftsmanship || 'Vakmanschap',
+      title: t.aboutPage?.craftsmanship || 'Vakmanschap',
       description:
-        t.about?.craftsmanshipDesc ||
+        t.aboutPage?.craftsmanshipDesc ||
         'Ons team bestaat uit ervaren vakmensen die trots zijn op hun werk en altijd streven naar het beste resultaat.',
     },
   ]
 
+  // Use CMS data for timeline (now properly translated in all locales)
   const timeline = pageData?.timeline || [
     {
       year: '1999',
-      title: t.about?.foundation || 'Oprichting',
-      description: t.about?.foundationDesc || 'TitanBrekers wordt opgericht in Rotterdam',
+      title: t.aboutPage?.foundation || 'Oprichting',
+      description: t.aboutPage?.foundationDesc || 'TitanBrekers wordt opgericht in Rotterdam',
     },
     {
       year: '2005',
-      title: t.about?.vca || 'VCA Certificering',
-      description: t.about?.vcaDesc || 'Behalen van VCA** certificering',
+      title: t.aboutPage?.vca || 'VCA Certificering',
+      description: t.aboutPage?.vcaDesc || 'Behalen van VCA** certificering',
     },
     {
       year: '2010',
-      title: t.about?.sc530 || 'SC-530 Erkenning',
-      description: t.about?.sc530Desc || 'Erkenning voor asbestverwijdering',
+      title: t.aboutPage?.sc530 || 'SC-530 Erkenning',
+      description: t.aboutPage?.sc530Desc || 'Erkenning voor asbestverwijdering',
     },
     {
       year: '2015',
-      title: t.about?.national || 'Landelijke Dekking',
-      description: t.about?.nationalDesc || 'Uitbreiding naar heel Nederland',
+      title: t.aboutPage?.national || 'Landelijke Dekking',
+      description: t.aboutPage?.nationalDesc || 'Uitbreiding naar heel Nederland',
     },
     {
       year: '2020',
-      title: t.about?.employees50 || '50 Medewerkers',
-      description: t.about?.employees50Desc || 'Groei naar 50+ vakmensen',
+      title: t.aboutPage?.employees50 || '50 Medewerkers',
+      description: t.aboutPage?.employees50Desc || 'Groei naar 50+ vakmensen',
     },
     {
       year: '2024',
-      title: t.about?.projects500 || '500+ Projecten',
-      description: t.about?.projects500Desc || 'Mijlpaal van 500 succesvolle projecten',
+      title: t.aboutPage?.projects500 || '500+ Projecten',
+      description: t.aboutPage?.projects500Desc || 'Mijlpaal van 500 succesvolle projecten',
     },
   ]
 
   const certifications = [
-    t.about?.vcaCert || 'VCA** Gecertificeerd',
-    t.about?.sc530Cert || 'SC-530 Asbestverwijdering',
-    t.about?.iso9001 || 'ISO 9001 Kwaliteitsmanagement',
-    t.about?.iso14001 || 'ISO 14001 Milieumanagement',
-    t.about?.training || 'Erkend Leerbedrijf',
-    t.about?.association || 'Lid Vereniging Sloopbedrijven',
+    t.aboutPage?.vcaCert || 'VCA** Gecertificeerd',
+    t.aboutPage?.sc530Cert || 'SC-530 Asbestverwijdering',
+    t.aboutPage?.iso9001 || 'ISO 9001 Kwaliteitsmanagement',
+    t.aboutPage?.iso14001 || 'ISO 14001 Milieumanagement',
+    t.aboutPage?.training || 'Erkend Leerbedrijf',
+    t.aboutPage?.association || 'Lid Vereniging Sloopbedrijven',
   ]
 
   return (
@@ -143,25 +156,23 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
         style={{ aspectRatio: '16/9', maxHeight: '70vh' }}
       >
         {/* Background Image */}
-        {hero.backgroundImage && (
-          <div className="absolute inset-0 z-0 w-full h-full">
-            <img
-              src={hero.backgroundImage.url || `/api/media/file/${hero.backgroundImage.filename}`}
-              alt={hero.backgroundImage.alt || 'TitanBreakers team'}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: 'center 30%' }}
-            />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-          </div>
-        )}
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <img
+            src={heroBackgroundImage.url || `/api/media/file/${heroBackgroundImage.filename}`}
+            alt={heroBackgroundImage.alt || 'TitanBreakers team'}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+        </div>
 
         {/* Content */}
         <div className="container mx-auto px-4 relative z-10 pt-32 pb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                {locale === 'en' ? 'About Us' : 'Over Ons'}
+                {t.aboutPage?.aboutUs || 'Over Ons'}
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl mb-4">
@@ -212,13 +223,11 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display text-4xl mb-4 text-foreground">
-              {locale === 'en' ? 'OUR ' : 'ONZE '}
-              <span className="text-gradient">{locale === 'en' ? 'VALUES' : 'WAARDEN'}</span>
+              {t.aboutPage?.ourValues || 'ONZE WAARDEN'}
             </h2>
             <p className="text-muted-foreground text-lg">
-              {locale === 'en'
-                ? 'These core values form the foundation of everything we do.'
-                : 'Deze kernwaarden vormen de basis van alles wat wij doen.'}
+              {t.aboutPage?.valuesDesc ||
+                'Deze kernwaarden vormen de basis van alles wat wij doen.'}
             </p>
           </div>
 
@@ -244,8 +253,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display text-4xl mb-4 text-foreground">
-              {locale === 'en' ? 'OUR ' : 'ONZE '}
-              <span className="text-gradient">{locale === 'en' ? 'HISTORY' : 'GESCHIEDENIS'}</span>
+              {t.aboutPage?.ourHistory || 'ONZE GESCHIEDENIS'}
             </h2>
           </div>
 
@@ -276,15 +284,11 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display text-4xl mb-4 text-foreground">
-              {locale === 'en' ? 'CERTIFICATIONS & ' : 'CERTIFICERINGEN & '}
-              <span className="text-gradient">
-                {locale === 'en' ? 'RECOGNITIONS' : 'ERKENNINGEN'}
-              </span>
+              {t.aboutPage?.certifications || 'CERTIFICERINGEN & ERKENNINGEN'}
             </h2>
             <p className="text-muted-foreground text-lg">
-              {locale === 'en'
-                ? 'We meet the highest standards in safety, quality, and environment.'
-                : 'Wij voldoen aan de hoogste eisen op het gebied van veiligheid, kwaliteit en milieu.'}
+              {t.aboutPage?.certificationsDesc ||
+                'Wij voldoen aan de hoogste eisen op het gebied van veiligheid, kwaliteit en milieu.'}
             </p>
           </div>
 

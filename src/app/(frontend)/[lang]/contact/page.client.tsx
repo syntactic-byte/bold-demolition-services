@@ -27,9 +27,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
     setIsSubmitting(true)
     await new Promise((resolve) => setTimeout(resolve, 1500))
     alert(
-      locale === 'en'
-        ? t.contact?.messageSent || 'Message sent! We will contact you within 24 hours.'
-        : t.contact?.messageSent || 'Bericht verzonden! Wij nemen binnen 24 uur contact met u op.',
+      t.contactPage?.messageSent || 'Bericht verzonden! Wij nemen binnen 24 uur contact met u op.',
     )
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
     setIsSubmitting(false)
@@ -41,37 +39,32 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  // Use CMS data for hero (now properly translated in all locales)
   const hero = pageData?.hero || {
-    title: t.contact?.title || (locale === 'en' ? 'GET INUCH' : 'NEEM CONTACT OP'),
+    title: t.contactPage?.title || 'NEEM CONTACT OP',
     description:
-      t.contact?.description ||
-      (locale === 'en'
-        ? 'Do you have a demolition or dismantling project? Feel free to contact us for a quote or advice. We respond within 24 hours.'
-        : 'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.'),
+      t.contactPage?.description ||
+      'Heeft u een sloop- of demontageproject? Neem vrijblijvend contact met ons op voor een offerte of advies. Wij reageren binnen 24 uur.',
   }
 
+  // Use siteSettings or translations for contact info
   const contact = siteSettings?.contact || {
     phone: t.contact?.phone || '06-12345678',
-    email: locale === 'en' ? 'info@titanbreakers.nl' : 'info@titaanbrekers.nl',
+    email: `info@${t.company?.name?.toLowerCase() || 'titaanbrekers'}.nl`,
     address: t.contact?.address || 'Industrieweg 45\n1234 AB Rotterdam',
-    hours:
-      locale === 'en'
-        ? t.contact?.hours || 'Monday - Friday: 07:00 - 18:00'
-        : t.contact?.hours || 'Maandag - Vrijdag: 07:00 - 18:00',
+    hours: t.contactPage?.hoursValue || 'Maandag - Vrijdag: 07:00 - 18:00',
   }
 
-  const formTitle =
-    pageData?.formSettings?.title ||
-    t.contact?.formTitle ||
-    (locale === 'en' ? 'SEND A MESSAGE' : 'STUUR EEN BERICHT')
+  // Use CMS data for form (now properly translated in all locales)
+  const formTitle = pageData?.formSettings?.title || t.contactPage?.formTitle || 'STUUR EEN BERICHT'
   const subjects = pageData?.formSettings?.subjects || [
-    { value: 'offerte', label: locale === 'en' ? 'Request Quote' : 'Offerte aanvragen' },
+    { value: 'offerte', label: t.contact?.subjects?.quote || 'Offerte aanvragen' },
     {
       value: 'informatie',
-      label: locale === 'en' ? 'Request Information' : 'Informatie aanvragen',
+      label: t.contact?.subjects?.info || 'Informatie aanvragen',
     },
-    { value: 'samenwerking', label: locale === 'en' ? 'Partnership' : 'Samenwerking' },
-    { value: 'anders', label: locale === 'en' ? 'Other' : 'Anders' },
+    { value: 'samenwerking', label: t.contact?.subjects?.collaboration || 'Samenwerking' },
+    { value: 'anders', label: t.contact?.subjects?.other || 'Anders' },
   ]
 
   const certifications = siteSettings?.certifications?.map((c: any) => c.name) || [
@@ -91,7 +84,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                {locale === 'en' ? 'Contact' : 'Contact'}
+                {t.nav?.contact || 'Contact'}
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl mb-4">
@@ -110,7 +103,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <h2 className="font-display text-3xl mb-8 text-foreground">
-                {locale === 'en' ? 'CONTACT DETAILS' : 'CONTACTGEGEVENS'}
+                {t.contactPage?.contactDetails || 'CONTACTGEGEVENS'}
               </h2>
 
               <div className="space-y-6">
@@ -120,7 +113,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      {locale === 'en' ? 'Address' : 'Adres'}
+                      {t.contactPage?.address || 'Adres'}
                     </h3>
                     <p className="text-muted-foreground whitespace-pre-line">{contact.address}</p>
                   </div>
@@ -132,7 +125,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      {locale === 'en' ? 'Phone' : 'Telefoon'}
+                      {t.contactPage?.phone || 'Telefoon'}
                     </h3>
                     <a
                       href={`tel:${contact.phone}`}
@@ -149,7 +142,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      {locale === 'en' ? 'Email' : 'E-mail'}
+                      {t.contactPage?.email || 'E-mail'}
                     </h3>
                     <a
                       href={`mailto:${contact.email}`}
@@ -166,7 +159,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      {locale === 'en' ? 'Opening Hours' : 'Openingstijden'}
+                      {t.contactPage?.openingHours || 'Openingstijden'}
                     </h3>
                     <p className="text-muted-foreground whitespace-pre-line">{contact.hours}</p>
                   </div>
@@ -176,7 +169,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
               {/* Certifications */}
               <div className="mt-10">
                 <h3 className="font-display text-xl mb-4 text-foreground">
-                  {locale === 'en' ? 'CERTIFICATIONS' : 'CERTIFICERINGEN'}
+                  {t.contactPage?.certifications || 'CERTIFICERINGEN'}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {certifications.map((cert: string) => (
@@ -200,7 +193,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         htmlFor="name"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {locale === 'en' ? 'Name *' : 'Naam *'}
+                        {t.form?.name || 'Naam'} *
                       </label>
                       <input
                         type="text"
@@ -210,7 +203,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                        placeholder={locale === 'en' ? 'Your name' : 'Uw naam'}
+                        placeholder={t.contactPage?.namePlaceholder || 'Uw naam'}
                       />
                     </div>
                     <div>
@@ -218,7 +211,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         htmlFor="email"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {locale === 'en' ? 'Email *' : 'E-mail *'}
+                        {t.form?.email || 'E-mail'} *
                       </label>
                       <input
                         type="email"
@@ -228,7 +221,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-                        placeholder={locale === 'en' ? 'your@email.com' : 'uw@email.nl'}
+                        placeholder={t.contactPage?.emailPlaceholder || 'uw@email.nl'}
                       />
                     </div>
                   </div>
@@ -239,7 +232,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         htmlFor="phone"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {locale === 'en' ? 'Phone Number' : 'Telefoonnummer'}
+                        {t.contactPage?.phoneLabel || 'Telefoonnummer'}
                       </label>
                       <input
                         type="tel"
@@ -256,7 +249,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         htmlFor="subject"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {locale === 'en' ? 'Subject *' : 'Onderwerp *'}
+                        {t.form?.subject || 'Onderwerp'} *
                       </label>
                       <select
                         id="subject"
@@ -267,7 +260,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                         className="w-full px-4 py-3 bg-background border border-border text-foreground focus:border-primary focus:outline-none transition-colors"
                       >
                         <option value="">
-                          {locale === 'en' ? 'Select subject' : 'Selecteer onderwerp'}
+                          {t.contactPage?.subjectSelect || 'Selecteer onderwerp'}
                         </option>
                         {subjects.map((subj: any) => (
                           <option key={subj.value} value={subj.value}>
@@ -283,7 +276,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                       htmlFor="message"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      {locale === 'en' ? 'Message *' : 'Bericht *'}
+                      {t.form?.message || 'Bericht'} *
                     </label>
                     <textarea
                       id="message"
@@ -294,9 +287,7 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                       rows={6}
                       className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors resize-none"
                       placeholder={
-                        locale === 'en'
-                          ? 'Describe your project or question...'
-                          : 'Beschrijf uw project of vraag...'
+                        t.contactPage?.messagePlaceholder || 'Beschrijf uw project of vraag...'
                       }
                     />
                   </div>
@@ -307,14 +298,10 @@ export default function ContactClient({ pageData, siteSettings }: ContactClientP
                     className="btn-power w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
-                      locale === 'en' ? (
-                        'Sending...'
-                      ) : (
-                        'Verzenden...'
-                      )
+                      t.contactPage?.sending || 'Verzenden...'
                     ) : (
                       <>
-                        {locale === 'en' ? 'Send Message' : 'Bericht Verzenden'}
+                        {t.contactPage?.sendMessage || 'Bericht Verzenden'}
                         <Send className="w-5 h-5" />
                       </>
                     )}

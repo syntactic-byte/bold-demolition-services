@@ -52,7 +52,8 @@ const Footer = () => {
                 <span className="font-display text-2xl text-primary-foreground font-bold">T</span>
               </div>
               <span className="font-display text-2xl tracking-wider text-foreground">
-                <span>{t.company?.name || 'titaanbreakers'}</span>
+                <span>{t.company?.logoFirst || 'titaan'}</span>
+                <span className="text-primary">{t.company?.logoSecond || 'brekers'}</span>
               </span>
             </div>
             <p className="text-muted-foreground mb-6">{t.company?.tagline || ''}</p>

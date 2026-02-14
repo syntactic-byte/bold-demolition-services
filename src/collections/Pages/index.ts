@@ -75,6 +75,7 @@ export const Pages: CollectionConfig<'pages'> = {
               type: 'blocks',
               blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
               required: true,
+              localized: true,
               admin: {
                 initCollapsed: true,
               },

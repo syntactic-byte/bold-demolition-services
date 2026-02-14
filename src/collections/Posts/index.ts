@@ -99,6 +99,7 @@ export const Posts: CollectionConfig<'posts'> = {
               }),
               label: false,
               required: true,
+              localized: true,
             },
           ],
           label: 'Content',

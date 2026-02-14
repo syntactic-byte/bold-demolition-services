@@ -41,45 +41,27 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
     }
   }, [pathname])
 
-  const isEnglish = locale === 'en'
-
-  const title =
-    data?.title || (isEnglish ? 'ABOUT TITANBREAKERS' : t.about?.title || 'OVER TITAANBREKERS')
+  // Use CMS data if available, otherwise fall back to translations
+  const title = data?.title || t.about?.title || 'OVER TITANBREKERS'
   const description =
     data?.description ||
-    (isEnglish
-      ? 'With more than 25 years of experience, titanbreakers has grown into one of the most respected demolition companies in the Netherlands. We combine craftsmanship with modern techniques for every type of demolition and dismantling project.'
-      : t.about?.description ||
-        'Met meer dan 25 jaar ervaring is titaanbrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.')
+    t.about?.description ||
+    'Met meer dan 25 jaar ervaring is TitanBrekers uitgegroeid tot een van de meest gerespecteerde sloopbedrijven van Nederland. Wij combineren vakmanschap met moderne technieken voor elk type sloop- en demontageproject.'
 
-  const highlights = data?.highlights || [
-    {
-      text: isEnglish
-        ? 'VCA** certified and fully insured'
-        : t.about?.certifications || 'VCA** gecertificeerd en volledig verzekerd',
-    },
-    {
-      text: isEnglish
-        ? 'Modern equipment and experienced professionals'
-        : t.about?.equipment || 'Modern machinepark en ervaren vakmensen',
-    },
-    {
-      text: isEnglish
-        ? '98% recycling of all demolition waste'
-        : t.about?.recycling || '98% recycling van alle sloopafval',
-    },
-    {
-      text: isEnglish
-        ? 'National coverage with local service'
-        : t.about?.coverage || 'Landelijke dekking met lokale service',
-    },
+  // Highlights always come from translation strings (not CMS - arrays don't localize well)
+  const highlights = [
+    { text: t.about?.certifications || 'VCA** gecertificeerd en volledig verzekerd' },
+    { text: t.about?.equipment || 'Modern machinepark en ervaren vakmensen' },
+    { text: t.about?.recycling || '98% recycling van alle sloopafval' },
+    { text: t.about?.coverage || 'Landelijke dekking met lokale service' },
   ]
 
+  // Stats always come from translations
   const stats = [
-    { number: '25+', label: isEnglish ? 'Years Active' : t.about?.yearsActive || 'Jaar Actief' },
-    { number: '500+', label: isEnglish ? 'Projects' : t.about?.projects || 'Projecten' },
-    { number: '50+', label: isEnglish ? 'Employees' : t.about?.employees || 'Medewerkers' },
-    { number: '98%', label: isEnglish ? 'Recycling' : t.about?.recyclingStat || 'Recycling' },
+    { number: '25+', label: t.about?.yearsActive || 'Jaar Actief' },
+    { number: '500+', label: t.about?.projects || 'Projecten' },
+    { number: '50+', label: t.about?.employees || 'Medewerkers' },
+    { number: '98%', label: t.about?.recyclingStat || 'Recycling' },
   ]
 
   return (
@@ -93,7 +75,7 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
           <div>
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                {isEnglish ? 'About TitanBreakers' : t.about?.titleShort || 'Over TitanBrekers'}
+                {t.about?.titleShort || 'Over Ons'}
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl mb-6">
@@ -112,8 +94,8 @@ const AboutPreview = ({ data }: AboutPreviewProps) => {
               ))}
             </div>
 
-            <Link href="/over-ons" className="btn-power inline-flex items-center gap-2">
-              {isEnglish ? 'More About Us' : t.about?.moreAbout || 'Meer Over Ons'}
+            <Link href={`/${locale}/over-ons`} className="btn-power inline-flex items-center gap-2">
+              {t.about?.moreAbout || 'Meer Over Ons'}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

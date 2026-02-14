@@ -3585,6 +3585,452 @@ const blogContent = {
       },
     },
   },
+  kitchen: {
+    nl: {
+      title: 'Keuken Sloop Gids: Alles Wat U Moet Weten',
+      excerpt:
+        'Een complete gids voor het slopen van uw keuken. Van voorbereiding tot uitvoering, ontdek hoe u dit het beste kunt aanpakken.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Het slopen van een keuken is een belangrijke stap in uw renovatieproject. Of u nu een complete makeover plant of alleen bepaalde elementen wilt vervangen, een grondige sloop legt de basis voor een succesvol resultaat. In deze gids nemen wij u mee door het complete proces van keukensloop.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Voorbereiding is essentieel', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Voordat u begint met het slopen van uw keuken, is een goede voorbereiding cruciaal. Dit voorkomt verrassingen en zorgt voor een soepel verloop van het project.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Schakel gas, water en elektriciteit af',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Verwijder alle losse items en apparatuur',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Bescherm vloeren en muren die behouden blijven',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Zorg voor adequate ventilatie', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Het sloopproces', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Bij titaanbrekers werken wij systematisch en veilig. We beginnen altijd bij de bovenste elementen en werken naar beneden toe. Dit voorkomt beschadiging van reeds gesloopte delen en zorgt voor een efficiënt werktempo.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h3',
+              children: [{ type: 'text', text: 'Stapsgewijze aanpak:', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Bovenkasten en wandelementen eerst', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Werkbladen en onderkasten vervolgens', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Vloeren en tegelwerk als laatste', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Veiligheid staat voorop', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Veiligheid is onze hoogste prioriteit. Onze vakmensen dragen altijd de juiste beschermingsmiddelen en volgen strikte veiligheidsprotocollen. We letten ook op het vrijkomen van gevaarlijke materialen zoals asbest in oude keukens.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Afvalverwerking en duurzaamheid', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Wij zorgen voor een duurzame afvoer van alle sloopmaterialen. Waar mogelijk scheiden we afvalstoffen voor recycling. Oude keukenapparatuur wordt op verantwoorde wijze afgevoerd volgens milieuwetgeving.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Met meer dan 25 jaar ervaring in keukensloop is titaanbrekers uw betrouwbare partner. Neem contact met ons op voor een vrijblijvende offerte en advies op maat.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+    en: {
+      title: 'Kitchen Demolition Guide: Everything You Need to Know',
+      excerpt:
+        'A complete guide for demolishing your kitchen. From preparation to execution, discover how to best approach this project.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Demolishing a kitchen is an important step in your renovation project. Whether you are planning a complete makeover or just want to replace certain elements, thorough demolition lays the foundation for a successful result. In this guide, we take you through the complete kitchen demolition process.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Preparation is essential', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Before you start demolishing your kitchen, good preparation is crucial. This prevents surprises and ensures a smooth project flow.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Turn off gas, water, and electricity', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Remove all loose items and appliances', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Protect floors and walls that will remain',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Ensure adequate ventilation', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'The demolition process', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'At TitanBreakers, we work systematically and safely. We always start with the upper elements and work our way down. This prevents damage to already demolished parts and ensures efficient work pace.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h3',
+              children: [{ type: 'text', text: 'Step-by-step approach:', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'list',
+              listType: 'bullet',
+              children: [
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          type: 'text',
+                          text: 'Upper cabinets and wall elements first',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        { type: 'text', text: 'Countertops and base cabinets next', version: 1 },
+                      ],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+                {
+                  type: 'listitem',
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [{ type: 'text', text: 'Flooring and tiling last', version: 1 }],
+                      version: 1,
+                    },
+                  ],
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Safety first', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Safety is our highest priority. Our professionals always wear the right protective equipment and follow strict safety protocols. We also pay attention to the release of dangerous materials such as asbestos in old kitchens.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'heading',
+              tag: 'h2',
+              children: [{ type: 'text', text: 'Waste processing and sustainability', version: 1 }],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'We ensure sustainable disposal of all demolition materials. Where possible, we separate waste for recycling. Old kitchen appliances are disposed of responsibly according to environmental legislation.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'With more than 25 years of experience in kitchen demolition, TitanBreakers is your reliable partner. Contact us for a no-obligation quote and tailored advice.',
+                  version: 1,
+                },
+              ],
+              version: 1,
+            },
+          ],
+          version: 1,
+        },
+      },
+    },
+  },
 }
 
 async function seed() {
@@ -3823,6 +4269,24 @@ async function seed() {
         slug: 'handmatige-vs-mechanische-sloop',
         image: images[8]?.id,
         date: new Date('2023-12-20').toISOString(),
+      },
+      {
+        key: 'kitchen',
+        slug: 'keuken-sloop-gids',
+        image: images[9]?.id,
+        date: new Date('2023-12-10').toISOString(),
+      },
+      {
+        key: 'sustainable',
+        slug: 'duurzaam-sloopwerk',
+        image: images[13]?.id,
+        date: new Date('2023-11-28').toISOString(),
+      },
+      {
+        key: 'asbestos',
+        slug: 'asbest-verwijdering-veiligheid',
+        image: images[17]?.id,
+        date: new Date('2023-11-15').toISOString(),
       },
     ]
 

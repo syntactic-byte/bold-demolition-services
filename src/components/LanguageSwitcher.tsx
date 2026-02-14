@@ -261,7 +261,7 @@ export default function LanguageSwitcher() {
 
       if (isService) {
         const newPaths = publicPaths[langCode] || publicPaths['nl']
-        const newPathname = `/${langCode}${newPaths.services}`
+        const newPathname = encodeURI(`/${langCode}${newPaths.services}`)
         router.push(newPathname)
         return
       }
@@ -274,8 +274,8 @@ export default function LanguageSwitcher() {
       const newPaths = publicPaths[langCode] || publicPaths['nl']
       const newPublicPath = newPaths[routeKey] || currentPublicPath
 
-      // Construct new URL
-      const newPathname = `/${langCode}${newPublicPath}`
+      // Construct new URL with proper encoding for non-ASCII characters
+      const newPathname = encodeURI(`/${langCode}${newPublicPath}`)
 
       // Navigate to the translated URL
       router.push(newPathname)

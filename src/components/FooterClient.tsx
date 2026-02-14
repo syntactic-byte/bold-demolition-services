@@ -52,24 +52,14 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
           { name: t.nav?.contact || 'Contact', path: getLocalizedPath(paths.contact, '/contact') },
         ]
 
-  const services =
-    locale === 'en'
-      ? [
-          t.services?.manual || 'Manual Demolition',
-          t.services?.interior || 'Interior Demolition',
-          t.services?.selective || 'Selective Demolition',
-          t.services?.kitchen || 'Kitchen & Bathroom',
-          t.services?.clearing || 'Property Clearing',
-          t.services?.asbestos || 'Asbestos Removal',
-        ]
-      : [
-          t.services?.manual || 'Handmatige Sloop',
-          t.services?.interior || 'Interieur Sloop',
-          t.services?.selective || 'Selectieve Sloop',
-          t.services?.kitchen || 'Keuken & Badkamer',
-          t.services?.clearing || 'Woning Ontruiming',
-          t.services?.asbestos || 'Asbest Sanering',
-        ]
+  const services = [
+    t.services?.manual || 'Handmatige Sloop',
+    t.services?.interior || 'Interieur Sloop',
+    t.services?.selective || 'Selectieve Sloop',
+    t.services?.kitchen || 'Keuken & Badkamer',
+    t.services?.clearing || 'Woning Ontruiming',
+    t.services?.asbestos || 'Asbest Sanering',
+  ]
 
   return (
     <footer className="bg-card border-t border-border">
@@ -90,18 +80,15 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
               </span>
             </div>
             <p className="text-muted-foreground mb-6">
-              {locale === 'en'
-                ? t.footer?.tagline ||
-                  'Manual demolition work with hammer and chisel. For more than 25 years your partner in indoor demolition and renovation.'
-                : t.footer?.tagline ||
-                  'Handmatig sloopwerk met hamer en beitel. Al meer dan 25 jaar uw partner in binnensloop en renovatie.'}
+              {t.company?.tagline ||
+                'Handmatig sloopwerk met hamer en beitel. Al meer dan 25 jaar uw partner in binnensloop en renovatie.'}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-display text-xl mb-6 text-foreground">
-              {t.footer?.navigation || (locale === 'en' ? 'Navigation' : 'Navigatie')}
+              {t.footer?.navigation || 'Navigatie'}
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link: any) => (
@@ -120,7 +107,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
           {/* Services */}
           <div>
             <h4 className="font-display text-xl mb-6 text-foreground">
-              {t.nav?.services || (locale === 'en' ? 'Services' : 'Diensten')}
+              {t.nav?.services || 'Diensten'}
             </h4>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -134,7 +121,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
           {/* Contact */}
           <div>
             <h4 className="font-display text-xl mb-6 text-foreground">
-              {t.nav?.contact || (locale === 'en' ? 'Contact' : 'Contact')}
+              {t.nav?.contact || 'Contact'}
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -157,19 +144,16 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href={`mailto:info@${locale === 'en' ? 'titanbreakers.nl' : 'titaanbrekers.nl'}`}
+                  href={`mailto:${t.footer?.email || 'info@titaanbrekers.nl'}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {t.footer?.email ||
-                    `info@${locale === 'en' ? 'titanbreakers.nl' : 'titaanbrekers.nl'}`}
+                  {t.footer?.email || 'info@titaanbrekers.nl'}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <span className="text-muted-foreground">
-                  {locale === 'en'
-                    ? t.footer?.hours?.weekday || 'Mon-Fri: 07:00 - 18:00'
-                    : t.footer?.hours?.weekday || 'Ma-Vr: 07:00 - 18:00'}
+                  {t.footer?.hours || 'Ma-Vr: 07:00 - 18:00'}
                 </span>
               </li>
             </ul>
@@ -183,9 +167,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
               © {currentYear} {t.company?.name || 'TitanBreakers'}.{' '}
-              {locale === 'en'
-                ? t.footer?.copyrightSuffix || 'All rights reserved.'
-                : t.footer?.copyrightSuffix || 'Alle rechten voorbehouden.'}
+              {t.footer?.copyrightSuffix || 'Alle rechten voorbehouden.'}
             </p>
             <div className="flex gap-6 text-sm">
               <Link
@@ -198,9 +180,7 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
                 href="/voorwaarden"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                {locale === 'en'
-                  ? t.footer?.terms || 'Terms & Conditions'
-                  : t.footer?.voorwaarden || 'Algemene Voorwaarden'}
+                {t.footer?.terms || 'Algemene Voorwaarden'}
               </Link>
             </div>
           </div>

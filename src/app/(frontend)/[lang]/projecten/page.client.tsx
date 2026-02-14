@@ -41,18 +41,15 @@ export default function ProjectenClient({ projects = [] }: ProjectenClientProps)
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                Portfolio
+                {t.sections?.ourProjects || 'Onze Projecten'}
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl mb-4">
-              {t.projects?.title || (locale === 'en' ? 'OUR PROJECTS' : 'ONZE PROJECTEN')}
+              {t.projects?.title || 'ONZE PROJECTEN'}
             </h1>
             <p className="text-muted-foreground text-lg">
-              {locale === 'en'
-                ? t.projects?.description ||
-                  'Discover our most recent demolition and dismantling projects. From industrial complexes to office buildings - see where TitanBreakers has made the difference.'
-                : t.projects?.description ||
-                  'Ontdek onze meest recente sloop- en demontageprojecten. Van industriële complexen tot kantoorgebouwen - bekijk waar TitanBrekers het verschil heeft gemaakt.'}
+              {t.projects?.description ||
+                'Ontdek onze meest recente sloop- en demontageprojecten. Van industriële complexen tot kantoorgebouwen - bekijk waar TitanBrekers het verschil heeft gemaakt.'}
             </p>
           </div>
         </div>
@@ -103,11 +100,7 @@ export default function ProjectenClient({ projects = [] }: ProjectenClientProps)
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                        <div className="text-sm">
-                          {locale === 'en'
-                            ? t.projects?.image || 'Project image'
-                            : t.projects?.image || 'Project afbeelding'}
-                        </div>
+                        <div className="text-sm">{t.projects?.image || 'Project afbeelding'}</div>
                       </div>
                     )}
                   </div>

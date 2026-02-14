@@ -11,6 +11,9 @@ import { imageHero1 } from './image-hero-1'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { post4 } from './post-4'
+import { post5 } from './post-5'
+import { post6 } from './post-6'
 import { services as servicesData } from './services'
 import { projects as projectsData } from './projects'
 import { projectImage1 } from './image-project-1'
@@ -346,26 +349,86 @@ export const seed = async ({
     }),
   })
 
+  const post4Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: post4({
+      heroImage: blogBathroomTipsDoc,
+      blockImage: blogKitchenPrepDoc,
+      author: demoAuthor,
+    }),
+  })
+
+  const post5Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: post5({
+      heroImage: blogAsbestosSafetyDoc,
+      blockImage: blogManualDemoDoc,
+      author: demoAuthor,
+    }),
+  })
+
+  const post6Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: post6({
+      heroImage: blogSustainableDoc,
+      blockImage: blogAsbestosSafetyDoc,
+      author: demoAuthor,
+    }),
+  })
+
   // update each post with related posts
   await payload.update({
     id: post1Doc.id,
     collection: 'posts',
     data: {
-      relatedPosts: [post2Doc.id, post3Doc.id],
+      relatedPosts: [post2Doc.id, post3Doc.id, post4Doc.id],
     },
   })
   await payload.update({
     id: post2Doc.id,
     collection: 'posts',
     data: {
-      relatedPosts: [post1Doc.id, post3Doc.id],
+      relatedPosts: [post1Doc.id, post3Doc.id, post5Doc.id],
     },
   })
   await payload.update({
     id: post3Doc.id,
     collection: 'posts',
     data: {
-      relatedPosts: [post1Doc.id, post2Doc.id],
+      relatedPosts: [post1Doc.id, post2Doc.id, post6Doc.id],
+    },
+  })
+  await payload.update({
+    id: post4Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post1Doc.id, post5Doc.id, post6Doc.id],
+    },
+  })
+  await payload.update({
+    id: post5Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post2Doc.id, post4Doc.id, post6Doc.id],
+    },
+  })
+  await payload.update({
+    id: post6Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post3Doc.id, post4Doc.id, post5Doc.id],
     },
   })
 
