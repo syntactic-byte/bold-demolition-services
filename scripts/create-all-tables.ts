@@ -42,10 +42,15 @@ async function createTables() {
       'about_page',
       'translations_translations',
       'translations',
+      'projects_locales',
       'projects',
+      'services_locales',
       'services',
+      'categories_locales',
       'categories',
+      'posts_locales',
       'posts',
+      'pages_locales',
       'pages',
       'media',
       'users_sessions',
@@ -83,24 +88,54 @@ async function createTables() {
     )
 
     await pool.query(
-      `CREATE TABLE "pages" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR, "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
+      `CREATE TABLE "pages" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR, "published_at" TIMESTAMP(3), "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
     )
     await pool.query(
-      `CREATE TABLE "posts" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE, "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
+      `CREATE TABLE "pages_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    await pool.query(
+      `CREATE TABLE "posts" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE, "published_at" TIMESTAMP(3), "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
+    )
+    await pool.query(
+      `CREATE TABLE "posts_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
       `CREATE TABLE "categories" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR)`,
     )
     await pool.query(
-      `CREATE TABLE "services" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE)`,
+      `CREATE TABLE "categories_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "categories"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
-      `CREATE TABLE "projects" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE)`,
+      `CREATE TABLE "posts" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE, "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
+    )
+    await pool.query(
+      `CREATE TABLE "services" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "description" TEXT, "icon" VARCHAR, "featured" BOOLEAN DEFAULT false, "image_id" VARCHAR, "slug" VARCHAR UNIQUE)`,
+    )
+    await pool.query(
+      `CREATE TABLE "services_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "services"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    await pool.query(
+      `CREATE TABLE "projects" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "description" TEXT, "image_id" VARCHAR, "category" VARCHAR DEFAULT 'demolition', "completed" TIMESTAMP(3), "featured" BOOLEAN DEFAULT false, "slug" VARCHAR UNIQUE)`,
+    )
+    await pool.query(
+      `CREATE TABLE "projects_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "projects"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    await pool.query(
+      `CREATE TABLE "services" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "description" TEXT, "icon" VARCHAR, "featured" BOOLEAN DEFAULT false, "image_id" VARCHAR, "slug" VARCHAR UNIQUE)`,
+    )
+    await pool.query(
+      `CREATE TABLE "services_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "services"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    await pool.query(
+      `CREATE TABLE "projects" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "description" TEXT, "image_id" VARCHAR, "category" VARCHAR DEFAULT 'demolition', "completed" TIMESTAMP(3), "featured" BOOLEAN DEFAULT false, "slug" VARCHAR UNIQUE)`,
+    )
+    await pool.query(
+      `CREATE TABLE "projects_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "projects"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
 
     // Globals
     await pool.query(
-      `CREATE TABLE "header" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
+      `CREATE TABLE "home_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "hero_background_image_id" VARCHAR)`,
     )
     await pool.query(
       `CREATE TABLE "footer" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
@@ -109,16 +144,16 @@ async function createTables() {
       `CREATE TABLE "site_settings" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
     )
     await pool.query(
-      `CREATE TABLE "home_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
+      `CREATE TABLE "about_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "hero_background_image_id" VARCHAR)`,
     )
     await pool.query(
-      `CREATE TABLE "about_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
+      `CREATE TABLE "about_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "hero_background_image_id" VARCHAR)`,
     )
     await pool.query(
       `CREATE TABLE "services_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
     )
     await pool.query(
-      `CREATE TABLE "contact_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
+      `CREATE TABLE "home_page" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "hero_background_image_id" VARCHAR)`,
     )
     await pool.query(
       `CREATE TABLE "translations" ("id" VARCHAR PRIMARY KEY DEFAULT '1', "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
@@ -126,7 +161,10 @@ async function createTables() {
 
     // Join tables for about-page WITH number column
     await pool.query(
-      `CREATE TABLE "about_page_story_paragraphs" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "about_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid())`,
+      `CREATE TABLE "about_page_values" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "about_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "icon" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "about_page_values_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "about_page_values"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
       `CREATE TABLE "about_page_story_paragraphs_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "about_page_story_paragraphs"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "text" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
@@ -140,10 +178,10 @@ async function createTables() {
     )
 
     await pool.query(
-      `CREATE TABLE "about_page_values" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "about_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid())`,
+      `CREATE TABLE "about_page_values" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "about_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "icon" VARCHAR)`,
     )
     await pool.query(
-      `CREATE TABLE "about_page_values_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "about_page_values"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, "icon" VARCHAR, PRIMARY KEY ("_parent_id", "_locale"))`,
+      `CREATE TABLE "about_page_values_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "about_page_values"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
 
     await pool.query(
@@ -167,19 +205,25 @@ async function createTables() {
       `CREATE TABLE "home_page_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "hero_title" JSONB, "hero_subtitle" JSONB, "hero_description" JSONB, "about_preview_title" JSONB, "about_preview_description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
-      `CREATE TABLE "home_page_hero_ctaButtons" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid())`,
+      `CREATE TABLE "home_page_hero_ctaButtons" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "style" VARCHAR)`,
     )
     await pool.query(
       `CREATE TABLE "home_page_hero_ctaButtons_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page_hero_ctaButtons"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "text" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
-      `CREATE TABLE "home_page_hero_stats" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "number" VARCHAR)`,
+      `CREATE TABLE "home_page_hero_features" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "icon" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "home_page_hero_features_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page_hero_features"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
       `CREATE TABLE "home_page_hero_stats_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page_hero_stats"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "label" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
-      `CREATE TABLE "home_page_hero_features" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid())`,
+      `CREATE TABLE "home_page_hero_ctaButtons" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "home_page"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "style" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "home_page_hero_ctaButtons_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page_hero_ctaButtons"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "text" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
     await pool.query(
       `CREATE TABLE "home_page_hero_features_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "home_page_hero_features"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, "description" JSONB, "icon" VARCHAR, PRIMARY KEY ("_parent_id", "_locale"))`,
