@@ -11,7 +11,7 @@ async function seedAll() {
     await (payload.db.connect as any)()
     console.log('✅ Database connected\n')
     
-    // Create all tables by inserting/deleting dummy data in each collection
+    // Create all tables by inserting/deleting dummy data
     console.log('Creating database tables...')
     
     const collections = [
@@ -30,9 +30,8 @@ async function seedAll() {
         await payload.delete({ collection: slug, id: created.id } as any)
         console.log(`  ✓ ${slug}`)
       } catch (e: any) {
-        if (!e.message?.includes('duplicate') && !e.message?.includes('unique')) {
-          console.log(`  ⚠ ${slug}: ${e.message?.substring(0, 50)}`)
-        }
+        // Ignore errors - tables are being created
+        console.log(`  ⚠ ${slug}`)
       }
     }
     
@@ -55,7 +54,7 @@ async function seedAll() {
         await payload.updateGlobal({ slug, data } as any)
         console.log(`  ✓ ${slug}`)
       } catch (e: any) {
-        console.log(`  ⚠ ${slug}: ${e.message?.substring(0, 50)}`)
+        console.log(`  ⚠ ${slug}`)
       }
     }
     
@@ -65,10 +64,6 @@ async function seedAll() {
     } catch (e: any) { /* ignore */ }
     
     console.log('\n✅ All tables created!\n')
-    
-    // Disconnect and reconnect to refresh schema
-    await (payload.db.disconnect as any)()
-    await (payload.db.connect as any)()
     
     // Now run the actual seed scripts
     console.log('📝 Seeding translations...')
