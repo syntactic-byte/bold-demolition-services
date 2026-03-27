@@ -111,20 +111,86 @@ async function createTables() {
       `CREATE TABLE "media_folders" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "name" VARCHAR NOT NULL, "slug" VARCHAR, "parent_id" VARCHAR REFERENCES "media_folders"("id") ON DELETE CASCADE, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`,
     )
 
-    // Pages collection with locales
+    // Pages collection with locales and blocks
     await pool.query(
       `CREATE TABLE "pages" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR, "published_at" TIMESTAMP(3), "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
     )
     await pool.query(
       `CREATE TABLE "pages_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
     )
-
-    // Posts collection with locales
+    // Pages hero group (localized)
     await pool.query(
-      `CREATE TABLE "posts" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE, "published_at" TIMESTAMP(3), "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft')`,
+      `CREATE TABLE "pages_hero" ("_parent_id" VARCHAR PRIMARY KEY REFERENCES "pages"("id") ON DELETE CASCADE, "type" VARCHAR DEFAULT 'lowImpact', "media_id" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_hero_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_hero"("_parent_id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "rich_text" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_hero_links" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages_hero"("_parent_id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid())`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_hero_links_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_hero_links"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "label" JSONB, "url" JSONB, "appearance" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Pages layout blocks array (localized)
+    await pool.query(
+      `CREATE TABLE "pages_layout" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "block_type" VARCHAR, "style" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_layout_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "rich_text" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Content block columns
+    await pool.query(
+      `CREATE TABLE "pages_layout_columns" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "size" VARCHAR DEFAULT 'oneThird', "enable_link" BOOLEAN DEFAULT false)`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_layout_columns_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout_columns"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "rich_text" JSONB, "url" JSONB, "label" JSONB, "appearance" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Media block
+    await pool.query(
+      `CREATE TABLE "pages_layout_media_blocks" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "media_id" VARCHAR, "position" VARCHAR DEFAULT 'default')`,
+    )
+    // Archive block
+    await pool.query(
+      `CREATE TABLE "pages_layout_archive_blocks" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "intro_content" VARCHAR, "populate_by" VARCHAR DEFAULT 'collection', "relation_to" VARCHAR, "limit" NUMERIC DEFAULT 10)`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_layout_archive_blocks_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout_archive_blocks"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "intro_content" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Form block
+    await pool.query(
+      `CREATE TABLE "pages_layout_form_blocks" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "form_id" VARCHAR, "enable_intro" BOOLEAN DEFAULT false, "intro_content" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "pages_layout_form_blocks_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "pages_layout_form_blocks"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "intro_content" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+
+    // Posts collection with locales and content blocks
+    await pool.query(
+      `CREATE TABLE "posts" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW(), "title" VARCHAR, "slug" VARCHAR UNIQUE, "published_at" TIMESTAMP(3), "meta_title" VARCHAR, "meta_description" TEXT, "_status" VARCHAR DEFAULT 'draft', "hero_image_id" VARCHAR)`,
     )
     await pool.query(
       `CREATE TABLE "posts_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "title" JSONB, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Posts content blocks array (localized richText with blocks)
+    await pool.query(
+      `CREATE TABLE "posts_content" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "block_type" VARCHAR, "style" VARCHAR, "language" VARCHAR DEFAULT 'typescript')`,
+    )
+    await pool.query(
+      `CREATE TABLE "posts_content_locales" ("_parent_id" VARCHAR NOT NULL REFERENCES "posts_content"("id") ON DELETE CASCADE, "_locale" VARCHAR NOT NULL, "content" JSONB, "code" VARCHAR, PRIMARY KEY ("_parent_id", "_locale"))`,
+    )
+    // Posts related posts and categories
+    await pool.query(
+      `CREATE TABLE "posts_related_posts" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "post_id" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "posts_categories" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "category_id" VARCHAR)`,
+    )
+    // Posts authors
+    await pool.query(
+      `CREATE TABLE "posts_authors" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "user_id" VARCHAR)`,
+    )
+    await pool.query(
+      `CREATE TABLE "posts_populated_authors" ("_order" INTEGER, "_parent_id" VARCHAR NOT NULL REFERENCES "posts"("id") ON DELETE CASCADE, "id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "id_ref" VARCHAR, "name" VARCHAR)`,
     )
 
     // Categories collection with locales
