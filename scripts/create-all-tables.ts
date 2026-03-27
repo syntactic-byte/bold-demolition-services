@@ -36,9 +36,11 @@ async function createTables() {
     await pool.query(`CREATE TABLE IF NOT EXISTS "translations" ("id" SERIAL PRIMARY KEY, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
     await pool.query(`CREATE TABLE IF NOT EXISTS "translations_translations" ("_order" INTEGER, "_parent_id" INTEGER NOT NULL REFERENCES "translations"("id") ON DELETE CASCADE, "id" SERIAL PRIMARY KEY, "locale" VARCHAR, "strings" JSONB)`)
     
-    // Payload system
+    // Payload system tables
     await pool.query(`CREATE TABLE IF NOT EXISTS "payload_migrations" ("id" SERIAL PRIMARY KEY, "name" VARCHAR(255), "batch" INTEGER, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
     await pool.query(`CREATE TABLE IF NOT EXISTS "payload_preferences" ("id" SERIAL PRIMARY KEY, "key" VARCHAR(255), "value" JSONB, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
+    await pool.query(`CREATE TABLE IF NOT EXISTS "payload_locked_documents" ("id" SERIAL PRIMARY KEY, "global_slug" VARCHAR, "document_id" VARCHAR, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
+    await pool.query(`CREATE TABLE IF NOT EXISTS "payload_jobs" ("id" SERIAL PRIMARY KEY, "input" JSONB, "queue" VARCHAR, "wait_until" TIMESTAMP(3), "retries_left" INTEGER, "error" JSONB, "executing" VARCHAR, "completed_at" TIMESTAMP(3), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
     
     console.log('✅ All database tables created!')
     await pool.end()
