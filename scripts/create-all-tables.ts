@@ -10,7 +10,7 @@ async function createTables() {
     await (payload.db.connect as any)()
     console.log('✅ Database connected\n')
     
-    // Create collections by inserting/deleting dummy data
+    // Collections - insert/delete dummy data
     const collections = [
       { slug: 'users', data: { email: 'temp@temp.com', password: 'temp' } },
       { slug: 'media', data: { alt: 'temp' } },
@@ -30,23 +30,44 @@ async function createTables() {
       } catch (e: any) {
         if (e.message?.includes('duplicate') || e.message?.includes('unique')) {
           console.log(`  ✓ ${slug} (exists)`)
-        } else {
-          console.log(`  ⚠ ${slug}: ${e.message?.substring(0, 50)}`)
         }
       }
     }
     
-    // Create globals by updating them
-    const globals = ['header', 'footer', 'site-settings', 'home-page', 'about-page', 'services-page', 'contact-page', 'translations']
-    
+    // Regular globals
+    const simpleGlobals = ['header', 'footer', 'site-settings', 'home-page', 'about-page', 'services-page', 'contact-page']
     console.log('\nCreating global tables...')
-    for (const slug of globals) {
+    for (const slug of simpleGlobals) {
       try {
         await payload.updateGlobal({ slug, data: {} } as any)
         console.log(`  ✓ ${slug}`)
-      } catch (e: any) {
-        console.log(`  ⚠ ${slug}: ${e.message?.substring(0, 50)}`)
-      }
+      } catch (e: any) { /* ignore */ }
+    }
+    
+    // CRITICAL: translations global needs array data to create join tables
+    console.log('\nCreating translations global with array data...')
+    try {
+      await payload.updateGlobal({
+        slug: 'translations',
+        data: {
+          translations: [
+            {
+              locale: 'nl',
+              strings: [{ key: 'temp', value: 'temp' }]
+            }
+          ]
+        }
+      } as any)
+      console.log('  ✓ translations (with join tables)')
+      
+      // Now delete the temp data
+      const existing = await payload.findGlobal({ slug: 'translations' } as any)
+      await payload.updateGlobal({
+        slug: 'translations',
+        data: { translations: [] }
+      } as any)
+    } catch (e: any) {
+      console.log(`  ⚠ translations: ${e.message?.substring(0, 50)}`)
     }
     
     console.log('\n✅ All database tables created!')
