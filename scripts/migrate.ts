@@ -5,7 +5,7 @@ async function migrate() {
   const payload = await getPayload({ config })
   
   // Connect to database - this will create tables
-  await payload.db.connect()
+  await (payload.db.connect as any)()
   
   console.log('Database tables created successfully!')
   
