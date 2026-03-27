@@ -3401,7 +3401,7 @@ async function seed() {
       })
       console.log(`  ✓ Uploaded: ${filename} (ID: ${media.id})`)
       // Wait for blob metadata to persist
-      await new Promise(r => setTimeout(r, 500))
+      await new Promise(r => setTimeout(r, 2000))
       return media
     }
 
