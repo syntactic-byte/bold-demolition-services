@@ -116,6 +116,15 @@ async function createTables() {
     await pool.query(`CREATE TABLE IF NOT EXISTS "payload_locked_documents" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "global_slug" VARCHAR, "document_id" VARCHAR, "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
     await pool.query(`CREATE TABLE IF NOT EXISTS "payload_jobs" ("id" VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(), "input" JSONB, "queue" VARCHAR, "wait_until" TIMESTAMP(3), "retries_left" INTEGER, "error" JSONB, "executing" VARCHAR, "completed_at" TIMESTAMP(3), "updated_at" TIMESTAMP(3) DEFAULT NOW(), "created_at" TIMESTAMP(3) DEFAULT NOW())`)
     
+    // Add missing columns
+    await pool.query(`ALTER TABLE "about_page_stats" ADD COLUMN IF NOT EXISTS "number" VARCHAR`)
+    await pool.query(`ALTER TABLE "about_page_stats_locales" ADD COLUMN IF NOT EXISTS "number" VARCHAR`)
+    await pool.query(`ALTER TABLE "about_page_timeline" ADD COLUMN IF NOT EXISTS "year" VARCHAR`)
+    await pool.query(`ALTER TABLE "home_page_hero_stats" ADD COLUMN IF NOT EXISTS "number" VARCHAR`)
+    await pool.query(`ALTER TABLE "home_page_hero_stats_locales" ADD COLUMN IF NOT EXISTS "number" VARCHAR`)
+    await pool.query(`ALTER TABLE "contact_page_formSettings_subjects" ADD COLUMN IF NOT EXISTS "value" VARCHAR`)
+    await pool.query(`ALTER TABLE "contact_page_formSettings_subjects_locales" ADD COLUMN IF NOT EXISTS "value" VARCHAR`)
+
     console.log('✅ All database tables created!')
     await pool.end()
     process.exit(0)
