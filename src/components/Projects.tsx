@@ -10,7 +10,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects = [] }) => {
-  const { t, locale } = useTranslation()
+  const { t, locale } = useTranslation() as any as any
 
   const getCategoryLabel = (category: string) => {
     const labels: Record<string, Record<string, string>> = {

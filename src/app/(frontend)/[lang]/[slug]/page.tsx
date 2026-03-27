@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
-import { getPayload } from 'payload'
+import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
+import { draftMode } from 'next/headers'
+import React, { cache } from 'react'
+import { homeStatic } from '@/endpoints/seed/home-static'
+
+import { RenderBlocks } from '@/blocks/RenderBlocks'
+import { RenderHero } from '@/heros/RenderHero'
+import { generateMeta } from '@/utilities/generateMeta'
+import PageClient from './page.client'
+import { LivePreviewListener } from '@/components/LivePreviewListener'
 import configPromise from '@payload-config'
-import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { PageClient } from './page.client'
 import type { Locale } from '@/utilities/translations'
 
 const supportedLocales: Locale[] = [
@@ -152,9 +160,13 @@ const pathToSlugMap: Record<string, Record<string, string>> = {
   },
 }
 
-export default async function Page({ params: paramsPromise }: Args) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string; slug?: string }>
+}) {
   const { isEnabled: draft } = await draftMode()
-  const { lang, slug = 'home' } = await paramsPromise
+  const { lang, slug = 'home' } = await params
 
   const decodedSlug = decodeURIComponent(slug)
   const internalSlug = pathToSlugMap[lang]?.[decodedSlug] || decodedSlug
@@ -195,8 +207,12 @@ export default async function Page({ params: paramsPromise }: Args) {
   )
 }
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { lang, slug = 'home' } = await paramsPromise
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug?: string }>
+}): Promise<Metadata> {
+  const { lang, slug = 'home' } = await params
   const decodedSlug = decodeURIComponent(slug)
   const internalSlug = pathToSlugMap[lang]?.[decodedSlug] || decodedSlug
   const page = await queryPageBySlug({

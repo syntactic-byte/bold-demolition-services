@@ -1004,8 +1004,8 @@ Zarówno rozbiórka ręczna, jak i mechaniczna mają swoje miejsce w nowoczesnym
 
 Skontaktuj się z naszym zespołem już dziś w sprawie profesjonalnej oceny Twojego projektu rozbiórkowego. Pomożemy Ci wybrać optymalne podejście i zapewnimy, że Twój projekt zostanie ukończony bezpiecznie, efektywnie i w ramach budżetu.`,
       tags: ["metody rozbiórki", "przewodnik budowlany", "planowanie projektu", "wyburzanie budynków", "usługi profesjonalne"]
-    }
     },
+},
     ar: {
       slug: "هدم-يدوي-vs-ميكانيكي",
       title: "الهدم اليدوي vs الميكانيكي: دليل شامل لاختيار الطريقة الصحيحة",
@@ -1671,8 +1671,7 @@ Yıkım projenizin profesyonel değerlendirmesi için bugün ekibimizle iletişi
 
 Свяжитесь с нашей командой сегодня для профессиональной оценки вашего проекта сноса. Мы поможем вам выбрать оптимальный подход и обеспечим безопасное, эффективное и в рамках бюджета завершение вашего проекта.`,
       tags: ["методы сноса", "строительное руководство", "планирование проекта", "снос зданий", "профессиональные услуги"]
-    }
-  },
+    },
 
   // Topic 2: Kitchen Demolition Guide
   kitchenDemolition: {
@@ -2070,4 +2069,5 @@ Of u ervoor kiest om keukensloop zelf aan te pakken of professionele diensten zo
 Neem vandaag nog contact op met TitanBreakers voor een professionele consultatie en offerte voor uw keukensloopproject. Wij helpen u uw opties te begrijpen en zorgen ervoor dat uw project op het juiste fundament begint.`,
       tags: ["keuken renovatie", "sloop gids", "huisverbetering", "keuken verbouwing", "interieur sloop"]
     }
-    }
+     },
+}

@@ -10,7 +10,7 @@ interface Props {
 
 export const Logo = (props: Props) => {
   const { className } = props
-  const { t, locale } = useTranslation()
+  const { t, locale } = useTranslation() as any
 
   const companyName = t?.company?.name || (locale === 'en' ? 'titanbreakers' : 'titaanbrekers')
 

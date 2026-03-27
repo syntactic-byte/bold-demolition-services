@@ -52,7 +52,7 @@ async function clearHighlights() {
         },
       })
       console.log(`  ✅ Cleared highlights for ${locale}`)
-    } catch (error) {
+    } catch (error: any) {
       console.log(`  ⚠️  Error for ${locale}:`, error.message)
     }
   }

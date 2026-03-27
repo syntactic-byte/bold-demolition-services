@@ -18,7 +18,7 @@ interface AboutPreviewProps {
 
 const AboutPreview = ({ data }: AboutPreviewProps) => {
   const pathname = usePathname()
-  const { t, locale } = useTranslation()
+  const { t, locale } = useTranslation() as any as any as any as any
 
   useEffect(() => {
     const pathParts = pathname.split('/').filter(Boolean)

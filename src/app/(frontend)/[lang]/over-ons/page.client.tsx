@@ -22,20 +22,21 @@ const getIconComponent = (iconName: string): LucideIcon => {
 }
 
 export default function OverOnsClient({ pageData }: OverOnsClientProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any
+  const safePageData = pageData as any
 
   // Use translations as primary source, CMS data as fallback
   const hero = {
-    title: t.about?.title || pageData?.hero?.title || 'WIE ZIJN WIJ',
+    title: t.about?.title || safePageData?.hero?.title || 'WIE ZIJN WIJ',
     description:
       t.about?.description ||
-      pageData?.hero?.description ||
+      safePageData?.hero?.description ||
       'Al meer dan 25 jaar is TitanBrekers dé specialist in professioneel sloopwerk. Met passie, vakmanschap en moderne apparatuur maken wij ruimte voor de toekomst.',
-    backgroundImage: pageData?.hero?.backgroundImage,
+    backgroundImage: safePageData?.hero?.backgroundImage,
   }
 
   // Fallback background image if not provided by CMS
-  const heroBackgroundImage = hero.backgroundImage?.url
+  const heroBackgroundImage = (hero.backgroundImage as any)?.url
     ? hero.backgroundImage
     : {
         url: '/about-team.webp',
@@ -45,10 +46,10 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
 
   // Use translations as primary source, CMS data as fallback
   const story = {
-    title: t.aboutPage?.storyTitle || pageData?.story?.title || 'ONS VERHAAL',
+    title: t.aboutPage?.storyTitle || safePageData?.story?.title || 'ONS VERHAAL',
     paragraphs:
-      pageData?.story?.paragraphs?.length > 0
-        ? pageData.story.paragraphs
+      safePageData?.story?.paragraphs?.length > 0
+        ? safePageData.story.paragraphs
         : [
             {
               text:
@@ -70,8 +71,8 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
 
   // Use translations as primary source, CMS data as fallback
   const stats =
-    pageData?.stats?.length > 0
-      ? pageData.stats.map((stat: { number: string; label: string }, idx: number) => ({
+    safePageData?.stats?.length > 0
+      ? safePageData.stats.map((stat: { number: string; label: string }, idx: number) => ({
           number: stat.number,
           label:
             stat.label ||
@@ -123,8 +124,8 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
   ]
 
   const values =
-    pageData?.values?.length > 0
-      ? pageData.values.map(
+    safePageData?.values?.length > 0
+      ? safePageData.values.map(
           (val: { icon: string; title: string; description: string }, idx: number) => ({
             icon: val.icon || defaultValues[idx].icon,
             title: defaultValues[idx].title, // Always use translations
@@ -168,7 +169,7 @@ export default function OverOnsClient({ pageData }: OverOnsClientProps) {
   ]
 
   const timeline =
-    pageData?.timeline?.length > 0
+    safePageData?.timeline?.length > 0
       ? defaultTimeline.map((item, idx) => ({
           year: item.year,
           title: defaultTimeline[idx].title,

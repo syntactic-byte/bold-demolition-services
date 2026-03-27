@@ -13,7 +13,7 @@ interface ContactClientProps {
 }
 
 export default function ContactClient({ pageData, siteSettings }: ContactClientProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any as any as any
   const [formData, setFormData] = useState({
     name: '',
     email: '',

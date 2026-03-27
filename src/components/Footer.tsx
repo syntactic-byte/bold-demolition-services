@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 
 const Footer = () => {
-  const { t, locale } = useTranslation()
+  const { t, locale } = useTranslation() as any as any
   const currentYear = new Date().getFullYear()
 
   const paths = t.paths || {

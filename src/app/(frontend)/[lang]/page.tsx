@@ -85,10 +85,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <Hero data={homePageData?.hero} />
+      <Hero data={homePageData?.hero as any} />
       <Services services={services} />
       <Projects projects={projects} />
-      <AboutPreview data={homePageData?.aboutPreview} />
+      <AboutPreview data={homePageData?.aboutPreview as any} />
       <CTA />
       <Footer />
     </main>

@@ -15,5 +15,5 @@ export default async function Header() {
     console.error('Error fetching site settings:', error)
   }
 
-  return <HeaderClient siteSettings={siteSettings} />
+  return <HeaderClient siteSettings={siteSettings as any} />
 }

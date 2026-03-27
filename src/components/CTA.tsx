@@ -5,7 +5,7 @@ import { Phone, ArrowRight } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 
 const CTA = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any as any
 
   return (
     <section className="py-24 bg-primary relative overflow-hidden">

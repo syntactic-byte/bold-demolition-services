@@ -49,7 +49,7 @@ const getIconComponent = (iconName: string): LucideIcon => {
 }
 
 export default function DienstenClient({ pageData, services = [] }: DienstenClientProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any as any
 
   const hero = pageData?.hero || {
     title: t.servicesPage?.heroTitle || 'WAT WIJ DOEN',

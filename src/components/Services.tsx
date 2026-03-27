@@ -20,7 +20,7 @@ interface ServicesProps {
 }
 
 const Services: React.FC<ServicesProps> = ({ services = [] }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any as any
 
   const getIcon = (iconName: string) => {
     switch (iconName) {

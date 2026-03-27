@@ -1595,15 +1595,18 @@ async function seedCMSContent() {
 
   try {
     // Helper function to ensure global exists before updating
-    const ensureGlobalExists = async (slug: string, defaultData: any) => {
+    const ensureGlobalExists = async (
+      slug: Parameters<typeof payload.findGlobal>[0]['slug'],
+      defaultData: any,
+    ) => {
       try {
         // Try to find the global
         const existing = await payload.findGlobal({
-          slug: slug,
+          slug,
         })
 
         // If no data exists, create initial document for default locale
-        if (!existing || Object.keys(existing).length === 0 || !existing.hero) {
+        if (!existing || Object.keys(existing).length === 0 || !(existing as any).hero) {
           console.log(`   📝 Creating initial ${slug} document...`)
           await payload.updateGlobal({
             slug: slug,

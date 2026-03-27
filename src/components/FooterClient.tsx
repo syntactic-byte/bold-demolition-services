@@ -20,7 +20,7 @@ interface FooterClientProps {
 }
 
 const FooterClient = ({ footerData }: FooterClientProps) => {
-  const { t, locale } = useTranslation()
+  const { t, locale } = useTranslation() as any
   const currentYear = new Date().getFullYear()
 
   const logoFirstPart = t.company?.logoFirst || 'titaan'
@@ -43,8 +43,8 @@ const FooterClient = ({ footerData }: FooterClientProps) => {
 
   // Translated navigation links
   const navLinks =
-    footerData?.navItems?.length > 0
-      ? footerData.navItems.map((item: FooterNavItem) => ({
+    footerData?.navItems && footerData.navItems.length > 0
+      ? footerData.navItems.map((item) => ({
           name: item.link?.label || item.label,
           path: item.link?.url || item.url || '/',
         }))

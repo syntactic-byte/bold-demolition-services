@@ -14,7 +14,7 @@ interface HeaderClientProps {
 export default function HeaderClient({ siteSettings }: HeaderClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const { t, locale, setLocale } = useTranslation()
+  const { t, locale, setLocale } = useTranslation() as any
 
   useEffect(() => {
     const pathParts = pathname.split('/').filter(Boolean)

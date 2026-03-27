@@ -13,7 +13,7 @@ interface ProjectenClientProps {
 }
 
 export default function ProjectenClient({ projects = [] }: ProjectenClientProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation() as any as any
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   const categories = [
@@ -24,7 +24,8 @@ export default function ProjectenClient({ projects = [] }: ProjectenClientProps)
     { value: 'environmental', label: t.projects?.environmental || 'Milieusanering' },
   ]
 
-  const getCategoryLabel = (category: string) => {
+  const getCategoryLabel = (category: string | null | undefined) => {
+    if (!category) return ''
     const found = categories.find((c) => c.value === category)
     return found ? found.label : category
   }
