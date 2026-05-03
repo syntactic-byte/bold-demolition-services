@@ -1,0 +1,39 @@
+diff --git a/dist/handleUpload.js b/dist/handleUpload.js
+index db797445156822d2a2a0024b303df940b446e4c2..eedefda709bf53e7f0b4bd2f1b0cdc81e5267c52 100644
+--- a/dist/handleUpload.js
++++ b/dist/handleUpload.js
+@@ -1,11 +1,12 @@
+ import { put } from '@vercel/blob';
+ import path from 'path';
+-export const getHandleUpload = ({ access = 'public', addRandomSuffix, baseUrl, cacheControlMaxAge, prefix = '', token })=>{
++export const getHandleUpload = ({ access = 'public', addRandomSuffix, allowOverwrite, baseUrl, cacheControlMaxAge, prefix = '', token })=>{
+     return async ({ data, file: { buffer, filename, mimeType } })=>{
+         const fileKey = path.posix.join(data.prefix || prefix, filename);
+         const result = await put(fileKey, buffer, {
+             access,
+             addRandomSuffix,
++            allowOverwrite,
+             cacheControlMaxAge,
+             contentType: mimeType,
+             token
+diff --git a/dist/index.js b/dist/index.js
+index 7c56ee05908afb9dfb3bfa20f2a5b9ed3e4cca69..17c905178e9b00ec45f211c9ca3613707a437b9e 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -96,7 +96,7 @@ export const vercelBlobStorage = (options)=>(incomingConfig)=>{
+     };
+ function vercelBlobStorageInternal(options) {
+     return ({ collection, prefix })=>{
+-        const { access, addRandomSuffix, baseUrl, cacheControlMaxAge, clientUploads, token } = options;
++        const { access, addRandomSuffix, allowOverwrite, baseUrl, cacheControlMaxAge, clientUploads, token } = options;
+         if (!token) {
+             throw new Error('Vercel Blob storage token is required');
+         }
+@@ -115,6 +115,7 @@ function vercelBlobStorageInternal(options) {
+             handleUpload: getHandleUpload({
+                 access,
+                 addRandomSuffix,
++                allowOverwrite,
+                 baseUrl,
+                 cacheControlMaxAge,
+                 prefix,
