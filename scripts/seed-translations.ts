@@ -29,6 +29,7 @@ async function seedTranslations() {
     await payload.updateGlobal({
       slug: 'translations',
       data: { translations: translationsArray },
+      context: { disableRevalidate: true },
     } as any)
 
     console.log(`✅ Translations seeded for ${locales.length} locales`)

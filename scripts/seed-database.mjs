@@ -3425,12 +3425,14 @@ async function seed() {
       slug: 'header',
       data: { navItems: makeNavItems('nl') },
       locale: 'nl',
+      context: { disableRevalidate: true },
     })
     for (const locale of locales.filter((l) => l !== 'nl')) {
       await payload.updateGlobal({
         slug: 'header',
         data: { navItems: makeNavItems(locale) },
         locale,
+        context: { disableRevalidate: true },
       })
     }
     console.log('✅ Header navigation seeded (all locales)')
@@ -3441,12 +3443,14 @@ async function seed() {
       slug: 'footer',
       data: { navItems: makeNavItems('nl') },
       locale: 'nl',
+      context: { disableRevalidate: true },
     })
     for (const locale of locales.filter((l) => l !== 'nl')) {
       await payload.updateGlobal({
         slug: 'footer',
         data: { navItems: makeNavItems(locale) },
         locale,
+        context: { disableRevalidate: true },
       })
     }
     console.log('✅ Footer navigation seeded (all locales)')

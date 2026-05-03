@@ -1612,6 +1612,7 @@ async function seedCMSContent() {
             slug: slug,
             locale: 'nl',
             data: defaultData,
+            context: { disableRevalidate: true },
           })
         }
       } catch (error) {
@@ -1663,6 +1664,7 @@ async function seedCMSContent() {
         slug: 'about-page',
         locale,
         data,
+        context: { disableRevalidate: true },
       })
     }
     console.log('  ✅ About Page seeded')
@@ -1676,6 +1678,7 @@ async function seedCMSContent() {
         slug: 'contact-page',
         locale,
         data,
+        context: { disableRevalidate: true },
       })
     }
     console.log('  ✅ Contact Page seeded')
@@ -1689,6 +1692,7 @@ async function seedCMSContent() {
         slug: 'home-page',
         locale,
         data,
+        context: { disableRevalidate: true },
       })
     }
     console.log('  ✅ Home Page seeded')
@@ -1702,6 +1706,7 @@ async function seedCMSContent() {
         slug: 'services-page',
         locale,
         data,
+        context: { disableRevalidate: true },
       })
     }
     console.log('  ✅ Services Page seeded')
