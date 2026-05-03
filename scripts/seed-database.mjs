@@ -3436,17 +3436,42 @@ async function seed() {
     }
 
     console.log('✅ Images uploaded')
-    console.log(`  Total images: ${images.filter(i => i !== null).length}/${images.length}`)
+    console.log(`  Total images: ${images.filter((i) => i !== null).length}/${images.length}`)
+    console.log('\n🔍 Image upload results (in-memory):')
+    for (const img of images) {
+      if (img) {
+        console.log(`  ${img.filename}: id=${img.id}, url=${img.url ?? 'MISSING'}`)
+      } else {
+        console.log(`${img}`)
+      }
+    }
 
-    // Seed Services with translations
-    console.log('\n📦 Seeding Services with translations...')
-    const serviceImages = {
-      manual: images[16]?.id,
-      selective: images[17]?.id,
-      asbestos: images[14]?.id,
-      clearing: images[15]?.id,
-      kitchen: images[18]?.id,
-      interior: images[19]?.id,
+    // Re-fetch service images from DB to verify they were actually committed
+    // (payload.create() returns an in-memory object even if the DB transaction rolled back)
+    console.log('\n🔍 Verifying service images exist in DB...')
+    const serviceImageFilenames = {
+      manual: 'service-manual.webp',
+      selective: 'service-selective.webp',
+      asbestos: 'service-asbestos.webp',
+      clearing: 'service-property-clearing.webp',
+      kitchen: 'service-kitchen-bathroom.webp',
+      interior: 'service-interior.webp',
+    }
+    const serviceImages = {}
+    for (const [key, filename] of Object.entries(serviceImageFilenames)) {
+      const result = await payload.find({
+        collection: 'media',
+        where: { filename: { equals: filename } },
+        limit: 1,
+      })
+      if (result.docs.length > 0) {
+        const doc = result.docs[0]
+        serviceImages[key] = doc.id
+        console.log(`  ✓ ${filename}: id=${doc.id}, url=${doc.url ?? 'MISSING'}`)
+      } else {
+        serviceImages[key] = null
+        console.log(`  ✗ ${filename}: NOT IN DB`)
+      }
     }
 
     const services = [
@@ -3468,7 +3493,9 @@ async function seed() {
 
       const created = await payload.create({
         collection: 'services',
-        data: serviceImages[service.key] ? { ...serviceData, image: serviceImages[service.key] } : serviceData,
+        data: serviceImages[service.key]
+          ? { ...serviceData, image: serviceImages[service.key] }
+          : serviceData,
       })
 
       // Add translations for all locales
@@ -3679,7 +3706,7 @@ async function seed() {
     console.log('\n🎉 Database fully seeded with translations!')
     console.log('\n📋 Seeded:')
     console.log('✅ Images uploaded')
-    console.log(`  Total images: ${images.filter(i => i !== null).length}/${images.length}`)
+    console.log(`  Total images: ${images.filter((i) => i !== null).length}/${images.length}`)
     console.log('  ✅ 6 Services (all 15 locales)')
     console.log('  ✅ 6 Projects (all 15 locales)')
     console.log('  ✅ 6 Categories')
