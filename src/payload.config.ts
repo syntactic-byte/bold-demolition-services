@@ -70,6 +70,7 @@ export default buildConfig({
     process.env.DATABASE_URL?.startsWith('postgres://') ||
     process.env.DATABASE_URL?.startsWith('postgresql://')
       ? postgresAdapter({
+          idType: 'uuid',
           pool: {
             connectionString: process.env.DATABASE_URL || '',
           },
