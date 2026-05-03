@@ -23,7 +23,7 @@ diff --git a/dist/handleUpload.js b/dist/handleUpload.js
 index db797445156822d2a2a0024b303df940b446e4c2..eedefda709bf53e7f0b4bd2f1b0cdc81e5267c52 100644
 --- a/dist/handleUpload.js
 +++ b/dist/handleUpload.js
-@@ -1,11 +1,12 @@
+@@ -1,19 +1,20 @@
  import { put } from '@vercel/blob';
  import path from 'path';
 -export const getHandleUpload = ({ access = 'public', addRandomSuffix, baseUrl, cacheControlMaxAge, prefix = '', token })=>{
@@ -37,6 +37,16 @@ index db797445156822d2a2a0024b303df940b446e4c2..eedefda709bf53e7f0b4bd2f1b0cdc81
              cacheControlMaxAge,
              contentType: mimeType,
              token
+         });
+-        // Get filename with suffix from returned url
+         if (addRandomSuffix) {
+             data.filename = decodeURIComponent(result.url.replace(`${baseUrl}/`, ''));
++            return data;
+         }
+-        return data;
++        return null;
+     };
+ };
 diff --git a/dist/index.js b/dist/index.js
 index 7c56ee05908afb9dfb3bfa20f2a5b9ed3e4cca69..b0248c78c8900f3f6da8d38e58cf62dc2c46189d 100644
 --- a/dist/index.js
