@@ -3367,6 +3367,90 @@ async function seed() {
     await payload.db.deleteMany({ collection: 'posts', req: {}, where: {} })
     console.log('✅ Cleared existing data')
 
+    // Create admin user (if none exists)
+    console.log('\n👤 Checking admin user...')
+    const existingUsers = await payload.find({ collection: 'users', limit: 1 })
+    if (existingUsers.docs.length === 0) {
+      await payload.create({
+        collection: 'users',
+        data: {
+          name: 'Admin',
+          email: process.env.PAYLOAD_ADMIN_EMAIL || 'admin@titanbrekers.nl',
+          password: process.env.PAYLOAD_ADMIN_PASSWORD || 'admin123',
+        },
+      })
+      console.log('✅ Admin user created')
+    } else {
+      console.log('  ↻ Admin user already exists')
+    }
+
+    // Seed Header navigation
+    console.log('\n🔗 Seeding header navigation...')
+    const navLabels = {
+      nl: { services: 'Diensten', about: 'Over Ons', projects: 'Projecten', news: 'Nieuws', contact: 'Contact' },
+      en: { services: 'Services', about: 'About Us', projects: 'Projects', news: 'News', contact: 'Contact' },
+      fr: { services: 'Services', about: 'À Propos', projects: 'Projets', news: 'Actualités', contact: 'Contact' },
+      de: { services: 'Leistungen', about: 'Über Uns', projects: 'Projekte', news: 'Neuigkeiten', contact: 'Kontakt' },
+      it: { services: 'Servizi', about: 'Chi Siamo', projects: 'Progetti', news: 'Notizie', contact: 'Contatti' },
+      es: { services: 'Servicios', about: 'Nosotros', projects: 'Proyectos', news: 'Noticias', contact: 'Contacto' },
+      sv: { services: 'Tjänster', about: 'Om Oss', projects: 'Projekt', news: 'Nyheter', contact: 'Kontakt' },
+      fi: { services: 'Palvelut', about: 'Meistä', projects: 'Projektit', news: 'Uutiset', contact: 'Yhteystiedot' },
+      pl: { services: 'Usługi', about: 'O Nas', projects: 'Projekty', news: 'Aktualności', contact: 'Kontakt' },
+      ar: { services: 'الخدمات', about: 'من نحن', projects: 'المشاريع', news: 'الأخبار', contact: 'اتصل بنا' },
+      zh: { services: '服务', about: '关于我们', projects: '项目', news: '新闻', contact: '联系我们' },
+      ja: { services: 'サービス', about: '会社概要', projects: 'プロジェクト', news: 'ニュース', contact: 'お問い合わせ' },
+      pt: { services: 'Serviços', about: 'Sobre Nós', projects: 'Projetos', news: 'Notícias', contact: 'Contato' },
+      tr: { services: 'Hizmetler', about: 'Hakkımızda', projects: 'Projeler', news: 'Haberler', contact: 'İletişim' },
+      ru: { services: 'Услуги', about: 'О Нас', projects: 'Проекты', news: 'Новости', contact: 'Контакты' },
+    }
+
+    const navRoutes = [
+      { key: 'services', url: '/diensten' },
+      { key: 'about', url: '/over-ons' },
+      { key: 'projects', url: '/projecten' },
+      { key: 'news', url: '/nieuws' },
+      { key: 'contact', url: '/contact' },
+    ]
+
+    const makeNavItems = (locale) =>
+      navRoutes.map((route) => ({
+        link: {
+          type: 'custom',
+          url: route.url,
+          label: navLabels[locale][route.key],
+        },
+      }))
+
+    await payload.updateGlobal({
+      slug: 'header',
+      data: { navItems: makeNavItems('nl') },
+      locale: 'nl',
+    })
+    for (const locale of locales.filter((l) => l !== 'nl')) {
+      await payload.updateGlobal({
+        slug: 'header',
+        data: { navItems: makeNavItems(locale) },
+        locale,
+      })
+    }
+    console.log('✅ Header navigation seeded (all locales)')
+
+    // Seed Footer navigation
+    console.log('\n🔗 Seeding footer navigation...')
+    await payload.updateGlobal({
+      slug: 'footer',
+      data: { navItems: makeNavItems('nl') },
+      locale: 'nl',
+    })
+    for (const locale of locales.filter((l) => l !== 'nl')) {
+      await payload.updateGlobal({
+        slug: 'footer',
+        data: { navItems: makeNavItems(locale) },
+        locale,
+      })
+    }
+    console.log('✅ Footer navigation seeded (all locales)')
+
     // Upload Images
     console.log('\n📸 Uploading images...')
     const blobToken = process.env.BLOB_READ_WRITE_TOKEN

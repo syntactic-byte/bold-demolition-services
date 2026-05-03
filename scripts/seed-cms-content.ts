@@ -1655,9 +1655,57 @@ async function seedCMSContent() {
     await ensureGlobalExists('services-page', defaultServicesData)
 
     // Seed About Page for each locale
+    console.log('\n📝 Seeding About Page translations...')
+    for (const locale of locales) {
+      const data = aboutPageContent[locale]
+      if (!data) continue
+      await payload.updateGlobal({
+        slug: 'about-page',
+        locale,
+        data,
+      })
+    }
+    console.log('  ✅ About Page seeded')
+
     // Seed Contact Page for each locale
+    console.log('📝 Seeding Contact Page translations...')
+    for (const locale of locales) {
+      const data = contactPageContent[locale]
+      if (!data) continue
+      await payload.updateGlobal({
+        slug: 'contact-page',
+        locale,
+        data,
+      })
+    }
+    console.log('  ✅ Contact Page seeded')
+
     // Seed Home Page for each locale
+    console.log('📝 Seeding Home Page translations...')
+    for (const locale of locales) {
+      const data = homePageContent[locale]
+      if (!data) continue
+      await payload.updateGlobal({
+        slug: 'home-page',
+        locale,
+        data,
+      })
+    }
+    console.log('  ✅ Home Page seeded')
+
     // Seed Services Page for each locale
+    console.log('📝 Seeding Services Page translations...')
+    for (const locale of locales) {
+      const data = servicesPageContent[locale]
+      if (!data) continue
+      await payload.updateGlobal({
+        slug: 'services-page',
+        locale,
+        data,
+      })
+    }
+    console.log('  ✅ Services Page seeded')
+
     console.log('\n✅ All CMS globals seeded successfully!')
     process.exit(0)
   } catch (error) {
